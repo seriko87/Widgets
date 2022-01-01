@@ -1,0 +1,22 @@
+.gradient {
+  position: absolute;
+  height: 500px;
+  width: 410px;
+  z-index: -1;
+  opacity: 0.8;
+  border-radius: 0 0px 10px 10px;
+}
+.weatherImg {
+  position: absolute;
+  z-index: -1;
+
+  width: 410px;
+  height: 500px;
+  border-radius: 0 0px 10px 10px;
+}
+
+.weatherImgWrap {
+  width: 410px;
+  position: absolute;
+  top: 0;
+}
