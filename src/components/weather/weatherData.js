@@ -21,7 +21,7 @@ export const weatherData = {
   ],
   rainy: [
     'rainy.jpg',
-    'linear-gradient(0deg, rgba(17,31,68,1) 23%, rgba(16,31,56,0.21610651096376055) 43%, rgba(23,38,60,0) 74%)',
+    'linear-gradient(20deg, rgb(17, 31, 68) 23%, rgb(16,31,56,48%) 63%, rgba(23, 38, 60, 0) 84%)',
     'linear-gradient(4deg, rgba(17,37,63,1) 0%, rgba(17,37,63,0.8407563709077381) 26%, rgba(0,212,255,0) 89%)',
   ],
   rain_th: [

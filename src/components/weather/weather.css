@@ -15,11 +15,10 @@
 
 .weatherMain {
   width: 410px;
-
   position: relative;
   border-radius: 10px;
-
   color: var(--font-color-1);
+  margin-top: 30px;
 }
 
 .weatherIcons {
@@ -72,8 +71,8 @@
 .chooseMetric {
   display: flex;
   height: 30px;
-  font-size: 16px;
-  width: 70px;
+
+  width: 100px;
 }
 
 .cImperial {
@@ -83,6 +82,7 @@
   color: var(--font-color-1);
   cursor: pointer;
   width: 100%;
+  font-size: 16px;
 }
 .cMetric {
   opacity: 0.7;
@@ -91,6 +91,7 @@
   color: var(--font-color-1);
   cursor: pointer;
   width: 100%;
+  font-size: 16px;
 }
 
 .cMetric.active,
@@ -132,16 +133,20 @@
   overflow: hidden;
 }
 
-.searchLocation {
+.searchLocation,
+.weatherRefresh {
   background: transparent;
   border: none;
   display: flex;
   cursor: pointer;
+  align-items: center;
+  opacity: 0.3;
+  transition: all linear 0.3s;
 }
 
 .weatherIconsWrapper {
   background: rgba(0, 0, 0, 0.041);
-  /* backdrop-filter: blur(1px); */
+
   border: 1px solid rgba(255, 255, 255, 0.116);
   height: 224px;
   display: flex;
@@ -149,4 +154,8 @@
   justify-content: flex-end;
   row-gap: 15px;
   border-radius: 10px;
+}
+.searchLocation:hover,
+.weatherRefresh:hover {
+  opacity: 1;
 }

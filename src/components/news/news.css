@@ -1,0 +1,42 @@
+.newsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  border-color: var(--glass-border-1);
+  overflow-y: auto;
+}
+
+.newsWrapper {
+  width: 610px;
+  height: 739px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.newsCategory {
+  width: inherit;
+  display: flex;
+  flex-flow: wrap;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.newsScroll {
+  overflow-y: auto;
+  height: 600px;
+}
+
+.catButton {
+  border: 1px solid var(--font-color);
+  background: var(--glass-bg-1);
+  width: fit-content;
+  color: var(--font-color);
+}
+
+.catButton:hover {
+  cursor: pointer;
+  background-color: var(--background-color);
+}

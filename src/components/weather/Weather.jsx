@@ -15,7 +15,7 @@ const Weather = () => {
   const [weatherCode, setWeatherCode] = useState();
   const [searchOn, setSearchOn] = useState(true);
 
-  const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API;
+  const API_KEY = process.env.REACT_APP_RAPID_API;
 
   const config_data = {
     method: 'GET',
@@ -30,20 +30,19 @@ const Weather = () => {
     },
   };
 
+  const getWeather = async () => {
+    try {
+      const res = await axios(config_data);
+
+      setWeather(res.data);
+      setWeatherCode(res.data.current.condition.code);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    const getWeather = async () => {
-      try {
-        const res = await axios(config_data);
-
-        console.log(res.data);
-        setWeather(res.data);
-        setWeatherCode(res.data.current.condition.code);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    getWeather();
+    cordinates && getWeather();
   }, [cordinates]);
 
   return (
@@ -65,10 +64,8 @@ const Weather = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
                   viewBox="0 0 20 20"
-                  fill="currentColor"
-                  color="white"
+                  fill="white"
                   width={'16px'}
                 >
                   <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
@@ -76,6 +73,17 @@ const Weather = () => {
               </button>
             </span>
             <div className="chooseMetric">
+              <button className="weatherRefresh" onClick={() => getWeather()}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                  width={'20px'}
+                >
+                  <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
               <button
                 className={metric ? 'cImperial' : 'cImperial active'}
                 onClick={() => setMetric(false)}

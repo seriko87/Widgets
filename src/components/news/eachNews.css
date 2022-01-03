@@ -1,0 +1,54 @@
+.indiNews {
+  display: flex;
+  background-color: var(--glass-bg-1);
+  border: var(--glass-border-1);
+
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 600px;
+  gap: 10px;
+}
+
+.indiNews img {
+  width: 200px;
+  object-fit: cover;
+}
+
+.orgName {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--font-color-3);
+  align-items: center;
+  justify-content: flex-start;
+}
+.orgName img {
+  width: 16px;
+  height: 16px;
+}
+
+.newsDesc {
+  margin: 0;
+  font-size: 14px;
+}
+
+.newsContent h3 {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+.newsContent a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.newsContent {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}

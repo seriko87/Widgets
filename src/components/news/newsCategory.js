@@ -1,0 +1,18 @@
+export const newsCategory = [
+  { name: 'All', category: '' },
+  { name: 'Business', category: 'Business' },
+  { name: 'Movie And TV', category: 'Entertainment_MovieAndTV' },
+  { name: 'Music', category: 'Entertainment_Music' },
+  { name: 'Health', category: 'Health' },
+  { name: 'Politics', category: 'Politics' },
+  { name: 'Products', category: 'Products' },
+  { name: 'Technology', category: 'Technology' },
+  { name: 'Science', category: 'Science' },
+  { name: 'Sports', category: 'Sports' },
+  { name: 'World', category: 'World' },
+  { name: 'Africa', category: 'World_Africa' },
+  { name: 'Americas', category: 'World_Americas' },
+  { name: 'Asia', category: 'World_Asia' },
+  { name: 'Europe', category: 'World_Europe' },
+  { name: 'MiddleEast', category: 'World_MiddleEast' },
+];

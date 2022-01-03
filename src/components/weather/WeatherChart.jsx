@@ -1,6 +1,6 @@
 import React from 'react';
 import './weatherChart.css';
-import { Area, XAxis, Tooltip, AreaChart, YAxis } from 'recharts';
+import { Area, XAxis, Tooltip, AreaChart } from 'recharts';
 
 const WeatherChart = ({ data, metric }) => {
   let timeW = data.map((item, index) => {
@@ -55,7 +55,7 @@ const WeatherChart = ({ data, metric }) => {
     }
     return null;
   };
-  console.log(timeW);
+
   return (
     <AreaChart
       width={400}

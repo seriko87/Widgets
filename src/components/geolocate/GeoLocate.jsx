@@ -17,26 +17,21 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
     },
   };
 
-  console.log('i am called');
   useEffect(() => {
-    console.log(location);
-
     const getLocation = async () => {
       try {
         const res = await axios(config_data);
 
-        console.log(res.data);
         setLocationList(res.data.features);
       } catch (err) {
         console.log(err);
       }
     };
 
-    getLocation();
+    location && getLocation();
   }, [location]);
 
   const handleClickInput = (cords) => {
-    console.log('select called');
     setCordinates(`${cords[1]},${cords[0]}`);
     setLocation('');
   };

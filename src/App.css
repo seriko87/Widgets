@@ -1,10 +1,9 @@
 .App {
-  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color);
-  height: 100vh;
+
   position: relative;
 }
 
@@ -12,4 +11,11 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+.container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
 }

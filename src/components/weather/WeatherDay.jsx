@@ -1,10 +1,9 @@
 import React from 'react';
 import './weatherDay.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { openPage } from './tabControl';
 
 const WeatherDay = ({ index, item, metric }) => {
-  const [isActive, setIsActive] = useState(false);
   function nextDay(x) {
     var now = new Date();
 
@@ -17,7 +16,6 @@ const WeatherDay = ({ index, item, metric }) => {
   // // Get the element with id="defaultOpen" and click on it
   //
   useEffect(() => {
-    console.log(document.getElementById('defaultOpen'));
     if (index === 0) {
       document.getElementById('defaultOpen').click();
     }
