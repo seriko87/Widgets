@@ -1,6 +1,6 @@
 .indiNews {
   display: flex;
-  background-color: var(--glass-bg-1);
+  background-color: var(--bg-overlay-1);
   border: var(--glass-border-1);
 
   border-radius: 10px;

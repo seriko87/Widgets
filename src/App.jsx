@@ -10,11 +10,7 @@ function App() {
     <div className="App">
       <DarkModeToggle />
 
-      <div className="container">
-        <News />
-
-        <Weather />
-      </div>
+      <div className="container"></div>
     </div>
   );
 }

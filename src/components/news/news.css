@@ -14,24 +14,37 @@
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   border-radius: 10px;
   overflow: hidden;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-overlay-1);
 }
 
+.newsWrapper > h1 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
 .newsCategory {
   width: inherit;
   display: flex;
   flex-flow: wrap;
-  gap: 2px;
+  gap: 5px;
   margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: auto;
 }
 
 .newsScroll {
   overflow-y: auto;
-  height: 600px;
+  height: 624px;
+  border-radius: 10px;
 }
 
 .catButton {
-  border: 1px solid var(--font-color);
-  background: var(--glass-bg-1);
+  border: none;
+  background: var(--bg-overlay-1);
   width: fit-content;
   color: var(--font-color);
 }

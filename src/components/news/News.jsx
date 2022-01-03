@@ -51,6 +51,7 @@ const News = () => {
     setCategory(cate);
   };
 
+  console.log(news);
   return (
     <div className="newsWrapper">
       <h1>News: {category.name}</h1>

@@ -2,6 +2,8 @@ import React from 'react';
 import './eachNews.css';
 
 const EachNews = ({ newss }) => {
+  const imgPlaceholder =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqpiB0j7pMqj4PVYxRcv0_R8LGYuuBUwVHR4m41XDqXR3CPk2EOeXs_IYN5SBAXAmR7dg&usqp=CAU';
   const item = newss;
   const pubDate = new Date(item.datePublished);
   const curDate = new Date();
@@ -9,13 +11,15 @@ const EachNews = ({ newss }) => {
   const desc = item.description;
   const imgUrl = item.image
     ? item.image.thumbnail.contentUrl.split('&')[0]
-    : item.provider[0].image.thumbnail.contentUrl.split('&')[0];
+    : item.provider[0].image
+    ? item.provider[0].image.thumbnail.contentUrl.split('&')[0]
+    : imgPlaceholder;
   const newsUrl = item.url;
   const topic = item.name;
   const orgName = item.provider[0].name;
   const orgImg = item.provider[0].image
     ? item.provider[0].image.thumbnail.contentUrl.split('&')[0]
-    : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqpiB0j7pMqj4PVYxRcv0_R8LGYuuBUwVHR4m41XDqXR3CPk2EOeXs_IYN5SBAXAmR7dg&usqp=CAU';
+    : imgPlaceholder;
 
   //   const opt = pubDate.toLocaleString([], {
   //     hour: 'numeric',
