@@ -17,7 +17,7 @@
   padding-left: 5px;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-overlay-1);
+  background-color: var(--bg-color-4);
 }
 
 .newsWrapper > h1 {

@@ -8,10 +8,30 @@
 }
 .container {
   display: flex;
-
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   gap: 60px;
   width: 100%;
   height: 100vh;
+}
+
+.draggableBox {
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  opacity: 0.5;
+  z-index: 999;
+}
+.cursor:hover {
+  cursor: grab;
+  opacity: 1;
 }

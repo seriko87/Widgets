@@ -39,6 +39,7 @@ code {
     linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
 
   --bg-overlay-1: rgba(0, 0, 0, 0.02);
+  --bg-color-4: #e4e7ed;
 }
 
 /* 2 */
@@ -55,6 +56,7 @@ code {
   --bg-color-3: #204b8b;
   --bg-gradient-1: #212121;
   --bg-overlay-1: rgba(255, 255, 255, 0.066);
+  --bg-color-4: #303030;
 }
 
 /* 3 */

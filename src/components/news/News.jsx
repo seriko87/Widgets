@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './news.css';
 import { dummyData } from './dummyData';
 import EachNews from './EachNews';
 import { newsCategory } from './newsCategory';
 import Loading from '../loading/Loading';
+import Draggable from 'react-draggable';
 const News = () => {
   const [news, setNews] = useState();
   const [category, setCategory] = useState(newsCategory[0]);
-  const [pageOfset, setPageOfset] = useState();
+  const [pin, setPin] = useState(true);
   const [loading, setLoading] = useState(true);
 
   const API_KEY = process.env.REACT_APP_RAPID_API;
@@ -53,35 +54,52 @@ const News = () => {
 
   console.log(news);
   return (
-    <div className="newsWrapper">
-      <h1>News: {category.name}</h1>
-      <div className="newsCategory">
-        {newsCategory.map((item) => {
-          return (
-            <button
-              className="catButton"
-              key={item.name}
-              onClick={() => handleClick(item)}
-            >
-              {item.name}
-            </button>
-          );
-        })}
-      </div>
+    <Draggable handle="strong">
+      <div className="newsWrapper box no-cursor">
+        <strong className="cursor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            width="20px"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </strong>
+        <h1>News: {category.name}</h1>
+        <div className="newsCategory">
+          {newsCategory.map((item) => {
+            return (
+              <button
+                className="catButton"
+                key={item.name}
+                onClick={() => handleClick(item)}
+              >
+                {item.name}
+              </button>
+            );
+          })}
+        </div>
 
-      <div className="newsScroll">
-        {loading ? (
-          <Loading width={'50px'} height={'50px'} />
-        ) : (
-          <div className="newsWrap">
-            {news &&
-              news.map((item) => {
-                return <EachNews newss={item} />;
-              })}
-          </div>
-        )}
+        <div className="newsScroll">
+          {loading ? (
+            <Loading width={'50px'} height={'50px'} />
+          ) : (
+            <div className="newsWrap">
+              {news &&
+                news.map((item) => {
+                  return <EachNews newss={item} />;
+                })}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Draggable>
   );
 };
 

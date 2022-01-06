@@ -1,9 +1,11 @@
 import './time.css';
-
-import React, { useState, useEffect } from 'react';
+import Drag from '../../Draggable';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Time = () => {
   const [time, setTime] = useState();
+  const ref = useRef(null);
+  Drag(ref);
   let newTime = new Date();
   const options = {
     weekday: 'long',
@@ -29,7 +31,7 @@ const Time = () => {
   }, []);
 
   return (
-    <div className="timeWrapper">
+    <div className="timeWrapper" ref={ref}>
       <div className="timeMain">
         {time}
         <div className="dateMain"> {date}</div>

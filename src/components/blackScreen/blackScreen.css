@@ -1,0 +1,17 @@
+.blackScreen {
+  background-color: black;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blcScrnBtn {
+  background: transparent;
+  border: none;
+  color: grey;
+  opacity: 0.5;
+  cursor: pointer;
+}

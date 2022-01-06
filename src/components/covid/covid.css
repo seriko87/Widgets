@@ -1,0 +1,97 @@
+.chartTab {
+  display: none;
+}
+
+.chartTab.activeChart {
+  display: block;
+}
+
+.chartTotal {
+  position: relative;
+}
+
+.casesBtn,
+.deathsBtn,
+.activeBtn {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  padding: 4px;
+  width: 80px;
+  color: var(--font-color);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s linear;
+}
+.deathsBtn {
+  left: 80px;
+}
+.deathsBtn:hover,
+.activeBtn:hover,
+.casesBtn:hover {
+  opacity: 1;
+}
+.activeBtn {
+  left: 160px;
+}
+.activeTotalBtn {
+  border-bottom: 2px solid var(--font-color);
+  opacity: 1;
+}
+
+.chartWrapper {
+  padding-top: 80px;
+  position: relative;
+  background-color: var(--bg-color-4);
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+}
+.selCountry {
+  position: absolute;
+  top: -30px;
+  left: 0px;
+}
+
+.selCountry select {
+  border: none;
+  height: 30px;
+  background: var(--bg-overlay-1);
+  color: var(--font-color);
+}
+
+.chartTotalsBtn,
+.chartDailyBtn {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  width: 80px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  opacity: 0.5;
+  color: var(--font-color);
+}
+.chartDailyBtn {
+  left: 80px;
+}
+
+.activeTBtn {
+  border-bottom: 2px solid var(--font-color);
+  opacity: 1;
+}
+.recharts-cartesian-grid line {
+  stroke: rgba(238, 130, 238, 0.644) !important;
+}
+
+.chartTitle {
+  position: absolute;
+  top: -80px;
+  left: 190px;
+  margin: 0;
+}
