@@ -5,8 +5,9 @@ import Time from './components/time/Time';
 import News from './components/news/News';
 import Draggable from 'react-draggable';
 import Covid from './components/covid/Covid';
-import Example from './example';
+
 import BlackScreen from './components/blackScreen/BlackScreen';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
       <DarkModeToggle />
 
       <div className="container">
-        {/* <Weather />
+        <Weather />
         <Time />
         <News />
-        <Covid /> */}
+        <Covid />
         <BlackScreen />
       </div>
     </div>
