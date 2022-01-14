@@ -48,17 +48,11 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 
 export function signup(email, password) {
-  createUserWithEmailAndPassword(auth, email, password);
+  return createUserWithEmailAndPassword(auth, email, password);
 }
 
 export function login(email, password) {
-  let err;
-  signInWithEmailAndPassword(auth, email, password).catch((error) => {
-    err = error.code;
-    const errorMessage = error.message;
-  });
-
-  return err;
+  return signInWithEmailAndPassword(auth, email, password);
 }
 export function logout() {
   localStorage.setItem('user', null);

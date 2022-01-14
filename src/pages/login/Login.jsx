@@ -31,7 +31,6 @@ const Login = () => {
       await login(email, password);
     } catch (error) {
       setLoginErr(true);
-      alert('here');
       console.log(error);
     }
 
@@ -96,19 +95,13 @@ const Login = () => {
         {loginErr && <div className="invalidCred">Invalid Credentials!!!</div>}
         <button
           className="signUpCreate"
-          onClick={handleLogin}
+          onClick={(e) => handleLogin(e)}
           disabled={password || email ? false : true}
         >
           {loading ? 'Logging...' : 'Log in'}
         </button>
       </form>
-      {/* {response && (
-        <label> Chloek123.
-          Output:
-          <br />
-          <pre>{JSON.stringify(response, undefined, 2)}</pre>
-        </label>
-      )} */}
+
       <div className="signUpInfo">
         <div>
           This site is protected by reCAPTCHA and the Google <br />

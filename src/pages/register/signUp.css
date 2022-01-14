@@ -193,3 +193,7 @@ a {
     height: 45px !important;
   }
 }
+
+.invalidCred {
+  color: var(--color-alert);
+}
