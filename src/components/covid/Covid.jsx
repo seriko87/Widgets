@@ -6,6 +6,7 @@ import { countries } from './countries';
 import ChartDaily from './ChartDaily';
 
 import Draggable from 'react-draggable';
+import { IndeterminateCheckBox } from '@material-ui/icons';
 
 const Covid = () => {
   const [covidData, setCovidData] = useState();
@@ -57,6 +58,16 @@ const Covid = () => {
     }
   };
 
+  useEffect(() => {
+    const country =
+      dailyData &&
+      dailyData.filter((item) => {
+        return item.country === 'USA';
+      });
+    console.log('i am called');
+    setSelCountry(country);
+  }, []);
+
   const handleSelect = (e) => {
     const newD = dailyData.filter((item) => {
       return item.country === e;
@@ -65,22 +76,18 @@ const Covid = () => {
     setSelCountry(newD);
   };
 
+  console.log(selCountry);
   return (
     <Draggable handle="strong">
       <div className="chartWrapper box no-cursor">
         <strong className="cursor">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
             viewBox="0 0 20 20"
             fill="currentColor"
             width="20px"
           >
-            <path
-              fill-rule="evenodd"
-              d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z"
-              clip-rule="evenodd"
-            />
+            <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
           </svg>
         </strong>
         <button
@@ -108,9 +115,9 @@ const Covid = () => {
                 name="country"
                 onChange={(e) => handleSelect(e.target.value)}
               >
-                {countries.map((item, i) => {
+                {countries.map((item, index) => {
                   return (
-                    <option value={item} key={i}>
+                    <option value={item} key={index}>
                       {item}
                     </option>
                   );
@@ -118,7 +125,7 @@ const Covid = () => {
               </select>
             </div>
             {dailyData &&
-              dailData.map((item) => {
+              dailData.map((item, index) => {
                 return (
                   <button
                     onClick={() => handleClick(item.dataKey)}
@@ -127,6 +134,7 @@ const Covid = () => {
                         ? `${item.dataKey}Btn activeTotalBtn`
                         : `${item.dataKey}Btn`
                     }
+                    key={index}
                   >
                     {item.name}
                   </button>
@@ -141,9 +149,9 @@ const Covid = () => {
               Total Covid-19 Cases (top 10 countries)
             </h2>
             {covidData &&
-              charData.map((item) => {
+              charData.map((item, index) => {
                 return (
-                  <>
+                  <div key={item.dataKey}>
                     <button
                       onClick={() => handleClick(item.dataKey)}
                       className={
@@ -162,13 +170,9 @@ const Covid = () => {
                           : 'chartTab'
                       }
                     >
-                      <CovidChart
-                        covidData={covidData}
-                        key={item.dataKey}
-                        item={item}
-                      />
+                      <CovidChart covidData={covidData} item={item} />
                     </div>
-                  </>
+                  </div>
                 );
               })}
           </div>

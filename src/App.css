@@ -1,4 +1,8 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .toggle-container {
@@ -14,12 +18,6 @@
   gap: 60px;
   width: 100%;
   height: 100vh;
-}
-
-.draggableBox {
-  width: 200px;
-  height: 200px;
-  background-color: tomato;
 }
 
 .cursor {

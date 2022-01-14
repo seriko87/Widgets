@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
-import 'react-toggle/style.css';
+
 import './weather.css';
 import GeoLocate from '../geolocate/GeoLocate';
 import WeatherDay from './WeatherDay';
@@ -54,16 +54,11 @@ const Weather = () => {
           <strong className="cursor">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
               width="20px"
             >
-              <path
-                fill-rule="evenodd"
-                d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z"
-                clip-rule="evenodd"
-              />
+              <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
             </svg>
           </strong>
         )}
