@@ -18,11 +18,12 @@ const PasswordContainer = ({ item, pass }) => {
   return (
     <span className="errorPass">
       <span
-        style={
-          state.isRight
-            ? { color: 'rgb(13, 124, 13)' }
-            : { color: 'rgb(185, 24, 24)' }
-        }
+        // style={
+        //   state.isRight
+        //     ? { color: 'var(--color-alert)' }
+        //     : { color: 'rgb(185, 24, 24)' }
+        // }
+        className={state.isRight ? 'alertTrue' : 'alertFalse'}
       >
         {state.text}
       </span>

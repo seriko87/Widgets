@@ -69,7 +69,7 @@ const SignUp = () => {
       alert('User Already Exist!');
     }
     setLoading(false);
-    navigate('/', { replace: true });
+    // navigate('/', { replace: true });
   };
 
   return (
@@ -77,7 +77,10 @@ const SignUp = () => {
       <div className="signUpHeader">
         <div className="signUpTitle">Sign up</div>
         <div className="logInInfo">
-          Already have an account? <Link to="/login">Log in</Link>
+          Already have an account?{' '}
+          <Link to="/login" className="goLogIn">
+            Log in
+          </Link>
         </div>
       </div>
 
@@ -174,21 +177,20 @@ const SignUp = () => {
           {loading ? 'Submitting...' : 'Create an account'}
         </button>
       </form>
-      {/* {response && (
-        <label> Chloek123.
-          Output:
-          <br />
-          <pre>{JSON.stringify(response, undefined, 2)}</pre>
-        </label>
-      )} */}
+
       <div className="signUpInfo">
         <div>
           This site is protected by reCAPTCHA and the Google <br />
-          <a href="https://policies.google.com/privacy?hl=en">
+          <a
+            href="https://policies.google.com/privacy?hl=en"
+            className="goLogIn"
+          >
             Privacy Policy
           </a>{' '}
           and{' '}
-          <a href="https://policies.google.com/terms?hl=en">Terms of Service</a>{' '}
+          <a href="https://policies.google.com/terms?hl=en" className="goLogIn">
+            Terms of Service
+          </a>{' '}
           apply
         </div>
       </div>

@@ -1,10 +1,13 @@
 .signUpContainer {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg-input);
   height: 580px;
   width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 5px;
 }
 
 .signUpTitle {
@@ -29,34 +32,37 @@ form {
   width: 80%;
   row-gap: 5px;
   position: relative;
-  color: rgb(58, 79, 109);
 }
-input {
-  outline: 0;
-  font-size: 16px;
-}
-input:focus {
+
+.signUpInput:focus {
   outline: none !important;
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid var(--link-color);
+}
+.goLogIn {
+  color: var(--link-color);
 }
 
 .signUpInput {
+  outline: 0;
+  font-size: 16px;
   height: 45px;
   border: none;
   padding-left: 40px;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
-  background-color: rgb(245, 245, 245);
+  background-color: var(--bg-input);
   border-radius: 5px;
   box-sizing: border-box;
+  color: var(--font-color);
 }
-::placeholder {
-  color: rgb(138, 138, 138);
+.signUpInput::placeholder {
+  color: var(--font-color);
 }
 
 .signUpCreate {
   height: 45px;
-  background-color: rgb(39, 117, 235);
+  /* background-color: rgb(39, 117, 235); */
+  background-color: var(--link-color);
   width: 80%;
   border-radius: 5px;
   border: none;
@@ -74,7 +80,7 @@ input:focus {
 
 .signUpInfo {
   font-size: 10px;
-  color: grey;
+  color: var(--font-color-3);
   display: flex;
   justify-content: center;
 }
@@ -82,8 +88,7 @@ input:focus {
   width: 80%;
 }
 a {
-  text-decoration: none;
-  color: rgb(39, 117, 235);
+  /* color: rgb(39, 117, 235); */
 }
 
 .signUpIcons {
@@ -91,13 +96,13 @@ a {
   bottom: 13px;
   left: 10px;
   font-size: 22px !important;
-  /* color: rgb(13, 124, 13); */
+
   color: rgb(158, 158, 158);
 }
 
 .logInInfo {
   width: 80%;
-  color: #959595;
+  color: var(--font-color-3);
 }
 
 .logInInfo a {
@@ -111,18 +116,17 @@ a {
   align-items: center;
 }
 
-button:disabled,
-button[disabled]:hover {
+.signUpCreate:disabled,
+.signUpCreate[disabled]:hover {
   opacity: 0.5;
   cursor: auto;
-  background-color: rgb(39, 117, 235);
 }
 
 .passInfo {
   position: absolute;
   width: 90%;
-  background-color: rgb(255, 255, 255);
-  color: rgb(185, 24, 24);
+  background-color: var(--bg-overlay);
+  color: var(--color-alert);
   top: 76px;
   z-index: 25;
   display: flex;
@@ -157,8 +161,14 @@ button[disabled]:hover {
 }
 
 .rightIcon {
-  color: rgb(13, 124, 13);
+  color: var(--color-alert-1);
   font-size: 15px !important;
+}
+.alertFalse {
+  color: var(--color-alert);
+}
+.alertTrue {
+  color: var(--color-alert-1);
 }
 
 .visibility {
@@ -178,7 +188,7 @@ button[disabled]:hover {
     row-gap: 40px;
   }
 
-  input {
+  .signUpInput {
     font-size: 16px;
     height: 45px !important;
   }

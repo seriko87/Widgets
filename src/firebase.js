@@ -52,7 +52,13 @@ export function signup(email, password) {
 }
 
 export function login(email, password) {
-  signInWithEmailAndPassword(auth, email, password);
+  let err;
+  signInWithEmailAndPassword(auth, email, password).catch((error) => {
+    err = error.code;
+    const errorMessage = error.message;
+  });
+
+  return err;
 }
 export function logout() {
   localStorage.setItem('user', null);

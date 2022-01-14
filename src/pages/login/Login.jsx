@@ -15,6 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
+  const [loginErr, setLoginErr] = useState(false);
 
   const ref = useRef();
   const handleVisPass = () => {
@@ -29,9 +30,11 @@ const Login = () => {
     try {
       await login(email, password);
     } catch (error) {
-      alert('User Already Exist!');
+      setLoginErr(true);
+      alert('here');
+      console.log(error);
     }
-    console.log('here');
+
     setLoading(false);
     navigate('/', { replace: true });
   };
@@ -41,7 +44,10 @@ const Login = () => {
       <div className="signUpHeader">
         <div className="signUpTitle">Log in</div>
         <div className="logInInfo">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Don't have an account?{' '}
+          <Link to="/signup" className="goLogIn">
+            Sign Up
+          </Link>
         </div>
       </div>
 
@@ -87,10 +93,10 @@ const Login = () => {
             />
           )}
         </div>
-
+        {loginErr && <div className="invalidCred">Invalid Credentials!!!</div>}
         <button
           className="signUpCreate"
-          onClick={(e) => handleLogin(e)}
+          onClick={handleLogin}
           disabled={password || email ? false : true}
         >
           {loading ? 'Logging...' : 'Log in'}
@@ -106,11 +112,16 @@ const Login = () => {
       <div className="signUpInfo">
         <div>
           This site is protected by reCAPTCHA and the Google <br />
-          <a href="https://policies.google.com/privacy?hl=en">
+          <a
+            href="https://policies.google.com/privacy?hl=en"
+            className="goLogIn"
+          >
             Privacy Policy
           </a>{' '}
           and{' '}
-          <a href="https://policies.google.com/terms?hl=en">Terms of Service</a>{' '}
+          <a href="https://policies.google.com/terms?hl=en" className="goLogIn">
+            Terms of Service
+          </a>{' '}
           apply
         </div>
       </div>
