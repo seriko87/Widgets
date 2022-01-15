@@ -10,5 +10,12 @@ Inspired by windows widgets this application tries to
  - State: useContext, useReducer
  - API: Rapid Api, Weather Api, Covid Open Disease Data API, Geo Location Mapbox, Bing News Api
 
-### `npm start`
+### Upcoming features
+- Chat App
+- Todo App
+- Sports tracker
+
+### Issues
+- Adding or Removing Widgets(Apps) sometimes pushes other widgets out of screen.
+- Mobile view missing
 
