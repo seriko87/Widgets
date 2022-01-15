@@ -1,4 +1,4 @@
-# Rapid Info Wb Application
+# Rapid Info Web Application
 
 Inspired by windows widgets this application tries to 
 
