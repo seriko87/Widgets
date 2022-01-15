@@ -1,6 +1,8 @@
 # Rapid Info Web Application
 
-Inspired by windows widgets this application tries to 
+After several small and tutorial web applications I decided to do my own web application. I always have visited same webpages to check daily updates like sport results, newws, crypto prices, etc. but it is hassle to check all those different pages. I first tried to use windows widgets but it is limited with only their list so I decided to make my own widgets application. 
+
+note: since some APIs are paid I had to remove some of my original widgets(crypto, sports). Actively looking for good free ones.
 
 ## Used Technologies
 
