@@ -25,23 +25,23 @@ const firebaseConfig = {
   appId: '1:1023308131035:web:4a0a2467c34f3af0d2fafe',
   measurementId: 'G-SLLQD0Z610',
 };
-const {
-  initializeAppCheck,
-  ReCaptchaV3Provider,
-} = require('firebase/app-check');
+// const {
+//   initializeAppCheck,
+//   ReCaptchaV3Provider,
+// } = require('firebase/app-check');
 
 // Pass your reCAPTCHA v3 site key (public key) to activate(). Make sure this
 // key is the counterpart to the secret key you set in the Firebase console.
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(SITE_KEY),
+// const appCheck = initializeAppCheck(app, {
+//   provider: new ReCaptchaV3Provider(SITE_KEY),
 
-  // Optional argument. If true, the SDK automatically refreshes App Check
-  // tokens as needed.
-  isTokenAutoRefreshEnabled: true,
-});
+//   // Optional argument. If true, the SDK automatically refreshes App Check
+//   // tokens as needed.
+//   isTokenAutoRefreshEnabled: true,
+// });
 
 const analytics = getAnalytics(app);
 

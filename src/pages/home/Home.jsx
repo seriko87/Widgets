@@ -1,20 +1,21 @@
-import Weather from '../../components/weather/Weather';
-import Time from '../../components/time/Time';
-import News from '../../components/news/News';
-import Covid from '../../components/covid/Covid';
-import BlackScreen from '../../components/blackScreen/BlackScreen';
 import './home.css';
-import { logout } from '../../firebase';
+import { useContext } from 'react';
+import Profile from '../../components/profile/Profile';
+import { useAuthState } from '../../firebase';
+import { GlobalContext } from '../../context/GlobalContext';
 
 function Home() {
+  const { user, list } = useContext(GlobalContext);
+
   return (
     <div className="container">
-      <button onClick={logout}>LogOut</button>
-      <Weather />
-      <Time />
-
-      <Covid />
-      <BlackScreen />
+      <Profile user={user} />
+      {list.map((item) => {
+        if (item.status) {
+          return item.component;
+        }
+        return null;
+      })}
     </div>
   );
 }

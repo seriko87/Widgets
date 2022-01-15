@@ -1,4 +1,5 @@
-import { CheckCircleOutlined, ErrorOutline } from '@material-ui/icons';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import React from 'react';
 
 import { useEffect, useReducer } from 'react';
@@ -28,9 +29,9 @@ const PasswordContainer = ({ item, pass }) => {
         {state.text}
       </span>
       {!state.isRight ? (
-        <ErrorOutline className="errorIcon" />
+        <ErrorOutlineIcon className="errorIcon" />
       ) : (
-        <CheckCircleOutlined className="rightIcon" />
+        <CheckCircleOutlineIcon className="rightIcon" />
       )}
     </span>
   );

@@ -1,11 +1,9 @@
 import './signUp.css';
 import { useEffect, useState, useRef } from 'react';
-import {
-  EmailOutlined,
-  LockOutlined,
-  Visibility,
-  VisibilityOff,
-} from '@material-ui/icons';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { emailValidation, passValidation, passText } from './Validation';
 import PasswordContainer from './PasswordText';
 import { Link, useNavigate } from 'react-router-dom';
@@ -22,8 +20,11 @@ const SignUp = () => {
   const [formCorrect, setFormCorrect] = useState(false);
   const [hasFocus, setFocus] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
+  const [loginErr, setLoginErr] = useState(false);
 
   const ref = useRef();
+
+  const user = useAuthState();
 
   useEffect(() => {
     if (emailValidation(email)) {
@@ -66,10 +67,13 @@ const SignUp = () => {
     try {
       await signup(email, password);
     } catch (error) {
-      alert('User Already Exist!');
+      console.log(error);
+      setLoginErr(true);
     }
     setLoading(false);
-    // navigate('/', { replace: true });
+    if (user) {
+      navigate('/', { replace: true });
+    }
   };
 
   return (
@@ -86,7 +90,7 @@ const SignUp = () => {
 
       <form action="">
         <div className="inputEmail">
-          <EmailOutlined
+          <EmailOutlinedIcon
             className="signUpIcons"
             style={emailCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
           />
@@ -101,7 +105,7 @@ const SignUp = () => {
           />
         </div>
         <div className="inputPassword">
-          <LockOutlined
+          <LockOutlinedIcon
             className="signUpIcons"
             style={passCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
           />
@@ -117,12 +121,12 @@ const SignUp = () => {
             ref={ref}
           />
           {!passVisStatus ? (
-            <Visibility
+            <VisibilityIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
           ) : (
-            <VisibilityOff
+            <VisibilityOffIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
@@ -145,7 +149,7 @@ const SignUp = () => {
           ) : null}
         </div>
         <div className="inputPassword">
-          <LockOutlined
+          <LockOutlinedIcon
             className="signUpIcons"
             style={password === rePassword ? { color: 'rgb(13, 124, 13)' } : {}}
           />
@@ -158,17 +162,18 @@ const SignUp = () => {
             onChange={(e) => setRePassword(e.target.value)}
           />
           {!passVisStatus ? (
-            <Visibility
+            <VisibilityIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
           ) : (
-            <VisibilityOff
+            <VisibilityOffIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
           )}
         </div>
+        {loginErr && <div className="invalidCred">User already exist!!!</div>}
         <button
           className="signUpCreate"
           onClick={handleCreate}

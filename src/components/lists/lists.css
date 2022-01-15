@@ -1,0 +1,20 @@
+.listWrap {
+  height: 45px;
+  width: 100%;
+  background-color: var(--bg-overlay-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switchList {
+  opacity: 0.7;
+}
+
+.switchList:hover {
+  opacity: 1;
+}
+
+.widgetTitle {
+  padding-left: 20px;
+}

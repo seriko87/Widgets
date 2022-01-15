@@ -11,7 +11,6 @@ function App() {
   const userr = useAuthState();
   const user = JSON.parse(localStorage.getItem('user')) || userr;
 
-  console.log(user);
   return (
     <div className="App">
       <DarkModeToggle />

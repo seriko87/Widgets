@@ -8,11 +8,18 @@
 
   width: inherit;
   align-items: center;
-  /* background-color: var(--glass-bg-1);
+  /*  */
+  /* 
   border-radius: 5px;
   border: var(--glass-border-1); */
 }
+.emptyWeatherContainer {
+  background-color: var(--bg-overlay-1);
+  height: 500px;
 
+  width: inherit;
+  border-radius: 10px;
+}
 .weatherMain {
   width: 410px;
   position: relative;

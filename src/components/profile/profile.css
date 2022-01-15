@@ -1,0 +1,49 @@
+.profileContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--bg-overlay-1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.profilePic {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.logoutBtn {
+  border: none;
+  height: 30px;
+  width: 100px;
+  background: transparent;
+  color: var(--font-color-3);
+  opacity: 0.8;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logoutBtn:hover {
+  opacity: 1;
+  background-color: var(--bg-overlay-1);
+}
+.listsContainer {
+  border-top: 1px solid var(--bg-overlay-1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profileWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}

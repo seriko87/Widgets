@@ -50,23 +50,15 @@ const Weather = () => {
   return (
     <Draggable handle="strong">
       <div className="weatherMain">
-        {weather && (
-          <strong className="cursor">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              width="20px"
-            >
-              <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
-            </svg>
-          </strong>
-        )}
-
         {searchOn && (
-          <GeoLocate setCordinates={setCordinates} setSearchOn={setSearchOn} />
+          <div>
+            <GeoLocate
+              setCordinates={setCordinates}
+              setSearchOn={setSearchOn}
+            />
+          </div>
         )}
-        {weather && (
+        {weather ? (
           <div className="weatherInfo">
             {weatherCode && (
               <WeatherBackImg
@@ -118,6 +110,18 @@ const Weather = () => {
               </div>
             </div>
             <div className="weatherIconsWrapper">
+              {weather && (
+                <strong className="cursor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    width="20px"
+                  >
+                    <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
+                  </svg>
+                </strong>
+              )}
               <div className="weatherIcons">
                 <div className="weatherIconsWrap">
                   <img
@@ -202,6 +206,19 @@ const Weather = () => {
                 );
               })}
             </div>
+          </div>
+        ) : (
+          <div className="emptyWeatherContainer">
+            <strong className="cursor">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                width="20px"
+              >
+                <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
+              </svg>
+            </strong>
           </div>
         )}
       </div>

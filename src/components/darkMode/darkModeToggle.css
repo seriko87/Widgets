@@ -11,7 +11,7 @@
 
 .toggle-theme-wrapper:hover {
   opacity: 1;
-}
+} /* 
 .toggle-theme {
   position: relative;
   display: inline-block;
@@ -61,4 +61,4 @@ input:checked + .slider {
 
 .slider.round:before {
   border-radius: 50%;
-}
+} */

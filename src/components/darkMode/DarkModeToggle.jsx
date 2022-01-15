@@ -1,4 +1,5 @@
 import './darkModeToggle.css';
+import { DarkModeUISwitch } from '../muiCustom/muiCustom';
 // 1
 const setDark = () => {
   // 2
@@ -39,7 +40,7 @@ const toggleTheme = (e) => {
 const DarkModeToggle = () => {
   return (
     <div className="toggle-theme-wrapper">
-      <label className="toggle-theme" htmlFor="checkbox">
+      {/* <label className="toggle-theme" htmlFor="checkbox">
         <input
           type="checkbox"
           id="checkbox"
@@ -48,7 +49,9 @@ const DarkModeToggle = () => {
           defaultChecked={defaultDark}
         />
         <div className="slider round"></div>
-      </label>
+      </label> */}
+
+      <DarkModeUISwitch onChange={toggleTheme} defaultChecked={defaultDark} />
     </div>
   );
 };

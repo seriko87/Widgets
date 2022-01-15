@@ -49,6 +49,12 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
             value={location}
             placeholder="Search for citi or town"
           />
+          {location && (
+            <button className="cancelSearch" onClick={() => setSearchOn(false)}>
+              Cancel
+            </button>
+          )}
+
           <div id="data" className="locationListResults">
             {locationList.map((item, index) => {
               return (
@@ -69,10 +75,6 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
             })}
           </div>
         </div>
-
-        {/* <button onClick={handleSubmit} className="weatherSubmit">
-          Go
-        </button> */}
       </form>
     </div>
   );

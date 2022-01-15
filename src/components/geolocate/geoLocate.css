@@ -11,12 +11,13 @@
 #locationInput {
   border: none;
   width: 100%;
-  background-color: var(--bg-color-2);
+  background-color: var(--bg-overlay);
   padding-left: 10px;
   font-size: 16px;
+  height: 30px;
 }
 input::placeholder {
-  color: var(--font-color-2);
+  color: var(--font-color-3);
 }
 
 #unitWeather {
@@ -67,4 +68,16 @@ input::placeholder {
 
   background: transparent;
   top: -30px;
+}
+
+.cancelSearch {
+  position: absolute;
+  z-index: 99;
+  right: 10px;
+  color: var(--bg-color-2);
+  top: 5px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
 }

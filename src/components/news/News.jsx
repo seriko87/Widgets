@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './news.css';
-import { dummyData } from './dummyData';
+
 import EachNews from './EachNews';
 import { newsCategory } from './newsCategory';
 import Loading from '../loading/Loading';

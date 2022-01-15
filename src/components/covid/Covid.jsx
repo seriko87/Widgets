@@ -6,7 +6,6 @@ import { countries } from './countries';
 import ChartDaily from './ChartDaily';
 
 import Draggable from 'react-draggable';
-import { IndeterminateCheckBox } from '@material-ui/icons';
 
 const Covid = () => {
   const [covidData, setCovidData] = useState();
@@ -64,9 +63,9 @@ const Covid = () => {
       dailyData.filter((item) => {
         return item.country === 'USA';
       });
-    console.log('i am called');
+
     setSelCountry(country);
-  }, []);
+  }, [dailyData]);
 
   const handleSelect = (e) => {
     const newD = dailyData.filter((item) => {
@@ -76,7 +75,6 @@ const Covid = () => {
     setSelCountry(newD);
   };
 
-  console.log(selCountry);
   return (
     <Draggable handle="strong">
       <div className="chartWrapper box no-cursor">
@@ -99,7 +97,10 @@ const Covid = () => {
           Totals
         </button>
         <button
-          onClick={() => setIsActiveChart(!isActiveChart)}
+          onClick={() => {
+            setIsActiveChart(!isActiveChart);
+            handleClick('cases');
+          }}
           className={
             isActiveChart ? 'chartDailyBtn activeTBtn' : 'chartDailyBtn'
           }

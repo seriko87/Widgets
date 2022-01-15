@@ -1,12 +1,10 @@
 import './login.css';
-import { useEffect, useState, useRef } from 'react';
-import {
-  EmailOutlined,
-  LockOutlined,
-  Visibility,
-  VisibilityOff,
-} from '@material-ui/icons';
-import { login } from '../../firebase';
+import { useState } from 'react';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { login, useAuthState } from '../../firebase';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -17,7 +15,7 @@ const Login = () => {
   const [passVisStatus, setPassVisStatus] = useState(false);
   const [loginErr, setLoginErr] = useState(false);
 
-  const ref = useRef();
+  const user = useAuthState();
   const handleVisPass = () => {
     setPassVisStatus(!passVisStatus);
   };
@@ -33,9 +31,10 @@ const Login = () => {
       setLoginErr(true);
       console.log(error);
     }
-
     setLoading(false);
-    navigate('/', { replace: true });
+    if (user) {
+      navigate('/', { replace: true });
+    }
   };
 
   return (
@@ -52,10 +51,7 @@ const Login = () => {
 
       <form action="">
         <div className="inputEmail">
-          <EmailOutlined
-            className="signUpIcons"
-            // style={emailCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
-          />
+          <EmailOutlinedIcon className="signUpIcons" />
 
           <label htmlFor="email">E-mail</label>
           <input
@@ -67,7 +63,7 @@ const Login = () => {
           />
         </div>
         <div className="inputPassword">
-          <LockOutlined
+          <LockOutlinedIcon
             className="signUpIcons"
             // style={passCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
           />
@@ -78,15 +74,14 @@ const Login = () => {
             className="signUpInput"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            ref={ref}
           />
           {!passVisStatus ? (
-            <Visibility
+            <VisibilityIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
           ) : (
-            <VisibilityOff
+            <VisibilityOffIcon
               className="visibility"
               onClick={() => handleVisPass()}
             />
