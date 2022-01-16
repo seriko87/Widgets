@@ -8,23 +8,32 @@ import Login from './pages/login/Login';
 import { useAuthState } from './firebase';
 
 function App() {
-  const userr = useAuthState();
-  const user = JSON.parse(localStorage.getItem('user')) || userr;
+  const { currentUser, loadingUser } = useAuthState();
+  // const user = JSON.parse(localStorage.getItem('user')) || null;
+  console.log(currentUser, loadingUser);
 
   return (
     <div className="App">
       <DarkModeToggle />
-      <Routes>
-        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
-        <Route
-          path="/signup"
-          element={!user ? <SignUp /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/" />}
-        />
-      </Routes>
+
+      {!loadingUser && (
+        <Routes>
+          <Route
+            path="/"
+            element={currentUser ? <Home /> : <Navigate to="/login" />}
+          />
+
+          <Route
+            path="/signup"
+            element={!currentUser ? <SignUp /> : <Navigate to="/" />}
+          />
+
+          <Route
+            path="/login"
+            element={!currentUser ? <Login /> : <Navigate to="/" />}
+          />
+        </Routes>
+      )}
     </div>
   );
 }

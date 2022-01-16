@@ -55,18 +55,18 @@ export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 export function logout() {
-  localStorage.setItem('user', null);
   return signOut(auth);
 }
 
 export function useAuthState() {
   const [currentUser, setCurrentUser] = useState();
+  const [loadingUser, setLoadingUser] = useState(true);
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      localStorage.setItem('user', JSON.stringify(user));
+      setLoadingUser(false);
     });
     return unsub;
   }, []);
-  return currentUser;
+  return { currentUser, loadingUser };
 }

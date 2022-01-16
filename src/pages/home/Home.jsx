@@ -5,7 +5,8 @@ import { useAuthState } from '../../firebase';
 import { GlobalContext } from '../../context/GlobalContext';
 
 function Home() {
-  const { user, list } = useContext(GlobalContext);
+  const { list } = useContext(GlobalContext);
+  const user = useAuthState();
 
   return (
     <div className="container">

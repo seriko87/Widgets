@@ -9,7 +9,6 @@ import GlobalReducer from './GlobalReducer';
 // initial state
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
   location: null,
   list: [
     {

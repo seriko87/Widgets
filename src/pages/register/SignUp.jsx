@@ -134,13 +134,14 @@ const SignUp = () => {
           {hasFocus ? (
             <div className="passInfo">
               <div className="triangle"></div>
-              {passText.map((item) => {
+              {passText.map((item, index) => {
                 return (
                   <>
                     <PasswordContainer
                       pass={password}
                       item={item}
                       setPassCorrect={setPassCorrect}
+                      key={index}
                     />{' '}
                   </>
                 );

@@ -3,13 +3,14 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: var(--bg-overlay-1);
+  background-color: var(--bg-overlay);
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   justify-content: space-around;
+  z-index: 999;
 }
 
 .profilePic {
