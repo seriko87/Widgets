@@ -6,11 +6,11 @@ import { GlobalContext } from '../../context/GlobalContext';
 
 function Home() {
   const { list } = useContext(GlobalContext);
-  const user = useAuthState();
+  const { currentUser } = useAuthState();
 
   return (
     <div className="container">
-      <Profile user={user} />
+      <Profile user={currentUser} />
       {list.map((item) => {
         if (item.status) {
           return item.component;

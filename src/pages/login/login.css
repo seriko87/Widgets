@@ -1,0 +1,7 @@
+.forgotPassLink {
+  font-size: 14px;
+  width: 80%;
+  text-align: right;
+  color: var(--link-color);
+  cursor: pointer;
+}

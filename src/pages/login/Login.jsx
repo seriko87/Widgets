@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <div className="signUpContainer">
       <div className="signUpHeader">
-        <div className="signUpTitle">Log in</div>
+        <div className="signUpTitle">Login</div>
         <div className="logInInfo">
           Don't have an account?{' '}
           <Link to="/signup" className="goLogIn">
@@ -63,10 +63,7 @@ const Login = () => {
           />
         </div>
         <div className="inputPassword">
-          <LockOutlinedIcon
-            className="signUpIcons"
-            // style={passCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
-          />
+          <LockOutlinedIcon className="signUpIcons" />
           <label htmlFor="password">Password</label>
           <input
             type={passVisStatus ? 'text' : 'password'}
@@ -87,6 +84,9 @@ const Login = () => {
             />
           )}
         </div>
+        <Link to="/forgot-password" className="forgotPassLink">
+          Forgot Password?
+        </Link>
         {loginErr && <div className="invalidCred">Invalid Credentials!!!</div>}
         <button
           className="signUpCreate"

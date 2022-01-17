@@ -8,6 +8,10 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateEmail,
+  updatePassword,
+  sendPasswordResetEmail,
+  deleteUser,
 } from 'firebase/auth';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -56,6 +60,20 @@ export function login(email, password) {
 }
 export function logout() {
   return signOut(auth);
+}
+
+export function updateUserEmail(email) {
+  return updateEmail(auth.currentUser, email);
+}
+
+export function updadateUserPassword(password) {
+  return updatePassword(auth.currentUser, password);
+}
+export function deleteAccoutn() {
+  return deleteUser(auth.currentUser);
+}
+export function sendPassReset(email) {
+  return sendPasswordResetEmail(auth, email);
 }
 
 export function useAuthState() {
