@@ -80,7 +80,7 @@ const ForgotPassword = () => {
         </div>
         <div className="authLinkInfo">
           Need account?{' '}
-          <Link to="/login" className="goLogIn">
+          <Link to="/signup" className="goLogIn">
             Sign up
           </Link>
         </div>
