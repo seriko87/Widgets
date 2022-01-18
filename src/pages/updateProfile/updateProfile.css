@@ -15,6 +15,7 @@
   width: 130px;
   height: 130px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .updateProfileWrap {
@@ -130,4 +131,11 @@
 
 .custom-file-icon {
   display: none;
+}
+
+.profileUpdateError {
+  color: var(--color-alert);
+}
+.profileSuccesMessage {
+  color: var(--color-alert-1);
 }

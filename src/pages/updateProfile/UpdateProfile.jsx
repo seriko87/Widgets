@@ -34,7 +34,7 @@ const UpdateProfile = () => {
   const emailRef = useRef();
 
   const [userName, setUserName] = useState(name);
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState('');
   const [passCorrect, setPassCorrect] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
   const [hasFocus, setFocus] = useState(false);
@@ -87,6 +87,7 @@ const UpdateProfile = () => {
   }, [currentUser]);
 
   const handleUpdate = () => {
+    setMessage('');
     if (photo) {
       uploadPhoto(photo, currentUser, setLoading, setNewPhoto);
       console.log('photo updated');
@@ -110,6 +111,8 @@ const UpdateProfile = () => {
       }
       console.log(password);
     }
+
+    setMessage('Profile Updated!!!');
   };
   const handleCancel = () => {
     navigate('/', { replace: true });
@@ -122,22 +125,25 @@ const UpdateProfile = () => {
 
   return (
     <div className="updateProfileContainer">
-      <div className="updateProfPic">
-        <label class="updatePicIcon">
-          <input
-            type="file"
-            accept=".jpg,.jpeg,.png, .webp"
-            className="custom-file-icon"
-            onChange={handleChangeFile}
-          />
-          <PhotoCameraOutlinedIcon className="photoAddIcon" />
-        </label>
+      <div className="updateContainer">
+        <div className="updateProfileTitle">Edit Profile</div>
+        <div className="updateProfPic">
+          <label class="updatePicIcon">
+            <input
+              type="file"
+              accept=".jpg,.jpeg,.png, .webp"
+              className="custom-file-icon"
+              onChange={handleChangeFile}
+            />
+            <PhotoCameraOutlinedIcon className="photoAddIcon" />
+          </label>
 
-        <img
-          src={tempPhoto ? tempPhoto : newPhoto}
-          alt="Profile"
-          className="updateProfilePic"
-        />
+          <img
+            src={tempPhoto ? tempPhoto : newPhoto}
+            alt="Profile"
+            className="updateProfilePic"
+          />
+        </div>
       </div>
 
       <form className="updateProfileWrap">
@@ -198,8 +204,8 @@ const UpdateProfile = () => {
             </div>
           ) : null}
         </div>
-        {error && <div className="authError">{error}</div>}
-        {message && <div className="authSuccesMessage">{message}</div>}
+        {error && <div className="profileUpdateError">{error}</div>}
+        {message && <div className="profileSuccesMessage">{message}</div>}
       </form>
       <div className="updateBtnWrap">
         <button

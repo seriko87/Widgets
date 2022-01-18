@@ -20,8 +20,10 @@ const Profile = ({ user }) => {
     <div className="profileContainer">
       <div className="profileWrap">
         <img src={imgUrl} alt="Profile" className="profilePic" />
-        <span className="">{name ? name : 'Edit your name'}</span>
-        <span>{email}</span>
+        <div className="profileInfo">
+          <span className="">{name ? name : 'Edit your name'}</span>
+          <span>{email}</span>
+        </div>
       </div>
 
       <div className="listsContainer">
@@ -29,12 +31,14 @@ const Profile = ({ user }) => {
           return <Lists key={item.id} item={item} />;
         })}
       </div>
-      <Link to="/update-profile" className="logoutBtn">
-        Edit profile
-      </Link>
-      <button onClick={logout} className="logoutBtn">
-        Log out
-      </button>
+      <div className="profileBtnWrap">
+        <Link to="/update-profile" className="editProfileBtn">
+          Edit profile
+        </Link>
+        <button onClick={logout} className="logoutBtn">
+          Log out
+        </button>
+      </div>
     </div>
   );
 };
