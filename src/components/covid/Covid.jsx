@@ -109,12 +109,15 @@ const Covid = () => {
         </button>
         {isActiveChart ? (
           <div className="chartTotal">
-            <h2 className="chartTitle">Daily Covid-19 Cases (30 days)</h2>
+            <h2 className="chartTitle">
+              Daily Covid-19 Cases - {selCountry[0]?.country}
+            </h2>
             <div className="selCountry">
-              <label htmlFor="country">Please Select Country: </label>
+              <label htmlFor="country">Countries: </label>
               <select
                 name="country"
                 onChange={(e) => handleSelect(e.target.value)}
+                defaultValue="USA"
               >
                 {countries.map((item, index) => {
                   return (

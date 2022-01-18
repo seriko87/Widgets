@@ -13,7 +13,7 @@ const Profile = ({ user }) => {
   const email = user && user.email;
   const name = user && user.displayName;
   const imgUrl =
-    (user && user.photoUrl) ||
+    (user && user.photoURL) ||
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png';
 
   return (

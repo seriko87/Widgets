@@ -1,5 +1,5 @@
 .updateProfileContainer {
-  width: 400px;
+  width: 500px;
   background-color: var(--bg-overlay-1);
   border-radius: 10px;
 
@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  justify-content: space-evenly;
 }
 
 .updateProfilePic {
@@ -18,7 +19,7 @@
 
 .updateProfileWrap {
   border-top: 1px solid grey;
-  width: 95%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +73,10 @@
   background-color: white;
   color: rgb(39, 117, 235);
 }
-
+.updateProfileBtn:hover,
+.cancelProfileBtn:hover {
+  opacity: 1;
+}
 .passUpdateInfo {
   position: absolute;
   width: 80%;
@@ -88,13 +92,42 @@
   padding: 4px;
   left: 69px;
 }
-.updateProfileBtn:hover,
-.cancelProfileBtn:hover {
-  opacity: 1;
-}
 
 .updateBtnWrap {
   display: flex;
   width: 80%;
   gap: 10px;
+}
+.updateProfPic {
+  position: relative;
+  overflow: hidden;
+}
+.updatePicIcon {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  opacity: 0.3;
+}
+.photoAddIcon {
+  color: rgba(0, 0, 0, 0.575);
+}
+
+.updatePicIcon:hover {
+  background-color: rgba(0, 0, 0, 0.384);
+  transition: all 0.3s linear;
+  align-items: center;
+  opacity: 1;
+}
+
+.custom-file-icon {
+  display: none;
 }

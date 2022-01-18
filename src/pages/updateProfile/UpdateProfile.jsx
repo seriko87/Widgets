@@ -1,46 +1,52 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useAuthState } from '../../firebase';
+import {
+  useAuthState,
+  uploadPhoto,
+  updateUserEmail,
+  updateUserProfile,
+  updadateUserPassword,
+} from '../../firebase';
 import './updateProfile.css';
 import {
   passValidation,
   passText,
   emailValidation,
 } from '../register/Validation';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PasswordContainer from '../register/PasswordText';
+import { useNavigate } from 'react-router-dom';
+import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 
 const UpdateProfile = () => {
   const { currentUser } = useAuthState();
   const email = currentUser?.email;
-  const name = currentUser?.displayName || '';
-  const mobile = currentUser?.phoneNumber || '';
-  const imgUrl =
-    currentUser?.photoUrl ||
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png';
+  const name = currentUser?.displayName;
+  const passRef = useRef();
 
+  const [newPhoto, setNewPhoto] = useState(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png'
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   const emailRef = useRef();
-  const passRef = useRef();
-  const mobileRef = useRef();
-  const nameRef = useRef();
-  const [password, setPassword] = useState('');
+
+  const [userName, setUserName] = useState(name);
+  const [password, setPassword] = useState(null);
   const [passCorrect, setPassCorrect] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
   const [hasFocus, setFocus] = useState(false);
   const [emailCorrect, setIsEmailCorrect] = useState(false);
+  const [photo, setPhoto] = useState(null);
+  const [tempPhoto, setTempPhoto] = useState();
 
-  useEffect(() => {
-    if (
-      document.hasFocus() &&
-      passRef.current.contains(document.activeElement)
-    ) {
-      setFocus(true);
-    }
-  }, []);
+  const navigate = useNavigate();
+  console.log(userName);
 
+  console.log(currentUser);
+  //email validation
   useEffect(() => {
     if (emailValidation(email)) {
       setIsEmailCorrect(true);
@@ -49,12 +55,7 @@ const UpdateProfile = () => {
     }
   }, [email]);
 
-  const handleVisPass = () => {
-    setPassVisStatus(!passVisStatus);
-  };
-
-  const handleUpdate = () => {};
-  const handleCancel = () => {};
+  // password Validation
   useEffect(() => {
     if (passValidation(password)) {
       setPassCorrect(true);
@@ -63,9 +64,82 @@ const UpdateProfile = () => {
     }
   }, [password]);
 
+  useEffect(() => {
+    if (
+      document.hasFocus() &&
+      passRef.current.contains(document.activeElement)
+    ) {
+      setFocus(true);
+    }
+
+    setUserName(currentUser?.displayName);
+  }, []);
+
+  const handleVisPass = () => {
+    setPassVisStatus(!passVisStatus);
+  };
+
+  // update functions
+  useEffect(() => {
+    if (currentUser?.photoURL) {
+      setNewPhoto(currentUser.photoURL);
+    }
+  }, [currentUser]);
+
+  const handleUpdate = () => {
+    if (photo) {
+      uploadPhoto(photo, currentUser, setLoading, setNewPhoto);
+      console.log('photo updated');
+    }
+
+    if (email !== currentUser.email) {
+      updateUserEmail(email);
+      console.log('email updated');
+    }
+
+    if (userName !== currentUser.displayName) {
+      updateUserProfile(currentUser, userName);
+      console.log('Name updated', [userName, currentUser.displayName]);
+    }
+
+    if (password !== null) {
+      if (passCorrect) {
+        updadateUserPassword(password);
+      } else {
+        setError('Please Enter Valid Password');
+      }
+      console.log(password);
+    }
+  };
+  const handleCancel = () => {
+    navigate('/', { replace: true });
+  };
+  const handleChangeFile = (e) => {
+    setPhoto(e.target.files[0]);
+    setTempPhoto(URL.createObjectURL(e.target.files[0]));
+  };
+  console.log(password);
+
   return (
     <div className="updateProfileContainer">
-      <img src={imgUrl} alt="Profile" className="updateProfilePic" />
+      <div className="updateProfPic">
+        <label class="updatePicIcon">
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png, .webp"
+            className="custom-file-icon"
+            onChange={handleChangeFile}
+          />
+          <PhotoCameraOutlinedIcon className="photoAddIcon" />
+        </label>
+
+        <img
+          src={tempPhoto ? tempPhoto : newPhoto}
+          alt="Profile"
+          className="updateProfilePic"
+        />
+      </div>
+
       <form className="updateProfileWrap">
         <div className="inputWrapProfile">
           <label htmlFor="name">Name: </label>
@@ -75,7 +149,7 @@ const UpdateProfile = () => {
             name="name"
             type="text"
             id="name"
-            ref={nameRef}
+            onChange={(e) => setUserName(e.target.value)}
           />
         </div>
         <div className="inputWrapProfile">
@@ -89,17 +163,7 @@ const UpdateProfile = () => {
             ref={emailRef}
           />
         </div>
-        <div className="inputWrapProfile">
-          <label htmlFor="mobile">Mobile: </label>
-          <input
-            defaultValue={mobile}
-            className="updateProfileInput"
-            name="mobile"
-            type="tel"
-            id="mobile"
-            ref={mobileRef}
-          />
-        </div>
+
         <div className="inputWrapProfile">
           <label htmlFor="password">Password: </label>
           <input
@@ -109,8 +173,8 @@ const UpdateProfile = () => {
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
             onChange={(e) => setPassword(e.target.value)}
-            ref={passRef}
             type={passVisStatus ? 'text' : 'password'}
+            ref={passRef}
           />
           {!passVisStatus ? (
             <VisibilityIcon
@@ -134,6 +198,8 @@ const UpdateProfile = () => {
             </div>
           ) : null}
         </div>
+        {error && <div className="authError">{error}</div>}
+        {message && <div className="authSuccesMessage">{message}</div>}
       </form>
       <div className="updateBtnWrap">
         <button
@@ -141,7 +207,7 @@ const UpdateProfile = () => {
           onClick={handleUpdate}
           disabled={loading || emailCorrect ? false : true}
         >
-          {loading ? 'Sending email...' : 'Update'}
+          {loading ? 'Updating...' : 'Update'}
         </button>
         <button className="cancelProfileBtn" onClick={handleCancel}>
           Cancel

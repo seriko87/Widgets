@@ -12,7 +12,9 @@ import {
   updatePassword,
   sendPasswordResetEmail,
   deleteUser,
+  updateProfile,
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -50,6 +52,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const auth = getAuth();
+const storage = getStorage();
 
 export function signup(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -75,6 +78,9 @@ export function deleteAccoutn() {
 export function sendPassReset(email) {
   return sendPasswordResetEmail(auth, email);
 }
+export function updateUserProfile(currentUser, name) {
+  return updateProfile(currentUser, { displayName: name });
+}
 
 export function useAuthState() {
   const [currentUser, setCurrentUser] = useState();
@@ -87,4 +93,19 @@ export function useAuthState() {
     return unsub;
   }, []);
   return { currentUser, loadingUser };
+}
+
+//storage functions
+export async function uploadPhoto(file, currentUser, setLoading, setNewPhoto) {
+  const fileRef = ref(storage, 'userImg/' + currentUser.uid + file.name);
+
+  setLoading(true);
+
+  const snapshot = await uploadBytes(fileRef, file);
+  const photoURL = await getDownloadURL(fileRef);
+  updateProfile(currentUser, { photoURL });
+  setLoading(false);
+
+  alert('file uploaded');
+  setNewPhoto(photoURL);
 }

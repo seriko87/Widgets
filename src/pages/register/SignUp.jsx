@@ -152,7 +152,11 @@ const SignUp = () => {
         <div className="inputPassword">
           <LockOutlinedIcon
             className="signUpIcons"
-            style={password === rePassword ? { color: 'rgb(13, 124, 13)' } : {}}
+            style={
+              rePassword && password === rePassword
+                ? { color: 'rgb(13, 124, 13)' }
+                : {}
+            }
           />
           <label htmlFor="passwordRepeat">Repeat Password</label>
           <input

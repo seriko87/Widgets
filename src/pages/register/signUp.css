@@ -56,7 +56,7 @@
   color: var(--font-color);
 }
 .signUpInput::placeholder {
-  color: var(--font-color);
+  color: var(--bg-color-2);
 }
 
 .signUpCreate {

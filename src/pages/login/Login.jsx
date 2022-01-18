@@ -49,7 +49,7 @@ const Login = () => {
         </div>
       </div>
 
-      <form action="">
+      <form action="" className="authForm">
         <div className="inputEmail">
           <EmailOutlinedIcon className="signUpIcons" />
 
