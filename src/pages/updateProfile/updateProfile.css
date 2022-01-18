@@ -45,14 +45,15 @@
   border-radius: 5px;
   box-sizing: border-box;
   color: var(--font-color);
+  width: 250px;
 }
 
 .inputWrapProfile {
   width: 100%;
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
+  display: flex;
   align-items: center;
   position: relative;
+  gap: 7.5px;
 }
 .updateProfileBtn,
 .cancelProfileBtn {
@@ -138,4 +139,32 @@
 }
 .profileSuccesMessage {
   color: var(--color-alert-1);
+}
+.updateProfileTitle {
+  font-size: 36px;
+}
+.updateContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 50px;
+}
+.saveBtnUpdate {
+  height: 45px;
+  background-color: var(--link-color);
+  width: 60px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.updateLabel {
+  width: 75px;
 }

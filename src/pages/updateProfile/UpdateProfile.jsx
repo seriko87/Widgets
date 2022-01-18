@@ -21,19 +21,15 @@ import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 
 const UpdateProfile = () => {
   const { currentUser } = useAuthState();
-  const email = currentUser?.email;
-  const name = currentUser?.displayName;
   const passRef = useRef();
-
   const [newPhoto, setNewPhoto] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png'
   );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
-  const emailRef = useRef();
-
-  const [userName, setUserName] = useState(name);
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [passCorrect, setPassCorrect] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
@@ -43,9 +39,7 @@ const UpdateProfile = () => {
   const [tempPhoto, setTempPhoto] = useState();
 
   const navigate = useNavigate();
-  console.log(userName);
 
-  console.log(currentUser);
   //email validation
   useEffect(() => {
     if (emailValidation(email)) {
@@ -71,8 +65,6 @@ const UpdateProfile = () => {
     ) {
       setFocus(true);
     }
-
-    setUserName(currentUser?.displayName);
   }, []);
 
   const handleVisPass = () => {
@@ -84,35 +76,47 @@ const UpdateProfile = () => {
     if (currentUser?.photoURL) {
       setNewPhoto(currentUser.photoURL);
     }
+    setUserName(currentUser?.displayName || '');
+    setEmail(currentUser?.email || '');
   }, [currentUser]);
 
   const handleUpdate = () => {
     setMessage('');
+    setError('');
+    const promises = [];
+
     if (photo) {
-      uploadPhoto(photo, currentUser, setLoading, setNewPhoto);
+      promises.push(uploadPhoto(photo, currentUser, setLoading, setNewPhoto));
       console.log('photo updated');
     }
 
     if (email !== currentUser.email) {
-      updateUserEmail(email);
+      promises.push(updateUserEmail(email));
       console.log('email updated');
     }
 
     if (userName !== currentUser.displayName) {
-      updateUserProfile(currentUser, userName);
+      promises.push(updateUserProfile(currentUser, userName));
       console.log('Name updated', [userName, currentUser.displayName]);
     }
 
-    if (password !== null) {
+    if (password !== '') {
       if (passCorrect) {
-        updadateUserPassword(password);
+        promises.push(updadateUserPassword(password));
       } else {
         setError('Please Enter Valid Password');
       }
-      console.log(password);
     }
 
-    setMessage('Profile Updated!!!');
+    console.log(promises);
+    Promise.all(promises)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setMessage('Profile Updated');
+      });
   };
   const handleCancel = () => {
     navigate('/', { replace: true });
@@ -121,7 +125,6 @@ const UpdateProfile = () => {
     setPhoto(e.target.files[0]);
     setTempPhoto(URL.createObjectURL(e.target.files[0]));
   };
-  console.log(password);
 
   return (
     <div className="updateProfileContainer">
@@ -148,30 +151,40 @@ const UpdateProfile = () => {
 
       <form className="updateProfileWrap">
         <div className="inputWrapProfile">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name" className="updateLabel">
+            Name:{' '}
+          </label>
           <input
-            defaultValue={name}
             className="updateProfileInput"
             name="name"
             type="text"
             id="name"
             onChange={(e) => setUserName(e.target.value)}
+            value={userName}
           />
+          <button className="saveBtnUpdate">Save</button>
         </div>
         <div className="inputWrapProfile">
-          <label htmlFor="email">E-mail: </label>
+          <label htmlFor="email" className="updateLabel">
+            E-mail:{' '}
+          </label>
           <input
-            defaultValue={email}
             className="updateProfileInput"
             name="email"
             type="email"
             id="email"
-            ref={emailRef}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
           />
+          <button className="saveBtnUpdate">Save</button>
         </div>
 
         <div className="inputWrapProfile">
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password" className="updateLabel">
+            Password:{' '}
+          </label>
           <input
             placeholder="Leave blank to keep the same"
             className="updateProfileInput"
@@ -181,6 +194,7 @@ const UpdateProfile = () => {
             onChange={(e) => setPassword(e.target.value)}
             type={passVisStatus ? 'text' : 'password'}
             ref={passRef}
+            value={password}
           />
           {!passVisStatus ? (
             <VisibilityIcon
@@ -203,6 +217,7 @@ const UpdateProfile = () => {
               })}
             </div>
           ) : null}
+          <button className="saveBtnUpdate">Save</button>
         </div>
         {error && <div className="profileUpdateError">{error}</div>}
         {message && <div className="profileSuccesMessage">{message}</div>}
