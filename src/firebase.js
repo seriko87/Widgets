@@ -20,10 +20,10 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const SITE_KEY = process.env.REACT_APP_SITE_KEY;
+const SITE_KEY = process.env.REACT_APP_FIRE_KEY;
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDKKMczB_chKQcox_BSslg92S7UY9svupE',
+  apiKey: SITE_KEY,
   authDomain: 'rapid-info-433c6.firebaseapp.com',
   projectId: 'rapid-info-433c6',
   storageBucket: 'rapid-info-433c6.appspot.com',
