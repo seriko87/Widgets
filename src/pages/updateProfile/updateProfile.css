@@ -41,11 +41,13 @@
   padding-left: 15px;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
-  background-color: var(--bg-input);
+  background-color: var(--bg-overlay);
   border-radius: 5px;
   box-sizing: border-box;
   color: var(--font-color);
-  width: 250px;
+  max-width: 100%;
+  transition: all 0.3s linear;
+  z-index: 99;
 }
 
 .inputWrapProfile {
@@ -55,7 +57,7 @@
   position: relative;
   gap: 7.5px;
 }
-.updateProfileBtn,
+
 .cancelProfileBtn {
   height: 45px;
   background-color: var(--link-color);
@@ -71,10 +73,7 @@
   margin-top: 5px;
   opacity: 0.9;
 }
-.cancelProfileBtn {
-  background-color: white;
-  color: rgb(39, 117, 235);
-}
+
 .updateProfileBtn:hover,
 .cancelProfileBtn:hover {
   opacity: 1;
@@ -99,6 +98,8 @@
   display: flex;
   width: 80%;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .updateProfPic {
   position: relative;
@@ -163,8 +164,21 @@
   font-size: 16px;
   cursor: pointer;
   opacity: 0.9;
+  position: absolute;
+  right: 0;
+  z-index: 0;
 }
 
 .updateLabel {
   width: 75px;
+}
+
+.passVisIcon {
+  position: absolute;
+  bottom: 13px;
+  right: 73px;
+  font-size: 20px !important;
+  cursor: pointer;
+  color: #b1aeae;
+  z-index: 101;
 }

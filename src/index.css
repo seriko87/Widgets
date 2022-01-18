@@ -63,6 +63,7 @@ code {
   --bg-color-4: #303030;
   --bg-input: rgba(255, 255, 255, 0.066);
   --bg-overlay: rgb(75, 75, 75);
+  --bg-overlay-2: rgb(62, 62, 62);
   --color-alert: rgb(247, 157, 157);
   --color-alert-1: rgb(108, 223, 179);
 }

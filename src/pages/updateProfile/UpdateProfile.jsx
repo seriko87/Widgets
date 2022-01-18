@@ -37,6 +37,10 @@ const UpdateProfile = () => {
   const [emailCorrect, setIsEmailCorrect] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [tempPhoto, setTempPhoto] = useState();
+  const [nameSave, setNameSave] = useState(false);
+  const [emailSave, setEmailSave] = useState(false);
+  const [passSave, setPassSave] = useState(false);
+  const [photoSave, setPhotoSave] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,7 +51,22 @@ const UpdateProfile = () => {
     } else {
       setIsEmailCorrect(false);
     }
+    const oldEmail = currentUser?.email;
+    if (email !== oldEmail) {
+      setEmailSave(true);
+    } else {
+      setEmailSave(false);
+    }
   }, [email]);
+
+  useEffect(() => {
+    const name = currentUser?.displayName;
+    if (userName !== name) {
+      setNameSave(true);
+    } else {
+      setNameSave(false);
+    }
+  }, [userName]);
 
   // password Validation
   useEffect(() => {
@@ -55,6 +74,12 @@ const UpdateProfile = () => {
       setPassCorrect(true);
     } else {
       setPassCorrect(false);
+    }
+
+    if (password) {
+      setPassSave(true);
+    } else {
+      setPassSave(false);
     }
   }, [password]);
 
@@ -80,51 +105,98 @@ const UpdateProfile = () => {
     setEmail(currentUser?.email || '');
   }, [currentUser]);
 
-  const handleUpdate = () => {
+  const handleNameChange = (e) => {
+    e.preventDefault();
     setMessage('');
     setError('');
-    const promises = [];
-
-    if (photo) {
-      promises.push(uploadPhoto(photo, currentUser, setLoading, setNewPhoto));
-      console.log('photo updated');
-    }
-
-    if (email !== currentUser.email) {
-      promises.push(updateUserEmail(email));
-      console.log('email updated');
-    }
-
     if (userName !== currentUser.displayName) {
-      promises.push(updateUserProfile(currentUser, userName));
+      updateUserProfile(currentUser, userName)
+        .then(() => {
+          setMessage('Profile name updated');
+          setNameSave(false);
+        })
+        .catch((error) => {
+          setError('Failed to update Name');
+        });
+
       console.log('Name updated', [userName, currentUser.displayName]);
     }
+  };
 
+  const handlePhotoChange = (e) => {
+    e.preventDefault();
+    setMessage('');
+    setError('');
+    if (photo) {
+      uploadPhoto(photo, currentUser, setLoading, setNewPhoto)
+        .then(() => {
+          setPhotoSave(false);
+        })
+        .catch((error) => {
+          setError('Failed to update photo');
+        });
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+    setMessage('');
+    setError('');
+
+    if (email !== currentUser.email) {
+      if (emailCorrect) {
+        updateUserEmail(email)
+          .then(() => {
+            setMessage('Profile email updated');
+            setEmailSave(false);
+          })
+          .catch((error) => {
+            setError('Failed to update email, try log in again');
+          });
+      } else {
+        setError('Plase enter valid email address');
+      }
+    }
+  };
+
+  const handlePassChange = (e) => {
+    e.preventDefault();
+    setMessage('');
+    setError('');
     if (password !== '') {
       if (passCorrect) {
-        promises.push(updadateUserPassword(password));
+        updadateUserPassword(password)
+          .then(() => {
+            setMessage('Profile password updated');
+            setPassword('');
+          })
+          .catch(() => {
+            setError('Failed to update password, try log in again');
+          });
       } else {
         setError('Please Enter Valid Password');
       }
     }
+  };
 
-    console.log(promises);
-    Promise.all(promises)
-      .then(() => {})
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setMessage('Profile Updated');
-      });
-  };
-  const handleCancel = () => {
+  function handleCancel() {
     navigate('/', { replace: true });
-  };
+  }
+
   const handleChangeFile = (e) => {
     setPhoto(e.target.files[0]);
     setTempPhoto(URL.createObjectURL(e.target.files[0]));
   };
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setError('');
+      setMessage('');
+    }, 10000);
+    return () => {
+      clearTimeout(interval);
+    };
+  }, [error, message]);
 
   return (
     <div className="updateProfileContainer">
@@ -154,6 +226,7 @@ const UpdateProfile = () => {
           <label htmlFor="name" className="updateLabel">
             Name:{' '}
           </label>
+
           <input
             className="updateProfileInput"
             name="name"
@@ -161,8 +234,13 @@ const UpdateProfile = () => {
             id="name"
             onChange={(e) => setUserName(e.target.value)}
             value={userName}
+            style={!nameSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
           />
-          <button className="saveBtnUpdate">Save</button>
+          {nameSave && (
+            <button className="saveBtnUpdate" onClick={handleNameChange}>
+              Save
+            </button>
+          )}
         </div>
         <div className="inputWrapProfile">
           <label htmlFor="email" className="updateLabel">
@@ -176,9 +254,14 @@ const UpdateProfile = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            style={!emailSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
             value={email}
           />
-          <button className="saveBtnUpdate">Save</button>
+          {emailSave && (
+            <button className="saveBtnUpdate" onClick={handleEmailChange}>
+              Save
+            </button>
+          )}
         </div>
 
         <div className="inputWrapProfile">
@@ -186,7 +269,7 @@ const UpdateProfile = () => {
             Password:{' '}
           </label>
           <input
-            placeholder="Leave blank to keep the same"
+            placeholder="*******"
             className="updateProfileInput"
             name="password"
             onFocus={() => setFocus(true)}
@@ -195,18 +278,20 @@ const UpdateProfile = () => {
             type={passVisStatus ? 'text' : 'password'}
             ref={passRef}
             value={password}
+            style={!passSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
           />
-          {!passVisStatus ? (
-            <VisibilityIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
-            />
-          ) : (
-            <VisibilityOffIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
-            />
-          )}
+          {passSave &&
+            (!passVisStatus ? (
+              <VisibilityIcon
+                className="passVisIcon"
+                onClick={() => handleVisPass()}
+              />
+            ) : (
+              <VisibilityOffIcon
+                className="passVisIcon"
+                onClick={() => handleVisPass()}
+              />
+            ))}
           {hasFocus ? (
             <div className="passUpdateInfo">
               <div className="triangle"></div>
@@ -217,21 +302,18 @@ const UpdateProfile = () => {
               })}
             </div>
           ) : null}
-          <button className="saveBtnUpdate">Save</button>
+          {passSave && (
+            <button className="saveBtnUpdate" onClick={handlePassChange}>
+              Save
+            </button>
+          )}
         </div>
         {error && <div className="profileUpdateError">{error}</div>}
         {message && <div className="profileSuccesMessage">{message}</div>}
       </form>
       <div className="updateBtnWrap">
-        <button
-          className="updateProfileBtn"
-          onClick={handleUpdate}
-          disabled={loading || emailCorrect ? false : true}
-        >
-          {loading ? 'Updating...' : 'Update'}
-        </button>
         <button className="cancelProfileBtn" onClick={handleCancel}>
-          Cancel
+          Go back
         </button>
       </div>
     </div>
