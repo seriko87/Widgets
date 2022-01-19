@@ -37,14 +37,14 @@ const Login = () => {
       });
   };
 
-  // useEffect(() => {
-  //   const interval = setTimeout(() => {
-  //     setLoginErr(false);
-  //   }, 10000);
-  //   return () => {
-  //     clearTimeout(interval);
-  //   };
-  // }, [loginErr]);
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setLoginErr(false);
+    }, 10000);
+    return () => {
+      clearTimeout(interval);
+    };
+  }, [loginErr]);
 
   return (
     <div className="signUpContainer">
