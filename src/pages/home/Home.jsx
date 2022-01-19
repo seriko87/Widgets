@@ -1,18 +1,19 @@
 import './home.css';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Profile from '../../components/profile/Profile';
 import { useAuthState } from '../../firebase';
 import { GlobalContext } from '../../context/GlobalContext';
-import BlackScreen from '../components/blackScreen/BlackScreen';
-import Covid from '../components/covid/Covid';
-import News from '../components/news/News';
-import Time from '../components/time/Time';
-import Weather from '../components/weather/Weather';
+import BlackScreen from '../../components/blackScreen/BlackScreen';
+import Weather from '../../components/weather/Weather';
+import News from '../../components/news/News';
+import Covid from '../../components/covid/Covid';
+import Time from '../../components/time/Time';
 
 function Home() {
   const { list } = useContext(GlobalContext);
   const [proOpenClose, setProOpenClose] = useState(true);
   const { currentUser } = useAuthState();
+  const [newList, setNewList] = useState(list);
 
   const widgetList = [
     {
@@ -32,6 +33,10 @@ function Home() {
     },
   ];
 
+  useEffect(() => {
+    setNewList(list);
+  }, [list]);
+
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
@@ -46,8 +51,8 @@ function Home() {
         <Profile user={currentUser} setProOpenClose={setProOpenClose} />
       )}
 
-      {list.map((item) => {
-        if (item.status) {
+      {widgetList.map((item, index) => {
+        if (newList[index].status) {
           return item.component;
         }
         return null;
