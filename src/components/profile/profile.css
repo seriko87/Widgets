@@ -1,5 +1,5 @@
 .profileContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -11,6 +11,7 @@
   gap: 10px;
   justify-content: space-around;
   z-index: 999;
+  transition: all 0.3s linear;
 }
 
 .profilePic {
