@@ -20,16 +20,31 @@ function Home() {
       id: 'time',
       name: 'Time',
       status: false,
-      component: <Time />,
+      component: <Time key="time" />,
     },
-    { id: 'weather', name: 'Weather', status: false, component: <Weather /> },
-    { id: 'news', name: 'News', status: false, component: <News /> },
-    { id: 'covid', name: 'Covid Info', status: false, component: <Covid /> },
+    {
+      id: 'weather',
+      name: 'Weather',
+      status: false,
+      component: <Weather key="time" />,
+    },
+    {
+      id: 'news',
+      name: 'News',
+      status: false,
+      component: <News key="weather" />,
+    },
+    {
+      id: 'covid',
+      name: 'Covid Info',
+      status: false,
+      component: <Covid key="covid" />,
+    },
     {
       id: 'blackScreen',
       name: 'Black Screen',
       status: false,
-      component: <BlackScreen />,
+      component: <BlackScreen key="blackScreen" />,
     },
   ];
 
