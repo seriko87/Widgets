@@ -31,6 +31,7 @@ const initialState = {
   ],
 };
 
+console.log('object');
 //create context
 export const GlobalContext = createContext(initialState);
 
