@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import BlackScreen from '../components/blackScreen/BlackScreen';
 import Covid from '../components/covid/Covid';
 import News from '../components/news/News';

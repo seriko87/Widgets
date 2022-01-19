@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect } from 'react';
+
 import DarkModeToggle from './components/darkMode/DarkModeToggle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import SignUp from './pages/register/SignUp';

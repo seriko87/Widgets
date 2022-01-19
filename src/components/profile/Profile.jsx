@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './profile.css';
 import { logout } from '../../firebase';
 import Lists from '../lists/Lists';
-import { useAuthState } from '../../firebase';
-import { widgetList } from '../../widgetList';
+
 import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
@@ -20,7 +19,7 @@ const Profile = ({ user, setProOpenClose }) => {
   return (
     <div className="profileContainer">
       <button className="profileBtnHome" onClick={() => setProOpenClose(false)}>
-        <CloseOutlinedIcon style={{ height: '30px' }} />
+        <CloseOutlinedIcon className="profileOpenCloseBtn" />
       </button>
       <div className="profileWrap">
         <img src={imgUrl} alt="Profile" className="profilePic" />

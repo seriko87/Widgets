@@ -71,3 +71,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.profileOpenCloseBtn {
+  color: var(--font-color-3);
+  height: 30px;
+}
+
+.profileBtnHome {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+}

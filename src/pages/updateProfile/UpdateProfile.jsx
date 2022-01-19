@@ -118,8 +118,6 @@ const UpdateProfile = () => {
         .catch((error) => {
           setError('Failed to update Name');
         });
-
-      console.log('Name updated', [userName, currentUser.displayName]);
     }
   };
 
@@ -205,7 +203,7 @@ const UpdateProfile = () => {
       <div className="updateContainer">
         <div className="updateProfileTitle">Edit Profile</div>
         <div className="updateProfPic">
-          <label class="updatePicIcon">
+          <label className="updatePicIcon">
             <input
               type="file"
               accept=".jpg,.jpeg,.png, .webp"
