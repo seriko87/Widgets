@@ -7,8 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  justify-content: space-evenly;
+  gap: 20px;
 }
 
 .updateProfilePic {
@@ -24,8 +23,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 260px;
-  justify-content: space-evenly;
+  height: 300px;
+  justify-content: flex-start;
+  padding-top: 20px;
+  gap: 30px;
 }
 
 .updateProfileInput:focus {
@@ -104,6 +105,9 @@
 .updateProfPic {
   position: relative;
   overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.4s linear;
+  height: 130px;
 }
 .updatePicIcon {
   width: 130px;
@@ -149,7 +153,8 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
-  gap: 50px;
+  gap: 36px;
+  margin-top: 14px;
 }
 .saveBtnUpdate {
   height: 45px;
@@ -181,4 +186,22 @@
   cursor: pointer;
   color: #b1aeae;
   z-index: 101;
+}
+.saveBtnUpdatePic {
+  height: 36px;
+  background-color: var(--link-color);
+
+  border: none;
+  color: white;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+
+  position: absolute;
+
+  bottom: -2px;
+  width: 100%;
+  z-index: 5;
 }

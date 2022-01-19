@@ -1,5 +1,5 @@
 import './login.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -13,9 +13,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
-  const [loginErr, setLoginErr] = useState(false);
+  const [loginErr, setLoginErr] = useState(true);
 
-  const user = useAuthState();
   const handleVisPass = () => {
     setPassVisStatus(!passVisStatus);
   };
@@ -25,17 +24,27 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await login(email, password);
-    } catch (error) {
-      setLoginErr(true);
-      console.log(error);
-    }
-    setLoading(false);
-    if (user) {
-      navigate('/', { replace: true });
-    }
+
+    await login(email, password)
+      .then(() => {
+        console.log('passed');
+        navigate('/', { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginErr(true);
+        setLoading(false);
+      });
   };
+
+  // useEffect(() => {
+  //   const interval = setTimeout(() => {
+  //     setLoginErr(false);
+  //   }, 10000);
+  //   return () => {
+  //     clearTimeout(interval);
+  //   };
+  // }, [loginErr]);
 
   return (
     <div className="signUpContainer">
@@ -49,7 +58,7 @@ const Login = () => {
         </div>
       </div>
 
-      <form action="" className="authForm">
+      <form className="authForm">
         <div className="inputEmail">
           <EmailOutlinedIcon className="signUpIcons" />
 
@@ -60,6 +69,7 @@ const Login = () => {
             className="signUpInput"
             placeholder="name@example.com"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
         <div className="inputPassword">
@@ -71,6 +81,7 @@ const Login = () => {
             className="signUpInput"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           {!passVisStatus ? (
             <VisibilityIcon
@@ -90,7 +101,7 @@ const Login = () => {
         {loginErr && <div className="invalidCred">Invalid Credentials!!!</div>}
         <button
           className="signUpCreate"
-          onClick={(e) => handleLogin(e)}
+          onClick={handleLogin}
           disabled={password || email ? false : true}
         >
           {loading ? 'Logging...' : 'Log in'}

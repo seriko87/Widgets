@@ -25,7 +25,7 @@ const UpdateProfile = () => {
   const [newPhoto, setNewPhoto] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png'
   );
-  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -128,12 +128,13 @@ const UpdateProfile = () => {
     setMessage('');
     setError('');
     if (photo) {
-      uploadPhoto(photo, currentUser, setLoading, setNewPhoto)
+      uploadPhoto(photo, currentUser, setNewPhoto)
         .then(() => {
           setPhotoSave(false);
         })
         .catch((error) => {
-          setError('Failed to update photo');
+          setError('Failed to update photo, try different image');
+          setPhotoSave(false);
         });
     }
   };
@@ -186,6 +187,7 @@ const UpdateProfile = () => {
   const handleChangeFile = (e) => {
     setPhoto(e.target.files[0]);
     setTempPhoto(URL.createObjectURL(e.target.files[0]));
+    setPhotoSave(true);
   };
 
   useEffect(() => {
@@ -212,7 +214,17 @@ const UpdateProfile = () => {
             />
             <PhotoCameraOutlinedIcon className="photoAddIcon" />
           </label>
-
+          {photoSave && (
+            <button
+              className="saveBtnUpdatePic"
+              onClick={handlePhotoChange}
+              style={
+                !photoSave ? { bottom: -26 + 'px' } : { bottom: -2 + 'px' }
+              }
+            >
+              Save
+            </button>
+          )}
           <img
             src={tempPhoto ? tempPhoto : newPhoto}
             alt="Profile"
