@@ -9,7 +9,6 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const geo_access_token = process.env.REACT_APP_GEO_TOKEN;
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
-  let options = [];
 
   console.log(locationList);
   const config_data = {
@@ -30,7 +29,7 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
           let cords = element['geometry']['coordinates'];
           return { label: label, cords: cords, id: element.id };
         });
-        console.log(newList);
+
         setLocationList(newList);
       } catch (err) {
         console.log(err);
