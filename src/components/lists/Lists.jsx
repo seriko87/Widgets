@@ -20,7 +20,6 @@ const Lists = ({ item }) => {
       <Switch
         {...label}
         className="switchList"
-        // defaultChecked={item.status}
         checked={item.status}
         onChange={() => handleChange(item.id)}
       />

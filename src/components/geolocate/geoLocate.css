@@ -40,4 +40,31 @@
   background: transparent;
   font-size: 16px;
   cursor: pointer;
+  opacity: 0.8;
+}
+
+.getLocationBtn {
+  height: 40px;
+  color: var(--bg-color-2);
+
+  margin: 0;
+  border: none;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 66px;
+  opacity: 0.8;
+}
+.getLocationBtn:hover,
+.cancelSearch:hover {
+  opacity: 1;
+  color: var(--link-color);
 }

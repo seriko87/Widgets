@@ -13,7 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [passVisStatus, setPassVisStatus] = useState(false);
-  const [loginErr, setLoginErr] = useState(true);
+  const [loginErr, setLoginErr] = useState(false);
 
   const handleVisPass = () => {
     setPassVisStatus(!passVisStatus);

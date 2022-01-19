@@ -10,6 +10,11 @@ const GlobalReducer = (state, action) => {
           return item;
         }),
       };
+    case 'SET_USER_CORDS':
+      return {
+        ...state,
+        location: action.payload,
+      };
     default:
       return state;
   }

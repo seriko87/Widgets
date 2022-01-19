@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './geoLocate.css';
-
+import { setUserLocation } from '../../context/ApiCalls';
+import { GlobalContext } from '../../context/GlobalContext';
+import GpsFixedOutlinedIcon from '@mui/icons-material/GpsFixedOutlined';
 import Autocomplete from '@mui/material/Autocomplete';
 
 const GeoLocate = ({ setCordinates, setSearchOn }) => {
+  const { dispatch } = useContext(GlobalContext);
   const geo_access_token = process.env.REACT_APP_GEO_TOKEN;
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
@@ -41,11 +44,32 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const handleClickInput = (cords) => {
     setCordinates(`${cords[1]},${cords[0]}`);
     setLocation('');
+    setUserLocation(`${cords[1]},${cords[0]}`, dispatch);
   };
+
+  function getCurLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+
+    function showPosition(position) {
+      setUserLocation(
+        `${position.coords.latitude},${position.coords.longitude}`,
+        dispatch
+      );
+      setCordinates(`${position.coords.latitude},${position.coords.longitude}`);
+      setLocation('');
+      setLocationList([]);
+      setSearchOn(false);
+      console.log(position.coords.latitude, position.coords.longitude);
+    }
+  }
 
   return (
     <div className="searchGeo">
-      <form className="searchForm">
+      <div className="searchForm">
         <Autocomplete
           id="locationInput"
           disablePortal
@@ -80,10 +104,16 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
             setLocation(newInputValue);
           }}
         />
+        {!location && (
+          <button className="getLocationBtn" onClick={() => getCurLocation()}>
+            GPS
+            <GpsFixedOutlinedIcon fontSize="small" />
+          </button>
+        )}
         <button className="cancelSearch" onClick={() => setSearchOn(false)}>
           Cancel
         </button>
-      </form>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
-
+import { useEffect, useState, useContext } from 'react';
 import './weather.css';
 import GeoLocate from '../geolocate/GeoLocate';
 import WeatherDay from './WeatherDay';
 import WeatherBackImg from './WeatherBackImg';
 import WeatherChart from './WeatherChart';
-
 import Draggable from 'react-draggable';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const Weather = () => {
   const [weather, setWeather] = useState();
@@ -16,9 +15,15 @@ const Weather = () => {
   const [metric, setMetric] = useState(false);
   const [weatherCode, setWeatherCode] = useState();
   const [searchOn, setSearchOn] = useState(true);
-
+  const { location } = useContext(GlobalContext);
   const API_KEY = process.env.REACT_APP_RAPID_API;
 
+  useEffect(() => {
+    if (location) {
+      setCordinates(location);
+      setSearchOn(false);
+    }
+  }, []);
   const config_data = {
     method: 'GET',
     url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',

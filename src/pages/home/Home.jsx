@@ -26,7 +26,7 @@ function Home() {
       id: 'weather',
       name: 'Weather',
       status: false,
-      component: <Weather key="time" />,
+      component: <Weather key="weather" />,
     },
     {
       id: 'news',

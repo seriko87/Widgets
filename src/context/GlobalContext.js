@@ -1,9 +1,5 @@
 import { createContext, useReducer, useEffect } from 'react';
-import BlackScreen from '../components/blackScreen/BlackScreen';
-import Covid from '../components/covid/Covid';
-import News from '../components/news/News';
-import Time from '../components/time/Time';
-import Weather from '../components/weather/Weather';
+
 import GlobalReducer from './GlobalReducer';
 
 // initial state
@@ -11,13 +7,33 @@ import GlobalReducer from './GlobalReducer';
 const list = JSON.parse(localStorage.getItem('list')) || null;
 
 const initialState = {
-  location: null,
+  location: JSON.parse(localStorage.getItem('location')) || null,
   list: list || [
-    { id: 'time', status: false },
-    { id: 'weather', status: false },
-    { id: 'news', status: false },
-    { id: 'covid', status: false },
-    { id: 'blackScreen', status: false },
+    {
+      id: 'time',
+      name: 'Time',
+      status: false,
+    },
+    {
+      id: 'weather',
+      name: 'Weather',
+      status: false,
+    },
+    {
+      id: 'news',
+      name: 'News',
+      status: false,
+    },
+    {
+      id: 'covid',
+      name: 'Covid Info',
+      status: false,
+    },
+    {
+      id: 'blackScreen',
+      name: 'Black Screen',
+      status: false,
+    },
   ],
 };
 
@@ -31,6 +47,9 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(state.list));
   }, [state.list]);
+  useEffect(() => {
+    localStorage.setItem('location', JSON.stringify(state.location));
+  }, [state.location]);
 
   return (
     <GlobalContext.Provider
