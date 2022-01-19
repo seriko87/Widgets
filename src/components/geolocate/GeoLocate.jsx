@@ -3,12 +3,15 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './geoLocate.css';
 
+import Autocomplete from '@mui/material/Autocomplete';
+
 const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const geo_access_token = process.env.REACT_APP_GEO_TOKEN;
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
-  const ref = useRef();
+  let options = [];
 
+  console.log(locationList);
   const config_data = {
     method: 'GET',
     url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json`,
@@ -22,12 +25,17 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
       try {
         const res = await axios(config_data);
 
-        setLocationList(res.data.features);
+        const newList = res.data.features.map((element) => {
+          let label = element.place_name;
+          let cords = element['geometry']['coordinates'];
+          return { label: label, cords: cords, id: element.id };
+        });
+        console.log(newList);
+        setLocationList(newList);
       } catch (err) {
         console.log(err);
       }
     };
-
     location && getLocation();
   }, [location]);
 
@@ -39,42 +47,43 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   return (
     <div className="searchGeo">
       <form className="searchForm">
-        <div className="inputLocation">
-          <input
-            type="text"
-            onChange={(e) => setLocation(e.target.value)}
-            id="locationInput"
-            ref={ref}
-            list="data"
-            value={location}
-            placeholder="Search for citi or town"
-          />
-          {location && (
-            <button className="cancelSearch" onClick={() => setSearchOn(false)}>
-              Cancel
-            </button>
+        <Autocomplete
+          id="locationInput"
+          disablePortal
+          options={locationList}
+          sx={{
+            width: 410,
+            display: 'inline-block',
+            '& input': {
+              height: 40,
+              bgcolor: 'background.paper',
+              color: (theme) =>
+                theme.palette.getContrastText(theme.palette.background.paper),
+            },
+          }}
+          renderInput={(params) => (
+            <div ref={params.InputProps.ref} className="searchInputGeo">
+              <input
+                type="text"
+                {...params.inputProps}
+                placeholder="Search Location"
+              />
+            </div>
           )}
-
-          <div id="data" className="locationListResults">
-            {locationList.map((item, index) => {
-              return (
-                <div
-                  className="locationItem"
-                  key={index}
-                  value={item['place_name']}
-                  onClick={(e) => {
-                    handleClickInput(item['geometry']['coordinates']);
-                    setLocation('');
-                    setLocationList([]);
-                    setSearchOn(false);
-                  }}
-                >
-                  {item['place_name']}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+          filterOptions={(x) => x}
+          onChange={(event, newValue) => {
+            handleClickInput(newValue.cords);
+            setLocation('');
+            setLocationList([]);
+            setSearchOn(false);
+          }}
+          onInputChange={(event, newInputValue) => {
+            setLocation(newInputValue);
+          }}
+        />
+        <button className="cancelSearch" onClick={() => setSearchOn(false)}>
+          Cancel
+        </button>
       </form>
     </div>
   );

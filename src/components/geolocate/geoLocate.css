@@ -9,12 +9,14 @@
   background: transparent;
 }
 #locationInput {
-  border: none;
-  width: 100%;
+  border: none !important;
+  width: 400px;
   background-color: var(--bg-overlay);
+  padding: 0;
   padding-left: 10px;
   font-size: 16px;
-  height: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 input::placeholder {
   color: var(--font-color-3);
@@ -73,11 +75,14 @@ input::placeholder {
 .cancelSearch {
   position: absolute;
   z-index: 99;
-  right: 10px;
+  right: 6px;
   color: var(--bg-color-2);
-  top: 5px;
+  top: 10px;
   border: none;
   background: transparent;
   font-size: 16px;
   cursor: pointer;
+}
+
+.searchInputGeo {
 }
