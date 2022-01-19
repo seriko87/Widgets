@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import BlackScreen from '../components/blackScreen/BlackScreen';
 import Covid from '../components/covid/Covid';
 import News from '../components/news/News';
@@ -8,9 +8,11 @@ import GlobalReducer from './GlobalReducer';
 
 // initial state
 
+const list = JSON.parse(localStorage.getItem('list')) || null;
+
 const initialState = {
   location: null,
-  list: [
+  list: list || [
     {
       id: 'time',
       name: 'Time',
@@ -35,6 +37,10 @@ export const GlobalContext = createContext(initialState);
 //provider
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(GlobalReducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(state.list));
+  }, [state.list]);
 
   return (
     <GlobalContext.Provider
