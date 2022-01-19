@@ -166,3 +166,8 @@
 .weatherRefresh:hover {
   opacity: 1;
 }
+
+.weather3day {
+  display: flex;
+  justify-content: space-between;
+}

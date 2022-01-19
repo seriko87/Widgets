@@ -18,48 +18,6 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-input::placeholder {
-  color: var(--font-color-3);
-}
-
-#unitWeather {
-  border: none;
-}
-.weatherSubmit {
-  border: none;
-  width: 100px;
-  background-color: rgb(123, 136, 192);
-}
-.inputLocation {
-  display: flex;
-  width: inherit;
-}
-
-.locationListResults {
-  position: absolute;
-  top: 40px;
-  left: 0px;
-  width: inherit;
-  z-index: 111;
-}
-.locationItem {
-  height: 40px;
-  border-bottom: 1px solid grey;
-  background-color: white;
-  color: black;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
-.locationItem:hover {
-  cursor: pointer;
-  background-color: rgb(241, 241, 241);
-}
-
-.weather3day {
-  display: flex;
-  justify-content: space-between;
-}
 
 .searchGeo {
   position: absolute;
@@ -82,7 +40,4 @@ input::placeholder {
   background: transparent;
   font-size: 16px;
   cursor: pointer;
-}
-
-.searchInputGeo {
 }
