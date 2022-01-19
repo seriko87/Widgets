@@ -13,21 +13,11 @@ const list = JSON.parse(localStorage.getItem('list')) || null;
 const initialState = {
   location: null,
   list: list || [
-    {
-      id: 'time',
-      name: 'Time',
-      status: false,
-      component: <Time />,
-    },
-    { id: 'weather', name: 'Weather', status: false, component: <Weather /> },
-    { id: 'news', name: 'News', status: false, component: <News /> },
-    { id: 'covid', name: 'Covid Info', status: false, component: <Covid /> },
-    {
-      id: 'blackScreen',
-      name: 'Black Screen',
-      status: false,
-      component: <BlackScreen />,
-    },
+    { id: 'time', status: false },
+    { id: 'weather', status: false },
+    { id: 'news', status: false },
+    { id: 'covid', status: false },
+    { id: 'blackScreen', status: false },
   ],
 };
 
