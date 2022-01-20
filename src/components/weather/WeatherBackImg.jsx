@@ -47,7 +47,7 @@ const WeatherBackImg = ({ code, isDay }) => {
       {weatherArray && (
         <img
           className="weatherImg"
-          src={'/images/' + (isDay === 0 ? 'n_' : '') + weatherArray[0]}
+          src={isDay !== 0 ? weatherArray[2] : weatherArray[3]}
           alt="weather"
         />
       )}
