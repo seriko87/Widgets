@@ -4,6 +4,8 @@ After several small apps and tutorial web applications I decided to do my web ap
 
 Note: since some APIs are paid I had to remove some of my original widgets(crypto, sports). Actively looking for good free ones.
 
+You can check live site here: www.sashyr.com
+
 ## Used Technologies
 
 - Front-end: HTML, CSS, JavaScript, React Js
