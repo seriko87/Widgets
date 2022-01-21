@@ -4,7 +4,7 @@ import CovidChart from './CovidChart';
 import './covid.css';
 import { countries } from './countries';
 import ChartDaily from './ChartDaily';
-
+import CloseWidget from '../closeWidget/CloseWidget';
 import Draggable from 'react-draggable';
 
 const Covid = () => {
@@ -78,16 +78,8 @@ const Covid = () => {
   return (
     <Draggable handle="strong">
       <div className="chartWrapper box no-cursor">
-        <strong className="cursor">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            width="20px"
-          >
-            <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
-          </svg>
-        </strong>
+        <strong className="cursor" style={{ width: 100 + '%' }}></strong>
+        <CloseWidget id="covid" />
         <button
           onClick={() => setIsActiveChart(!isActiveChart)}
           className={

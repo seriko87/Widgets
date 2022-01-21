@@ -21,13 +21,12 @@
 }
 
 .cursor {
-  width: 20px;
   height: 20px;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  left: 0px;
+  top: 0px;
   opacity: 0.5;
-  z-index: 999;
+  z-index: 150;
 }
 .cursor:hover {
   cursor: grab;

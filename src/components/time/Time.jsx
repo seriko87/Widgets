@@ -1,11 +1,15 @@
 import './time.css';
-import Drag from '../../Draggable';
-import React, { useState, useEffect, useRef } from 'react';
+import { GlobalContext } from '../../context/GlobalContext';
+import { addRemoveList } from '../../context/ApiCalls';
+import React, { useState, useEffect } from 'react';
+
+import Draggable from 'react-draggable';
+import { useContext } from 'react';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const Time = () => {
   const [time, setTime] = useState();
-  const ref = useRef(null);
-  Drag(ref);
+  const { dispatch } = useContext(GlobalContext);
   let newTime = new Date();
   const options = {
     weekday: 'long',
@@ -30,13 +34,24 @@ const Time = () => {
     };
   }, []);
 
+  const handleChange = (id) => {
+    addRemoveList(id, dispatch);
+  };
   return (
-    <div className="timeWrapper" ref={ref}>
-      <div className="timeMain">
-        {time}
-        <div className="dateMain"> {date}</div>
+    <Draggable>
+      <div className="timeWrapper">
+        <div className="closeWidgetCont" onClick={() => handleChange('time')}>
+          <CloseOutlinedIcon
+            className="closeWidget"
+            style={{ position: 'absolute', opacity: 0.4 }}
+          />
+        </div>
+        <div className="timeMain">
+          {time}
+          <div className="dateMain"> {date}</div>
+        </div>
       </div>
-    </div>
+    </Draggable>
   );
 };
 

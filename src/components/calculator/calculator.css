@@ -7,8 +7,9 @@
   border-radius: 10px;
   padding: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
+  gap: 5px;
 }
 .calcScreen {
   height: 120px;
@@ -16,6 +17,7 @@
   background: var(--bg-overlay-1);
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
 }
 .calcNumFuncWrap {
   display: grid;
@@ -34,26 +36,44 @@
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
   border-radius: 5px;
   font-size: 16px;
+  /* border: var(--glass-border-1); */
 }
 
 .calcNum {
   background: var(--bg-overlay);
+  font-size: 18px;
 }
 .calcFunc {
   background: var(--bg-overlay-1);
 }
-
 .calcEqual {
   background: var(--link-color);
   color: white;
 }
-
-.calcMemScreen {
-  height: 80%;
-  font-size: 16px;
+.calcNum:hover {
+  background: var(--bg-overlay-1);
 }
+.calcFunc:hover {
+  background: var(--bg-overlay);
+}
+.calcFunc:active {
+  background: var(--bg-overlay-1);
+}
+.calcNum:active {
+  background: var(--bg-overlay);
+}
+.calcEqual:hover {
+  background: var(--bg-color-3);
+}
+.calcEqual:active {
+  background: var(--link-color);
+}
+
 .calcResScreen {
-  height: 110%;
-  font-size: 1fr;
+  height: 100%;
+  padding-bottom: 5px;
+  margin-right: 5px;
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }

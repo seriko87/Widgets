@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
 import './blackScreen.css';
+import CloseWidget from '../closeWidget/CloseWidget';
 
 const BlackScreen = () => {
   const [fullScreen, setFullScreen] = useState(true);
@@ -42,16 +43,8 @@ const BlackScreen = () => {
   return (
     <Draggable handle="strong">
       <div className="blackScreen ">
-        <strong className="cursor" style={{ color: 'white ' }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            width="20px"
-          >
-            <path d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" />
-          </svg>
-        </strong>
+        <strong className="cursor" style={{ width: 100 + '%' }}></strong>
+        <CloseWidget id="blackScreen" />
         {fullScreen ? (
           <button className="blcScrnBtn" onClick={(e) => openFullscreen(e)}>
             Click here to enter full screen
