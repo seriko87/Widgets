@@ -8,6 +8,7 @@ import Weather from '../../components/weather/Weather';
 import News from '../../components/news/News';
 import Covid from '../../components/covid/Covid';
 import Time from '../../components/time/Time';
+import Calculator from '../../components/calculator/Calculator';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -45,6 +46,12 @@ function Home() {
       name: 'Black Screen',
       status: false,
       component: <BlackScreen key="blackScreen" />,
+    },
+    {
+      id: 'calculator',
+      name: 'Calculator',
+      status: false,
+      component: <Calculator key="calculator" />,
     },
   ];
 

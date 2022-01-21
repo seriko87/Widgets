@@ -34,6 +34,7 @@ const initialState = {
       name: 'Black Screen',
       status: false,
     },
+    { id: 'calculator', name: 'Calculator', status: false },
   ],
 };
 
