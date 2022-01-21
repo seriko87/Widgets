@@ -89,3 +89,16 @@
   height: 40px;
   width: 40px;
 }
+
+.contactLinkContainer {
+  display: flex;
+  gap: 10px;
+}
+.contactLink {
+  color: var(--font-color-3);
+  font-size: 12px;
+}
+
+.contactLink:hover {
+  color: var(--link-color);
+}

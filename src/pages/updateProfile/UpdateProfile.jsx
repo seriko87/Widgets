@@ -23,7 +23,7 @@ const UpdateProfile = () => {
   const { currentUser } = useAuthState();
   const passRef = useRef();
   const [newPhoto, setNewPhoto] = useState(
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/240px-Missing_avatar.svg.png'
+    'https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/userImg%2FHTNHxmCPGLYBTFTy3DcUOURi1Fw1avat.png?alt=media&token=b48261ad-6dbe-401c-942b-7566f621aeb6'
   );
 
   const [error, setError] = useState('');
@@ -60,7 +60,7 @@ const UpdateProfile = () => {
   }, [email]);
 
   useEffect(() => {
-    const name = currentUser?.displayName;
+    const name = currentUser?.displayName || '';
     if (userName !== name) {
       setNameSave(true);
     } else {
@@ -129,6 +129,7 @@ const UpdateProfile = () => {
       uploadPhoto(photo, currentUser, setNewPhoto)
         .then(() => {
           setPhotoSave(false);
+          setMessage('Photo updated!');
         })
         .catch((error) => {
           setError('Failed to update photo, try different image');
@@ -239,6 +240,7 @@ const UpdateProfile = () => {
 
           <input
             className="updateProfileInput"
+            placeholder="Please enter name"
             name="name"
             type="text"
             id="name"
@@ -279,7 +281,7 @@ const UpdateProfile = () => {
             Password:{' '}
           </label>
           <input
-            placeholder="*******"
+            placeholder="Leave blank to keep same"
             className="updateProfileInput"
             name="password"
             onFocus={() => setFocus(true)}
