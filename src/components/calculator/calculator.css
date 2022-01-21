@@ -42,18 +42,40 @@
 .calcFunc {
   background: var(--bg-overlay-1);
 }
-
 .calcEqual {
   background: var(--link-color);
   color: white;
 }
+.calcNum:hover {
+  background: var(--bg-overlay-1);
+}
+.calcFunc:hover {
+  background: var(--bg-overlay);
+}
+.calcFunc:active {
+  background: var(--bg-overlay-1);
+}
+.calcNum:active {
+  background: var(--bg-overlay);
+}
+.calcEqual:hover {
+  background: var(--bg-color-3);
+}
+.calcEqual:active {
+  background: var(--link-color);
+}
 
 .calcMemScreen {
-  height: 80%;
-  font-size: 16px;
+  height: 90%;
+  font-size: 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .calcResScreen {
   height: 110%;
-  font-size: 1fr;
+  font-size: 52px;
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
