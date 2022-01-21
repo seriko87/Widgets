@@ -1,3 +1,5 @@
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+
 export const calcFunc = [
   {
     id: 'percentage',
@@ -19,7 +21,7 @@ export const calcFunc = [
   },
   {
     id: 'backspace',
-    label: '<-',
+    label: <KeyboardBackspaceOutlinedIcon />,
     className: 'calcFunc',
   },
   {
@@ -74,7 +76,7 @@ export const calcFunc = [
   },
   {
     id: 'multiply',
-    label: 'X',
+    label: 'x',
     className: 'calcFunc',
     func: (num1, num2) => {
       return num1 * num2;

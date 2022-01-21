@@ -1,47 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import Draggable from 'react-draggable';
 import './calculator.css';
 import { calcFunc } from './calfFunc';
+import CloseWidget from '../closeWidget/CloseWidget';
 
 const Calculator = () => {
   const [resNum, setResNum] = useState(0);
   const [curValue, setCurValue] = useState(0);
   const [tempValue, setTempValue] = useState(0);
   const [tempFunc, setTempFunc] = useState();
+  const [state, setState] = useState(false);
+  const [eqState, setEqState] = useState(false);
+  const [fontSize, setFontSize] = useState(52);
 
   const calculate = (func) => {
-    // if (!tempFunc) {
-    //   setTempValue(curValue);
-    //   setTempFunc({ func: func });
-    //   setCurValue(0);
-    // } else if (resNum !== 0) {
-    //   const res = tempFunc.func(tempValue, curValue);
-    //   setCurValue(0);
-    //   setTempValue(res);
-    //   setTempFunc({ func: func });
-    // } else {
-    //   setTempFunc({ func: func });
-    // }
+    setResNum(curValue);
     if (!tempFunc) {
+      setEqState(false);
       setTempValue(curValue);
-      setTempFunc({ func: func });
-      setCurValue(0);
-    } else if (resNum !== 0) {
-      const res = tempFunc.func(tempValue, curValue);
-      setCurValue(0);
-      setTempValue(res);
-      setTempFunc({ func: func });
+      setState(true);
     } else {
-      setTempFunc({ func: func });
+      if (!state) {
+        const res = tempFunc.func(tempValue, curValue);
+        setTempValue(res);
+        setEqState(false);
+      }
     }
+    setTempFunc({ func: func });
+    setCurValue(0);
   };
 
   const handleClick = (item) => {
     const func = item.func;
 
+    const num =
+      Number(curValue + item.label) === 0 ? 0 : Number(curValue + item.label);
+
     if (item.className === 'calcNum') {
-      if (!tempFunc) {
-      }
-      setCurValue(parseInt(curValue + item.label));
+      setEqState(true);
+      setCurValue(num);
+      setState(false);
     } else {
       switch (item.id) {
         case 'cancel':
@@ -52,8 +50,13 @@ const Calculator = () => {
           setTempValue(0);
           setResNum(0);
           setTempFunc(null);
+          setState(false);
+          setEqState(false);
           break;
         case 'backspace':
+          eqState
+            ? setCurValue(Number(curValue.toString().slice(0, -1)))
+            : setCurValue(curValue);
           break;
         case 'percentage':
           setCurValue(curValue / 100);
@@ -82,53 +85,73 @@ const Calculator = () => {
         case 'equal':
           if (!tempFunc) {
             break;
-          } else if (curValue !== 0) {
-            const res = tempFunc.func(tempValue, curValue);
-            setCurValue(0);
-            setTempValue(res);
-            setTempFunc({ func: func });
           } else {
-            setTempFunc({ func: func });
-          }
+            if (curValue === resNum) {
+              const res = tempFunc.func(tempValue, resNum);
+              setResNum(curValue);
+              setTempValue(res);
+              setEqState(false);
+            } else {
+              const res = tempFunc.func(tempValue, curValue);
 
+              setTempValue(res);
+              setEqState(false);
+            }
+          }
           break;
+        case 'negPoz':
+          eqState ? setCurValue(curValue * -1) : setTempValue(tempValue * -1);
+          break;
+        case 'dot':
+          curValue.toString().includes('.')
+            ? setCurValue(curValue)
+            : setCurValue(curValue.toString() + '.');
+          break;
+
         default:
           break;
       }
     }
   };
-  console.log({
-    curVal: curValue,
-    tempVal: tempValue,
-    res: resNum,
-    func: tempFunc,
-  });
-  //    useEffect(() => {
-  //         setResult()
-  //   }, [result])
 
-  console.log(Math.pow(100, 1));
+  useEffect(() => {
+    let curLeng =
+      curValue.toString().length > tempValue.toString().length
+        ? curValue.toString().length
+        : tempValue.toString().length;
+    if (curLeng > 11) {
+      setFontSize((52 * 11) / curLeng);
+    } else {
+      setFontSize(52);
+    }
+  }, [curValue, tempValue]);
+
   return (
-    <div className="calcContainer">
-      <div className="calcScreen">
-        <div className="calcMemScreen">{resNum}</div>
-        <div className="calcResScreen">
-          {curValue !== 0 ? curValue : tempValue}
+    <Draggable handle="strong">
+      <div className="calcContainer box no-cursor">
+        <strong className="cursor" style={{ width: 100 + '%' }}></strong>
+        <CloseWidget id="calculator" />
+
+        <div className="calcScreen">
+          <div className="calcResScreen" style={{ fontSize: fontSize + 'px' }}>
+            {!eqState ? tempValue : curValue}
+          </div>
+        </div>
+        <div className="calcNumFuncWrap">
+          {calcFunc.map((item) => {
+            return (
+              <button
+                className={item.className}
+                onClick={() => handleClick(item)}
+                key={item.id}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
       </div>
-      <div className="calcNumFuncWrap">
-        {calcFunc.map((item) => {
-          return (
-            <button
-              className={item.className}
-              onClick={() => handleClick(item)}
-            >
-              {item.label}
-            </button>
-          );
-        })}
-      </div>
-    </div>
+    </Draggable>
   );
 };
 

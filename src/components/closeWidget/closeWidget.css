@@ -1,0 +1,19 @@
+.closeWidgetCont {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  opacity: 0.5;
+  z-index: 999;
+}
+
+.closeWidget {
+  color: var(--font-color-3);
+  height: 24px;
+}
+.closeWidget:hover {
+  color: red;
+  opacity: 1;
+  cursor: pointer;
+}

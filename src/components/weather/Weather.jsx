@@ -8,6 +8,8 @@ import WeatherBackImg from './WeatherBackImg';
 import WeatherChart from './WeatherChart';
 import Draggable from 'react-draggable';
 import { GlobalContext } from '../../context/GlobalContext';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { addRemoveList } from '../../context/ApiCalls';
 
 const Weather = () => {
   const [weather, setWeather] = useState();
@@ -15,7 +17,7 @@ const Weather = () => {
   const [metric, setMetric] = useState(false);
   const [weatherCode, setWeatherCode] = useState();
   const [searchOn, setSearchOn] = useState(true);
-  const { location } = useContext(GlobalContext);
+  const { location, dispatch } = useContext(GlobalContext);
   const API_KEY = process.env.REACT_APP_RAPID_API;
 
   useEffect(() => {
@@ -52,6 +54,9 @@ const Weather = () => {
     cordinates && getWeather();
   }, [cordinates]);
 
+  const handleChange = (id) => {
+    addRemoveList(id, dispatch);
+  };
   return (
     <Draggable handle="strong">
       <div className="weatherMain">
@@ -88,6 +93,10 @@ const Weather = () => {
                   </svg>
                 </button>
               </span>
+              <strong
+                className="cursor"
+                style={{ width: 280 + 'px', zIndex: 0, top: 5 + 'px' }}
+              ></strong>
               <div className="chooseMetric">
                 <button className="weatherRefresh" onClick={() => getWeather()}>
                   <svg
@@ -112,10 +121,25 @@ const Weather = () => {
                 >
                   °C
                 </button>
+                <div
+                  className="closeWidgetCont"
+                  onClick={() => handleChange('weather')}
+                  style={{
+                    position: 'relative',
+                    width: 30 + 'px',
+                    right: -3 + 'px',
+                    top: 2 + 'px',
+                  }}
+                >
+                  <CloseOutlinedIcon
+                    className="closeWidget"
+                    style={{ color: 'white' }}
+                  />
+                </div>
               </div>
             </div>
             <div className="weatherIconsWrapper">
-              {weather && (
+              {!weather && (
                 <strong className="cursor">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
