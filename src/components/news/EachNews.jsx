@@ -21,16 +21,6 @@ const EachNews = ({ newss }) => {
     ? item.provider[0].image.thumbnail.contentUrl.split('&')[0]
     : imgPlaceholder;
 
-  //   const opt = pubDate.toLocaleString([], {
-  //     hour: 'numeric',
-  //     hour12: false,
-  //     minute: 'numeric',
-  //     weekday: 'long',
-  //     year: 'numeric',
-  //     month: 'long',
-  //     day: 'numeric',
-  //   });
-
   return (
     <div className="indiNews">
       <img src={imgUrl} alt={topic} />

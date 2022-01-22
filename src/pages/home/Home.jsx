@@ -33,7 +33,7 @@ function Home() {
       id: 'news',
       name: 'News',
       status: false,
-      component: <News key="weather" />,
+      component: <News key="news" />,
     },
     {
       id: 'covid',
