@@ -7,12 +7,12 @@
   border-radius: 10px;
   padding: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   flex-direction: column;
   gap: 5px;
 }
 .calcScreen {
-  height: 120px;
+  height: 100px;
   width: 100%;
   background: var(--bg-overlay-1);
   display: flex;
