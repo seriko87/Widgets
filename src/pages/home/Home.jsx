@@ -43,7 +43,7 @@ function Home() {
     },
     {
       id: 'blackScreen',
-      name: 'Black Screen',
+      name: 'Colorfull Screen',
       status: false,
       component: <BlackScreen key="blackScreen" />,
     },
