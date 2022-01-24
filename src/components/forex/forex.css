@@ -1,10 +1,15 @@
 .forexContainer {
   width: 400px;
-  height: 400px;
+  height: 450px;
   background: var(--bg-overlay-2);
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10xp;
 }
 .searchInputForex {
 }
@@ -21,4 +26,52 @@
 }
 
 .searchInputForex {
+}
+.forexTitle {
+  height: 150px;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tabContainer {
+  height: 100%;
+}
+.tabListForex {
+  display: flex;
+  width: 100%;
+}
+
+.tabListForex button {
+  width: 100%;
+  height: 100px;
+}
+
+.forexIcon {
+  width: 39.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  background: var(--bg-overlay-1);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
+}
+.forexPrice {
+  width: 59.5%;
+  background: var(--bg-overlay-1);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
+  height: 100%;
+}
+.forexIcon img {
+  width: 64px;
+}
+.forexIcon span {
+  text-align: center;
 }
