@@ -1,4 +1,5 @@
 const GlobalReducer = (state, action) => {
+  console.log(action.payload);
   switch (action.type) {
     case 'ADD_REMOVE_WIDGET':
       return {
@@ -14,6 +15,18 @@ const GlobalReducer = (state, action) => {
       return {
         ...state,
         location: action.payload,
+      };
+    case 'ADD_CRYPTO':
+      return {
+        ...state,
+        cryptoData: [...state.cryptoData, action.payload],
+      };
+    case 'REMOVE_CRYPTO':
+      return {
+        ...state,
+        cryptoData: state.cryptoData.filter(
+          (item) => item.id !== action.payload
+        ),
       };
     default:
       return state;

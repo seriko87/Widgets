@@ -1,0 +1,96 @@
+.cryptoContainer {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.cryptoIconWrap {
+  width: 29.8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  background: var(--bg-gradient-1);
+  border-radius: 5px 0 0 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
+}
+.cryptoInfoContainer {
+  width: 69.9%;
+  background: var(--bg-gradient-1);
+  border-radius: 0 5px 5px 0;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
+  height: 100%;
+}
+.cryptoIconWrap img {
+  width: 64px;
+  height: 64px;
+}
+.cryptoIconWrap span {
+  text-align: center;
+}
+
+.priceUp {
+  color: var(--color-alert-1);
+  font-size: 16px;
+}
+.priceDown {
+  color: var(--color-alert);
+  font-size: 16px;
+}
+
+.cryptoPrice {
+  font-size: 36px;
+}
+.cryptoPriceWrap {
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom: 1px solid var(--bg-overlay-1);
+}
+.cryptoOtherInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+.cryptoRank {
+  font-size: 24px;
+}
+
+.cryptoOtherWrap {
+  display: flex;
+  height: 78px;
+  justify-content: space-between;
+}
+.cryptoRankTitle {
+  font-size: 14px;
+}
+.cryptoOtherCap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.deleteIconCrypto {
+  color: var(--color-alert);
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.1;
+  cursor: pointer;
+}
+.deleteIconCrypto:hover {
+  opacity: 1;
+}

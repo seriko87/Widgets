@@ -9,6 +9,7 @@ import News from '../../components/news/News';
 import Covid from '../../components/covid/Covid';
 import Time from '../../components/time/Time';
 import Calculator from '../../components/calculator/Calculator';
+import Forex from '../../components/forex/Forex';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -43,7 +44,7 @@ function Home() {
     },
     {
       id: 'blackScreen',
-      name: 'Black Screen',
+      name: 'Colorfull Screen',
       status: false,
       component: <BlackScreen key="blackScreen" />,
     },
@@ -52,6 +53,12 @@ function Home() {
       name: 'Calculator',
       status: false,
       component: <Calculator key="calculator" />,
+    },
+    {
+      id: 'forex',
+      name: 'Stocks',
+      status: false,
+      component: <Forex key="forex" />,
     },
   ];
 

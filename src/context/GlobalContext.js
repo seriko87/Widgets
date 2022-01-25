@@ -26,10 +26,11 @@ const newList = [
   },
   {
     id: 'blackScreen',
-    name: 'Black Screen',
+    name: 'Colorfull Screen',
     status: false,
   },
   { id: 'calculator', name: 'Calculator', status: false },
+  { id: 'forex', name: 'Stocks', status: false },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;
@@ -37,13 +38,15 @@ let list = JSON.parse(localStorage.getItem('list')) || null;
 if (list) {
   if (list.length < newList.length) {
     list = newList;
-    console.log(true);
   }
+} else {
+  list = [...newList];
 }
 
 const initialState = {
   location: JSON.parse(localStorage.getItem('location')) || null,
-  list: list || newList,
+  list: list,
+  cryptoData: [],
 };
 
 //create context
@@ -66,6 +69,7 @@ export const GlobalProvider = ({ children }) => {
         user: state.user,
         location: state.location,
         list: state.list,
+        cryptoData: state.cryptoData,
         dispatch,
       }}
     >

@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts';
+import { numberFormatter } from '../../functions/functions';
 
 const ChartDaily = ({ dData, activeTab }) => {
   let newData = dData && dData.slice(-1);
@@ -28,18 +29,6 @@ const ChartDaily = ({ dData, activeTab }) => {
       });
     }
     casess.shift();
-  }
-
-  // formatting the Y axis of chart
-  function kFormatter(num) {
-    if (num >= 1000000) {
-      return (Math.abs(num) / 1000000).toFixed(1) + 'm';
-    }
-    if (num < 1000000 && num > 999) {
-      return (Math.abs(num) / 1000).toFixed(1) + 'k';
-    }
-
-    return num;
   }
 
   const CustomTooltip = ({ active, payload }) => {
@@ -77,7 +66,7 @@ const ChartDaily = ({ dData, activeTab }) => {
           <XAxis dataKey="d_date" />
           <YAxis
             tickFormatter={(e) => {
-              return kFormatter(e);
+              return numberFormatter(e);
             }}
           />
           <Tooltip content={<CustomTooltip />} />
@@ -108,7 +97,7 @@ const ChartDaily = ({ dData, activeTab }) => {
           <XAxis dataKey="d_date" />
           <YAxis
             tickFormatter={(e) => {
-              return kFormatter(e);
+              return numberFormatter(e);
             }}
           />
           <Tooltip content={<CustomTooltip />} />

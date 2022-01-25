@@ -12,6 +12,7 @@ const Calculator = () => {
   const [state, setState] = useState(false);
   const [eqState, setEqState] = useState(false);
   const [fontSize, setFontSize] = useState(52);
+  const [funcId, setFuncId] = useState('');
 
   const calculate = (func) => {
     setResNum(curValue);
@@ -29,7 +30,7 @@ const Calculator = () => {
     setTempFunc({ func: func });
     setCurValue(0);
   };
-
+  console.log(funcId);
   const handleClick = (item) => {
     const func = item.func;
 
@@ -52,6 +53,7 @@ const Calculator = () => {
           setTempFunc(null);
           setState(false);
           setEqState(false);
+          setFuncId(false);
           break;
         case 'backspace':
           eqState
@@ -59,7 +61,11 @@ const Calculator = () => {
             : setCurValue(curValue);
           break;
         case 'percentage':
-          setCurValue(curValue / 100);
+          console.log(tempFunc);
+          funcId
+            ? setCurValue(curValue / 100)
+            : setCurValue((curValue * tempValue) / 100);
+
           break;
         case 'divideOne':
           setCurValue(1 / curValue);
@@ -110,6 +116,13 @@ const Calculator = () => {
 
         default:
           break;
+      }
+    }
+    if (item.className === 'calcFunc') {
+      if (item.id === 'multiply' || item.id === 'divide') {
+        setFuncId(true);
+      } else {
+        setFuncId(false);
       }
     }
   };

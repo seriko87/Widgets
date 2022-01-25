@@ -1,0 +1,94 @@
+.crypMainContainer {
+  width: 400px;
+  height: fit-content;
+  background: var(--bg-color-4);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
+}
+.searchInputForex {
+}
+
+#cryptoInput {
+  border: none !important;
+  width: 390px;
+  background-color: var(--bg-overlay);
+  padding: 0;
+  padding-left: 10px;
+  font-size: 16px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.searchInputForex {
+}
+
+.cryptoAddBtn {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: var(--font-color-3);
+  position: absolute;
+  right: 70px;
+  cursor: pointer;
+}
+.cryptoCancelBtn {
+  width: 60px;
+  height: 40px;
+  border: none;
+  color: var(--font-color-3);
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.cryptoCancelBtn:hover {
+  background: var(--color-alert);
+  color: var(--font-color-2);
+  opacity: 0.7;
+}
+.cryptoAddBtn:hover {
+  background: var(--color-alert-1);
+  color: var(--font-color-2);
+  opacity: 0.7;
+}
+
+.cryptoAlert {
+  position: absolute;
+  height: 100px;
+  width: 400px;
+  border-radius: 5px;
+  color: var(--color-alert);
+  font-size: 18px;
+  background: var(--bg-overlay);
+
+  top: 50px;
+  left: 5px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+}
+.cryptoSearchBtn {
+  border: none;
+  background: transparent;
+  width: 50px;
+  color: var(--font-color-3);
+  cursor: pointer;
+  height: 23px;
+  display: flex;
+  justify-content: flex-start;
+  opacity: 0.7;
+}
+.cryptoSearchBtn:hover {
+  opacity: 1;
+}
