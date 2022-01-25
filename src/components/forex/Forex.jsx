@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-
+import CloseWidget from '../closeWidget/CloseWidget';
 import Autocomplete from '@mui/material/Autocomplete';
 import './forex.css';
 import Crypto from './Crypto';
 import { forexData } from './forexData';
-
+import { GlobalContext } from '../../context/GlobalContext';
+import { addCryptoList } from '../../context/ApiCalls';
+import Draggable from 'react-draggable';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 const Forex = () => {
   const [crypto, setCrypto] = useState('');
   const [token, setToken] = useState('');
+  const [alert, setAlert] = useState('');
+  const [searchOn, setSearchOn] = useState(false);
+  const { cryptoData, dispatch } = useContext(GlobalContext);
 
   const RAPID_KEY = process.env.REACT_APP_RAPID_API;
 
@@ -39,37 +45,113 @@ const Forex = () => {
     getToken();
   }, []);
 
+  const handleAdd = () => {
+    if (cryptoData.length >= 3) {
+      setAlert('Please remove one of crypto first');
+    } else {
+      if (crypto === '') {
+        setAlert('Please search and select crypto first');
+      } else {
+        let check;
+        cryptoData.forEach((item) => {
+          if (item.id === crypto.id) {
+            check = true;
+          } else {
+            check = false;
+          }
+        });
+
+        if (check) {
+          setAlert('This crypto already added');
+        } else {
+          addCryptoList(crypto, dispatch);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setAlert('');
+    }, 5000);
+    return () => {
+      clearTimeout(interval);
+    };
+  }, [alert]);
+
   return (
-    <div className="forexContainer">
-      <Autocomplete
-        id="cryptoInput"
-        disablePortal
-        options={forexData}
-        sx={{
-          width: 400,
-          display: 'inline-block',
-          '& input': {
-            height: 40,
-            bgcolor: 'background.paper',
-            color: (theme) =>
-              theme.palette.getContrastText(theme.palette.background.paper),
-          },
-        }}
-        renderInput={(params) => (
-          <div ref={params.InputProps.ref} className="searchInputForex">
-            <input
-              type="text"
-              {...params.inputProps}
-              placeholder="Search Crypto"
-            />
-          </div>
+    <Draggable handle="strong">
+      <div className="crypMainContainer box no-cursor">
+        <strong
+          className="cursor"
+          style={{ width: 80 + '%', left: 50 + 'px' }}
+        ></strong>
+        <CloseWidget id={'forex'} />
+
+        {!searchOn && (
+          <button
+            onClick={() => {
+              setSearchOn(true);
+            }}
+            className="cryptoSearchBtn"
+          >
+            <SearchOutlinedIcon />
+          </button>
         )}
-        onChange={(event, item) => {
-          setCrypto(item);
-        }}
-      />
-      {crypto && <Crypto token={token} crypto={crypto} />}
-    </div>
+
+        {searchOn && (
+          <>
+            <button onClick={handleAdd} className="cryptoAddBtn">
+              Add
+            </button>
+            <button
+              onClick={() => {
+                setSearchOn(false);
+              }}
+              className="cryptoCancelBtn"
+            >
+              Cancel
+            </button>
+            <Autocomplete
+              id="cryptoInput"
+              disablePortal
+              options={forexData}
+              sx={{
+                width: 400,
+                display: 'inline-block',
+                '& input': {
+                  height: 40,
+                  bgcolor: 'background.paper',
+                  color: (theme) =>
+                    theme.palette.getContrastText(
+                      theme.palette.background.paper
+                    ),
+                },
+              }}
+              renderInput={(params) => (
+                <div ref={params.InputProps.ref} className="searchInputForex">
+                  <input
+                    type="text"
+                    {...params.inputProps}
+                    placeholder="Search Crypto"
+                  />
+                </div>
+              )}
+              onChange={(event, item) => {
+                setCrypto(item);
+              }}
+            />
+          </>
+        )}
+
+        {alert && <div className="cryptoAlert">{alert}</div>}
+
+        {token &&
+          cryptoData.map((item) => {
+            return <Crypto token={token} crypto={item} />;
+          })}
+      </div>
+    </Draggable>
   );
 };
 

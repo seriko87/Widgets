@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './crypto.css';
 import axios from 'axios';
 import { formatPrice, numberFormatter } from '../../functions/functions';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+import { GlobalContext } from '../../context/GlobalContext';
+import { remCryptoList } from '../../context/ApiCalls';
 
 const Crypto = ({ crypto, token }) => {
+  const { dispatch } = useContext(GlobalContext);
   const [priChange, setPriChange] = useState();
   const [cryptoPrice, setCryptoPrice] = useState();
   const [price, setPrice] = useState();
-  const { label, icon, symbol } = crypto;
+  const { label, icon, symbol, id } = crypto;
   const [formattedPrice, setFormattedPrice] = useState(0);
   const [fontSize, setFontSize] = useState(36);
   const RAPID_KEY = process.env.REACT_APP_RAPID_API;
@@ -51,15 +55,25 @@ const Crypto = ({ crypto, token }) => {
   useEffect(() => {
     let curLeng = formattedPrice.length;
 
-    if (curLeng > 10) {
+    if (curLeng >= 10) {
       setFontSize(25);
+    } else if (curLeng > 7 && curLeng < 10) {
+      setFontSize(30);
     } else {
       setFontSize(36);
     }
   }, [formattedPrice]);
 
+  const handleDel = (id) => {
+    remCryptoList(id, dispatch);
+  };
+
   return (
     <div className="cryptoContainer">
+      <DeleteForeverOutlinedIcon
+        className="deleteIconCrypto"
+        onClick={() => handleDel(id)}
+      />
       <div className="cryptoIconWrap">
         <img src={icon} alt={label} />
         <span>{label + '-' + symbol}</span>

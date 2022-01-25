@@ -46,6 +46,7 @@ if (list) {
 const initialState = {
   location: JSON.parse(localStorage.getItem('location')) || null,
   list: list,
+  cryptoData: [],
 };
 
 //create context
@@ -68,6 +69,7 @@ export const GlobalProvider = ({ children }) => {
         user: state.user,
         location: state.location,
         list: state.list,
+        cryptoData: state.cryptoData,
         dispatch,
       }}
     >
