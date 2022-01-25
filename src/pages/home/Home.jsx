@@ -56,7 +56,7 @@ function Home() {
     },
     {
       id: 'forex',
-      name: 'Stocks',
+      name: 'Crypto Prices',
       status: false,
       component: <Forex key="forex" />,
     },
