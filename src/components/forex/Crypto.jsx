@@ -50,6 +50,15 @@ const Crypto = ({ crypto, token }) => {
   };
   useEffect(() => {
     getCryptoPrice(crypto.id);
+  }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getCryptoPrice(crypto.id);
+      console.log('updated');
+    }, 300001);
+    return () => {
+      clearInterval(interval);
+    };
   }, [crypto.id]);
 
   useEffect(() => {

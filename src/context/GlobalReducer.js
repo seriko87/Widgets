@@ -1,5 +1,4 @@
 const GlobalReducer = (state, action) => {
-  console.log(action.payload);
   switch (action.type) {
     case 'ADD_REMOVE_WIDGET':
       return {

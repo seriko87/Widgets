@@ -30,7 +30,7 @@ const newList = [
     status: false,
   },
   { id: 'calculator', name: 'Calculator', status: false },
-  { id: 'forex', name: 'Stocks', status: false },
+  { id: 'forex', name: 'Crypto Prices', status: false },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;

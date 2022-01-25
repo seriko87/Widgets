@@ -6,6 +6,8 @@ Note: since some APIs are paid I had to remove some of my original widgets(crypt
 
 You can check live site here: www.sashyr.com
 
+This website is intended for desktop or big screen use.
+
 ## Used Technologies
 
 - Front-end: HTML, CSS, JavaScript, React Js
@@ -17,7 +19,7 @@ You can check live site here: www.sashyr.com
 ### Current Features
 
 - Working user authentication
-- Five widgets(Covid tracker, Weather, News, Clock, Black Screen)
+- Seven widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices)
 - Night mode
 
 ### Coming Soon

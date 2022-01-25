@@ -86,17 +86,19 @@ const Forex = () => {
           className="cursor"
           style={{ width: 80 + '%', left: 50 + 'px' }}
         ></strong>
-        <CloseWidget id={'forex'} />
 
         {!searchOn && (
-          <button
-            onClick={() => {
-              setSearchOn(true);
-            }}
-            className="cryptoSearchBtn"
-          >
-            <SearchOutlinedIcon />
-          </button>
+          <>
+            <button
+              onClick={() => {
+                setSearchOn(true);
+              }}
+              className="cryptoSearchBtn"
+            >
+              <SearchOutlinedIcon />
+            </button>
+            <CloseWidget id={'forex'} />
+          </>
         )}
 
         {searchOn && (
@@ -145,7 +147,18 @@ const Forex = () => {
         )}
 
         {alert && <div className="cryptoAlert">{alert}</div>}
-
+        {cryptoData.length === 0 && (
+          <div className="cryptoContainerBtn">
+            <button
+              className="cryptoAddBtnMain"
+              onClick={() => {
+                setSearchOn(true);
+              }}
+            >
+              Search and Add Cryptocurrency
+            </button>
+          </div>
+        )}
         {token &&
           cryptoData.map((item) => {
             return <Crypto token={token} crypto={item} />;
