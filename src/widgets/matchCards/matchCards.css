@@ -1,7 +1,139 @@
 .matchGameCont {
   width: 400px;
-  height: 500px;
+  height: 506px;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   border-radius: 10px;
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.matchControlsCont {
+  height: 80px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  margin-top: 24px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.matchCardsCont {
+  width: 100%;
+  border: none;
+  background: transparent;
+  height: 395px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 4px;
+}
+.matchStartBtn {
+  border: none;
+  height: 100%;
+  width: 100px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.9;
+  background: var(--color-alert-1);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+}
+
+.matchStartBtn:hover {
+  opacity: 1;
+}
+.matchStartBtn:disabled,
+.matchStartBtn[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.matchTotalMoves,
+.matchCardsLeft {
+  width: 146px;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 18px;
+  flex-direction: column;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.13);
+  position: relative;
+  overflow: hidden;
+}
+.matchProgress {
+  position: absolute;
+  height: 80px;
+  left: 0;
+  border-radius: 5;
+  display: block;
+  background: var(--color-alert-1);
+  opacity: 0.3;
+}
+.matchNumbers {
+  font-size: 22px;
+}
+
+.matchCard {
+  height: 100%;
+  width: 100%;
+  /* border: var(--glass-border-1); */
+  border: none;
+  border-radius: 5px;
+  background: var(--bg-gradient-1);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  color: var(--font-color);
+  padding: 0;
+  display: flex;
+}
+.matchCard:hover {
+  background: var(--bg-overlay-1);
+}
+.matchCard:active {
+  background: var(--bg-gradient-1);
+}
+.matchCard:disabled,
+.matchCard[disabled] {
+  background: var(--bg-gradient-1);
+  cursor: default;
+}
+
+.matchImg {
+  color: var(--font-color-1);
+  opacity: 1;
+}
+.matchCardWrap {
+  background: var(--link-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97px;
+  height: 95.75px;
+  border-radius: 5px;
+}
+.matchCardWrap1 {
+  background: var(--font-color-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97px;
+  height: 95.75px;
+  border-radius: 5px;
+}
+
+.matchCardWrap1 svg {
+  width: 46px;
+  height: 46px;
 }
