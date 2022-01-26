@@ -115,6 +115,7 @@ const Forex = () => {
               Cancel
             </button>
             <Autocomplete
+              selectOnFocus
               id="cryptoInput"
               disablePortal
               options={forexData}
@@ -161,7 +162,7 @@ const Forex = () => {
         )}
         {token &&
           cryptoData.map((item) => {
-            return <Crypto token={token} crypto={item} />;
+            return <Crypto token={token} crypto={item} key={item.label} />;
           })}
       </div>
     </Draggable>

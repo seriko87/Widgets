@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import './profile.css';
 import { logout } from '../../firebase';
 import Lists from '../lists/Lists';
-
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 const Profile = ({ user, setProOpenClose }) => {
   const { list } = useContext(GlobalContext);
@@ -49,7 +50,7 @@ const Profile = ({ user, setProOpenClose }) => {
           target="_blank"
           rel="noreferrer"
         >
-          Contact
+          <MailOutlineIcon />
         </a>
         <a
           href="https://github.com/seriko87/rapid_info"
@@ -57,7 +58,7 @@ const Profile = ({ user, setProOpenClose }) => {
           rel="noreferrer"
           className="contactLink"
         >
-          GitHub
+          <GitHubIcon />
         </a>
       </div>
     </div>

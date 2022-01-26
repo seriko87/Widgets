@@ -31,34 +31,35 @@
 }
 
 .cryptoAddBtn {
-  width: 40px;
+  width: 45px;
   height: 40px;
   background: transparent;
   border: none;
-  color: var(--font-color-3);
+  opacity: 0.7;
   position: absolute;
-  right: 70px;
+  right: 65px;
   cursor: pointer;
+  background: var(--color-alert-1);
+  color: white;
 }
 .cryptoCancelBtn {
   width: 60px;
   height: 40px;
   border: none;
-  color: var(--font-color-3);
+  opacity: 0.7;
   position: absolute;
-  right: 10px;
+  right: 5px;
   background: transparent;
   cursor: pointer;
+  background: var(--color-alert);
+  color: white;
+  border-radius: 0 10px 0 0;
 }
 .cryptoCancelBtn:hover {
-  background: var(--color-alert);
-  color: var(--font-color-2);
-  opacity: 0.7;
+  opacity: 1;
 }
 .cryptoAddBtn:hover {
-  background: var(--color-alert-1);
-  color: var(--font-color-2);
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .cryptoAlert {

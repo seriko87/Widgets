@@ -10,6 +10,14 @@
   border-radius: 5px;
 }
 
+.signUpMainCont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .signUpTitle {
   font-size: 35px;
   text-align: center;

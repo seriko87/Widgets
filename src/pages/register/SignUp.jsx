@@ -77,131 +77,136 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signUpContainer">
-      <div className="signUpHeader">
-        <div className="signUpTitle">Sign up</div>
-        <div className="logInInfo">
-          Already have an account?{' '}
-          <Link to="/login" className="goLogIn">
-            Log in
-          </Link>
+    <div className="signUpMainCont">
+      <div className="signUpContainer">
+        <div className="signUpHeader">
+          <div className="signUpTitle">Sign up</div>
+          <div className="logInInfo">
+            Already have an account?{' '}
+            <Link to="/login" className="goLogIn">
+              Log in
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <form action="" className="authForm">
-        <div className="inputEmail">
-          <EmailOutlinedIcon
-            className="signUpIcons"
-            style={emailCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
-          />
+        <form action="" className="authForm">
+          <div className="inputEmail">
+            <EmailOutlinedIcon
+              className="signUpIcons"
+              style={emailCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
+            />
 
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            name="email"
-            className="signUpInput"
-            placeholder="name@example.com"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="inputPassword">
-          <LockOutlinedIcon
-            className="signUpIcons"
-            style={passCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type={passVisStatus ? 'text' : 'password'}
-            name="password"
-            className="signUpInput"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            onFocus={() => setFocus(true)}
-            onBlur={() => setFocus(false)}
-            ref={ref}
-          />
-          {!passVisStatus ? (
-            <VisibilityIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
+            <label htmlFor="email">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              className="signUpInput"
+              placeholder="name@example.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
-          ) : (
-            <VisibilityOffIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
+          </div>
+          <div className="inputPassword">
+            <LockOutlinedIcon
+              className="signUpIcons"
+              style={passCorrect ? { color: 'rgb(13, 124, 13)' } : {}}
             />
-          )}
-          {hasFocus ? (
-            <div className="passInfo">
-              <div className="triangle"></div>
-              {passText.map((item, index) => {
-                return (
-                  <>
-                    <PasswordContainer
-                      pass={password}
-                      item={item}
-                      setPassCorrect={setPassCorrect}
-                      key={index}
-                    />{' '}
-                  </>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
-        <div className="inputPassword">
-          <LockOutlinedIcon
-            className="signUpIcons"
-            style={
-              rePassword && password === rePassword
-                ? { color: 'rgb(13, 124, 13)' }
-                : {}
-            }
-          />
-          <label htmlFor="passwordRepeat">Repeat Password</label>
-          <input
-            type={passVisStatus ? 'text' : 'password'}
-            name="passwordRepeat"
-            className="signUpInput"
-            placeholder="Repeat Password"
-            onChange={(e) => setRePassword(e.target.value)}
-          />
-          {!passVisStatus ? (
-            <VisibilityIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
+            <label htmlFor="password">Password</label>
+            <input
+              type={passVisStatus ? 'text' : 'password'}
+              name="password"
+              className="signUpInput"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              onFocus={() => setFocus(true)}
+              onBlur={() => setFocus(false)}
+              ref={ref}
             />
-          ) : (
-            <VisibilityOffIcon
-              className="visibility"
-              onClick={() => handleVisPass()}
+            {!passVisStatus ? (
+              <VisibilityIcon
+                className="visibility"
+                onClick={() => handleVisPass()}
+              />
+            ) : (
+              <VisibilityOffIcon
+                className="visibility"
+                onClick={() => handleVisPass()}
+              />
+            )}
+            {hasFocus ? (
+              <div className="passInfo">
+                <div className="triangle"></div>
+                {passText.map((item, index) => {
+                  return (
+                    <>
+                      <PasswordContainer
+                        pass={password}
+                        item={item}
+                        setPassCorrect={setPassCorrect}
+                        key={index}
+                      />{' '}
+                    </>
+                  );
+                })}
+              </div>
+            ) : null}
+          </div>
+          <div className="inputPassword">
+            <LockOutlinedIcon
+              className="signUpIcons"
+              style={
+                rePassword && password === rePassword
+                  ? { color: 'rgb(13, 124, 13)' }
+                  : {}
+              }
             />
-          )}
-        </div>
-        {loginErr && <div className="invalidCred">User already exist!!!</div>}
-        <button
-          className="signUpCreate"
-          onClick={handleCreate}
-          disabled={formCorrect ? false : true}
-        >
-          {loading ? 'Submitting...' : 'Create an account'}
-        </button>
-      </form>
-
-      <div className="signUpInfo">
-        <div>
-          This site is protected by reCAPTCHA and the Google <br />
-          <a
-            href="https://policies.google.com/privacy?hl=en"
-            className="goLogIn"
+            <label htmlFor="passwordRepeat">Repeat Password</label>
+            <input
+              type={passVisStatus ? 'text' : 'password'}
+              name="passwordRepeat"
+              className="signUpInput"
+              placeholder="Repeat Password"
+              onChange={(e) => setRePassword(e.target.value)}
+            />
+            {!passVisStatus ? (
+              <VisibilityIcon
+                className="visibility"
+                onClick={() => handleVisPass()}
+              />
+            ) : (
+              <VisibilityOffIcon
+                className="visibility"
+                onClick={() => handleVisPass()}
+              />
+            )}
+          </div>
+          {loginErr && <div className="invalidCred">User already exist!!!</div>}
+          <button
+            className="signUpCreate"
+            onClick={handleCreate}
+            disabled={formCorrect ? false : true}
           >
-            Privacy Policy
-          </a>{' '}
-          and{' '}
-          <a href="https://policies.google.com/terms?hl=en" className="goLogIn">
-            Terms of Service
-          </a>{' '}
-          apply
+            {loading ? 'Submitting...' : 'Create an account'}
+          </button>
+        </form>
+
+        <div className="signUpInfo">
+          <div>
+            This site is protected by reCAPTCHA and the Google <br />
+            <a
+              href="https://policies.google.com/privacy?hl=en"
+              className="goLogIn"
+            >
+              Privacy Policy
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://policies.google.com/terms?hl=en"
+              className="goLogIn"
+            >
+              Terms of Service
+            </a>{' '}
+            apply
+          </div>
         </div>
       </div>
     </div>
