@@ -10,6 +10,7 @@ import Covid from '../../components/covid/Covid';
 import Time from '../../components/time/Time';
 import Calculator from '../../components/calculator/Calculator';
 import Forex from '../../components/forex/Forex';
+import MatchCards from '../../widgets/matchCards/MatchCards';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -59,6 +60,12 @@ function Home() {
       name: 'Crypto Prices',
       status: false,
       component: <Forex key="forex" />,
+    },
+    {
+      id: 'matchCards',
+      name: 'Match Cards',
+      status: false,
+      component: <MatchCards key="matchCards" />,
     },
   ];
 
