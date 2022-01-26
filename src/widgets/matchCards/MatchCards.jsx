@@ -16,7 +16,11 @@ const MatchCards = () => {
   const [moveNum, setMoveNum] = useState(0);
 
   useEffect(() => {
-    setCardList(shuffle(matchCards));
+    const newArr = matchCards.map((item) => {
+      item.status = false;
+      return item;
+    });
+    setCardList(shuffle(newArr));
   }, []);
 
   const handleClick = (id, index) => {
@@ -47,7 +51,7 @@ const MatchCards = () => {
     setTimeout(() => {
       setTemp([]);
       setTwoOpened(false);
-    }, 2000);
+    }, 1500);
   };
 
   const handleReset = () => {
@@ -56,7 +60,7 @@ const MatchCards = () => {
     setTemp([]);
     setCardList(
       shuffle(
-        matchCards.map((item) => {
+        cardList.map((item) => {
           item.status = false;
           return item;
         })
