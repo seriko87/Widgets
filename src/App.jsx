@@ -8,6 +8,8 @@ import Login from './pages/login/Login';
 import { useAuthState } from './firebase';
 import ForgotPassword from './pages/forgotPassword/ForgotPassword';
 import UpdateProfile from './pages/updateProfile/UpdateProfile';
+import Main from './pages/main/Main';
+import Error from './pages/404/Error';
 
 function App() {
   const { currentUser, loadingUser } = useAuthState();
@@ -17,23 +19,27 @@ function App() {
       <DarkModeToggle />
       {!loadingUser && (
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route
-            path="/"
+            path="home"
             element={currentUser ? <Home /> : <Navigate to="/signup" />}
           />
           <Route
             path="signup"
-            element={!currentUser ? <SignUp /> : <Navigate to="/" />}
+            element={!currentUser ? <SignUp /> : <Navigate to="/home" />}
           />
           <Route
             path="login"
-            element={!currentUser ? <Login /> : <Navigate to="/" />}
+            element={!currentUser ? <Login /> : <Navigate to="/home" />}
           />
           <Route
             path="forgot-password"
-            element={!currentUser ? <ForgotPassword /> : <Navigate to="/" />}
+            element={
+              !currentUser ? <ForgotPassword /> : <Navigate to="/home" />
+            }
           />
           <Route path="update-profile" element={<UpdateProfile />} />
+          {/* <Route path="*" element={<Error />} /> */}
         </Routes>
       )}
     </div>

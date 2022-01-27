@@ -1,0 +1,25 @@
+.errorPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-gradient-1);
+  gap: 20px;
+}
+
+.errorBackBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  color: var(--font-color);
+  cursor: pointer;
+  background-color: var(--bg-gradient-1);
+  border: var(--glass-border-1);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+}
+.errorBackBtn:hover {
+  background-color: var(--bg-color-4);
+}
