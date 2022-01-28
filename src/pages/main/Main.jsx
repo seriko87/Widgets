@@ -4,7 +4,11 @@ import './main.css';
 const Main = () => {
   return (
     <div className="mainContainer">
+      <nav className="mainNav">
+        <button>About</button>
+      </nav>
       <div className="headerMain">
+        <div className="mainGradient"></div>
         <span>Welcome to Rapid Info Widgets App</span>
         <button className="mainGotryBtn">Go to try</button>
       </div>
@@ -18,7 +22,7 @@ const Main = () => {
           <h1>About</h1>
           <span>
             This is widgets web app that show usefull information about chosen
-            topic. You can think it like windows & mac widgets.
+            topic. You can think it like windows - mac widgets.
           </span>
           <ul>
             <li> Front-end: HTML, CSS, JavaScript, React Js</li>

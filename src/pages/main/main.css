@@ -5,4 +5,27 @@
 
 .headerMain {
   height: 100vh;
+  background-image: url('../../../public/images/back.jpg');
+  background-position: center;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+}
+.mainGradient {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.708);
+  position: absolute;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.mainNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
 }
