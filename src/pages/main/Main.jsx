@@ -1,30 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './main.css';
 
 const Main = () => {
+  const [navbar, setNavbar] = useState(true);
+
+  const scrollEventListener = () => {
+    if (window.scrollY < 400) {
+      return setNavbar(true);
+    } else if (window.scrollY > 400) {
+      return setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollEventListener);
+    return () => {
+      window.removeEventListener('scroll', scrollEventListener);
+    };
+  }, []);
+
   return (
     <div className="mainContainer">
-      <nav className="mainNav">
-        <button>About</button>
+      <nav className={navbar ? 'mainNav' : 'mainNav'}>
+        <div className="navLogo">Rapid Info</div>
+        <div className="navBtnCont">
+          <button className="navBtn">About</button>
+          <button className="navBtn">Widgets</button>
+          <button className="navBtn">Contact</button>
+        </div>
       </nav>
       <div className="headerMain">
         <div className="mainGradient"></div>
-        <span>Welcome to Rapid Info Widgets App</span>
-        <button className="mainGotryBtn">Go to try</button>
+        <span className="mainTitleText">Welcome to Rapid Info Widgets App</span>
+        <Link to="/home">
+          <button className="mainGotryBtn">Try now</button>
+        </Link>
       </div>
       <div className="aboutMain">
-        <section className="aboutImgCont">
-          <img src="images/weather.png" alt="weather" />
-          <img src="images/matchCard.png" alt="match card" />
-          <img src="images/crypto.png" alt="crypto" />
-        </section>
+        <img src="images/aboutPic.png" alt="weather" className="mainWeather" />
+
         <section className="aboutTextCont">
-          <h1>About</h1>
-          <span>
+          <h1 className="aboutTitle">About</h1>
+          <span className="aboutMainText">
             This is widgets web app that show usefull information about chosen
             topic. You can think it like windows - mac widgets.
           </span>
-          <ul>
+          <ul className="aboutList">
             <li> Front-end: HTML, CSS, JavaScript, React Js</li>
             <li>Back-end: Firebase, Firebase Auth, Firebase database, NoSQL</li>
             <li>

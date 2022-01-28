@@ -7,18 +7,19 @@
   height: 100vh;
   background-image: url('../../../public/images/back.jpg');
   background-position: center;
-
   position: relative;
   display: flex;
   flex-direction: column;
   z-index: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 .mainGradient {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.708);
   position: absolute;
-  filter: blur(5px);
   z-index: -1;
 }
 
@@ -28,4 +29,93 @@
   left: 0;
   width: 100%;
   z-index: 99;
+  height: 60px;
+  /* background-color: var(--bg-overlay-1); */
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 50%;
+  transition: all 0.5s linear;
+  position: absolute;
+  background: transparent;
+}
+.navScrolled {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.596);
+}
+
+.navLogo {
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navBtnCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.navBtn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.navBtn:hover {
+  text-decoration: underline;
+}
+
+.mainTitleText {
+  width: 900px;
+  font-size: 76px;
+  color: white;
+  text-align: center;
+}
+.mainGotryBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background: var(--link-color);
+  color: white;
+  cursor: pointer;
+}
+
+/* middle section */
+.aboutMain {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+/* .aboutImgCont {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.mainWeather {
+  width: 80%;
+  border: 1px solid salmon;
+}
+.aboutTextCont {
+  width: 80%;
+  height: 100%;
+}
+.aboutTitle {
+  font-size: 46px;
+  text-align: center;
+}
+.aboutMainText {
+}
+.aboutList {
 }
