@@ -77,7 +77,7 @@ const Main = () => {
         <div className="navLogo">Rapid Info</div>
         <div className="navBtnCont">
           <button className="navBtn">About</button>
-          <button className="navBtn">Widgets</button>
+
           <button className="navBtn">Contact</button>
         </div>
       </nav>

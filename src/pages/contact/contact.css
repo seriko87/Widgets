@@ -7,14 +7,13 @@
   flex-direction: column;
 }
 .contactForm {
-  width: 620px;
+  width: 800px;
 
-  gap: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 .contactMessage {
   display: flex;
