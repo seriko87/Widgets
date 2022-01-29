@@ -20,6 +20,56 @@ const Main = () => {
     };
   }, []);
 
+  const widgetImg = [
+    {
+      id: 'time',
+      name: 'Time',
+      imgUrl: 'images/blkscr.png',
+      tech: '',
+    },
+    {
+      id: 'weather',
+      name: 'Weather',
+      imgUrl: 'images/weather.png',
+      tech: 'Track weather up to 3 day, used Weather api.',
+    },
+    {
+      id: 'news',
+      name: 'News',
+      imgUrl: 'images/news.png',
+      tech: 'Browse categorized news, used Bing news api.',
+    },
+    {
+      id: 'covid',
+      name: 'Covid Info',
+      imgUrl: 'images/covid.png',
+      tech: 'Covid data for daily and totals, used Disease sh api.',
+    },
+    {
+      id: 'blackScreen',
+      name: 'Colorfull Screen',
+      imgUrl: 'images/blkscr.png',
+      tech: 'Check different colors on your screen.',
+    },
+    {
+      id: 'calculator',
+      name: 'Calculator',
+      imgUrl: 'images/calc.png',
+      tech: '',
+    },
+    {
+      id: 'forex',
+      name: 'Crypto Prices',
+      imgUrl: 'images/crypto_d.png',
+      tech: 'Track Crypto prices, you can add up to 3 crypto, used Crypto api.',
+    },
+    {
+      id: 'matchCards',
+      name: 'Match Cards',
+      imgUrl: 'images/matchCard.png',
+    },
+  ];
+
   return (
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav'}>
@@ -64,11 +114,36 @@ const Main = () => {
       <div className="widgetsMain">
         <div className="widgetsTitle">Widgets</div>
         <section className="widgetsImgCont">
-          <img src="images/news.png" alt="news" />
-          <img src="images/crypto_d.png" alt="crypto" />
-          <img src="images/matchCard_d.png" alt="match card" />
-          <img src="images/covid.png" alt="covid" />
+          {widgetImg.map((item) => {
+            return (
+              <span className="widgetsMainImgWrap">
+                <span className="widgetImgTitle">
+                  <div className="widgetNameTitle">
+                    <h3>{item.name}</h3>
+                    <span className="widgetNameDesc">{item.tech}</span>
+                  </div>
+                </span>
+                <img
+                  src={item.imgUrl}
+                  alt={item.name}
+                  key={item.id}
+                  className="widgetImgMain"
+                />
+              </span>
+            );
+          })}
         </section>
+      </div>
+      <div className="contactMain">
+        <div className="widgetsTitle">Contact</div>
+        <form action="">
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" />
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" />
+          <label htmlFor="name">Text</label>
+          <input type="memo" id="name" />
+        </form>
       </div>
     </div>
   );
