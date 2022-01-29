@@ -88,12 +88,12 @@
 
 /* middle section */
 .aboutMain {
-  height: 100vh;
+  min-height: 920px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  gap: 60px;
 }
 /* .aboutImgCont {
   position: relative;
@@ -104,11 +104,11 @@
 } */
 
 .mainWeather {
-  width: 80%;
-  border: 1px solid salmon;
+  max-width: 620px;
+  width: 100%;
 }
 .aboutTextCont {
-  width: 80%;
+  width: 620px;
   height: 100%;
 }
 .aboutTitle {
@@ -120,8 +120,20 @@
 .aboutList {
 }
 
+footer {
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-color);
+  opacity: 0.8;
+}
+
 /* widget section */
-.widgetsImgCont {
+/* .widgetsImgCont {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 240px);
@@ -193,4 +205,4 @@
 .widgetNameTitle h3 {
   margin: 0;
   padding: 0;
-}
+} */

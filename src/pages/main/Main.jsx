@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './main.css';
+import Contact from '../contact/Contact';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
@@ -111,7 +112,7 @@ const Main = () => {
           </ul>
         </section>
       </div>
-      <div className="widgetsMain">
+      {/* <div className="widgetsMain">
         <div className="widgetsTitle">Widgets</div>
         <section className="widgetsImgCont">
           {widgetImg.map((item) => {
@@ -133,18 +134,9 @@ const Main = () => {
             );
           })}
         </section>
-      </div>
-      <div className="contactMain">
-        <div className="widgetsTitle">Contact</div>
-        <form action="">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" />
-          <label htmlFor="name">Text</label>
-          <input type="memo" id="name" />
-        </form>
-      </div>
+      </div> */}
+      <Contact />
+      <footer> © 2022 All Rights Reserverd Rapid Info</footer>
     </div>
   );
 };

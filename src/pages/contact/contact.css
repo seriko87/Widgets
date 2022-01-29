@@ -1,0 +1,83 @@
+.contactMain {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contactForm {
+  width: 620px;
+
+  gap: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.contactMessage {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
+.contactMessage textarea {
+  max-width: 100%;
+  border-radius: 5px;
+  min-height: 100px;
+  padding: 5px;
+  background: var(--bg-overlay);
+  resize: none;
+  outline-offset: 2px;
+}
+.contactMessage textarea:focus {
+  background: var(--font-color-1);
+}
+.contactForm label {
+  color: var(--font-color);
+  margin-bottom: 8px;
+}
+.contactName {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  width: 50%;
+}
+.contactName input {
+  height: 42px;
+  border-radius: 5px;
+  border: var(--glass-border-1);
+  background: var(--bg-overlay);
+  outline-offset: 2px;
+}
+.contactName input:focus {
+  background: var(--font-color-1);
+}
+.contactNameCont {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+.contactTitle {
+  width: 100%;
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.contactSendBtn {
+  width: 150px;
+  height: 42px;
+  border-radius: 5px;
+  background: var(--link-color);
+  border: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.contactSendBtn:hover {
+  background: rgb(22, 143, 68);
+}
