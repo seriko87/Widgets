@@ -40,8 +40,12 @@ const Main = () => {
             )}
           </button>
           <div className="navBtnCont">
-            <button className="navBtn">About</button>
-            <button className="navBtn">Contact</button>
+            <button className="navBtn" onClick={() => setHamb(false)}>
+              <a href="#aboutMain">About</a>
+            </button>
+            <button className="navBtn" onClick={() => setHamb(false)}>
+              <a href="#contactMain">Contact</a>
+            </button>
             <Link to="/home">
               <button className="mainGotryBtn">Launch</button>
             </Link>
