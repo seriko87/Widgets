@@ -29,6 +29,7 @@
   resize: none;
   outline-offset: 2px;
   font-size: 16px;
+  border: var(--glass-border-1);
 }
 .contactMessage textarea:focus {
   background: var(--font-color-1);
