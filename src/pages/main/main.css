@@ -88,7 +88,7 @@
 
 /* middle section */
 .aboutMain {
-  min-height: 920px;
+  min-height: 800px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -110,6 +110,7 @@
 .aboutTextCont {
   width: 620px;
   height: 100%;
+  padding: 20px;
 }
 .aboutTitle {
   font-size: 46px;
@@ -206,3 +207,50 @@ footer {
   margin: 0;
   padding: 0;
 } */
+
+@media (max-width: 1200px) {
+  .mainWeather {
+    width: 530px;
+  }
+}
+
+@media (max-width: 920px) {
+  .mainWeather {
+    width: 400px;
+  }
+  .mainTitleText {
+    width: 90%;
+    font-size: 56px;
+  }
+  .headerMain {
+    height: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .aboutMain {
+    flex-direction: column-reverse;
+  }
+  .aboutTextCont {
+    width: 90%;
+  }
+  .mainNav {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+@media (max-width: 420px) {
+  .mainWeather {
+    width: 100%;
+  }
+  .mainTitleText {
+    width: 90%;
+    font-size: 36px;
+  }
+  .headerMain {
+    height: 420px;
+  }
+  .aboutTitle {
+    font-size: 36px;
+  }
+}

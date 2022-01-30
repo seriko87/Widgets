@@ -73,7 +73,7 @@ const Main = () => {
 
   return (
     <div className="mainContainer">
-      <nav className={navbar ? 'mainNav' : 'mainNav'}>
+      <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
         <div className="navLogo">Rapid Info</div>
         <div className="navBtnCont">
           <button className="navBtn">About</button>
@@ -95,7 +95,8 @@ const Main = () => {
           <h1 className="aboutTitle">About</h1>
           <span className="aboutMainText">
             This is widgets web app that show usefull information about chosen
-            topic. You can think it like windows - mac widgets.
+            topic similar to windows or MacOS widgets. It is designed to use on
+            desktop enviroment.
           </span>
           <ul className="aboutList">
             <li> Front-end: HTML, CSS, JavaScript, React Js</li>

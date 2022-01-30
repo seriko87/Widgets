@@ -18,7 +18,7 @@
 .contactMessage {
   display: flex;
   flex-direction: column;
-  width: inherit;
+  width: 100%;
 }
 .contactMessage textarea {
   max-width: 100%;
@@ -79,4 +79,20 @@
 
 .contactSendBtn:hover {
   background: rgb(22, 143, 68);
+}
+@media (max-width: 920px) {
+  .contactForm {
+    width: 90%;
+  }
+}
+@media (max-width: 420px) {
+  .contactNameCont {
+    flex-direction: column;
+  }
+  .contactName {
+    width: 100%;
+  }
+  .contactTitle {
+    font-size: 36px;
+  }
 }
