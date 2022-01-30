@@ -1,0 +1,228 @@
+.mainContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.headerMain {
+  height: 100vh;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2Fback2.jpg?alt=media&token=5eaa7ccf-97f3-4e8f-b296-129598ec746c');
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.mainNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.863);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  transition: all 0.5s linear;
+
+  background: transparent;
+}
+.navScrolled {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.863);
+}
+
+.navLogo {
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navBtnCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.navBtn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.navBtn:hover {
+  text-decoration: underline;
+}
+
+.mainTitleText {
+  width: 900px;
+  font-size: 76px;
+  color: white;
+  text-align: center;
+}
+.mainGotryBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background: rgb(39, 117, 235);
+  color: white;
+  cursor: pointer;
+}
+.mainGotryBtn:hover {
+  background: rgb(22, 143, 68);
+}
+
+/* middle section */
+.aboutMain {
+  min-height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.mainWeather {
+  max-width: 620px;
+  width: 100%;
+}
+.aboutTextCont {
+  width: 620px;
+  height: 100%;
+  padding: 20px;
+}
+.aboutTitle {
+  font-size: 46px;
+  text-align: center;
+}
+.aboutMainText {
+}
+.aboutList {
+}
+
+footer {
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-color);
+  opacity: 0.8;
+}
+
+.navHamb {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .mainWeather {
+    width: 530px;
+  }
+}
+
+@media (max-width: 920px) {
+  .mainWeather {
+    width: 400px;
+  }
+  .mainTitleText {
+    width: 90%;
+    font-size: 56px;
+  }
+  .headerMain {
+    height: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .aboutMain {
+    flex-direction: column-reverse;
+  }
+  .aboutTextCont {
+    width: 90%;
+  }
+  .mainNav {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+@media (max-width: 500px) {
+  .mainWeather {
+    width: 100%;
+  }
+  .mainTitleText {
+    width: 90%;
+    font-size: 36px;
+  }
+  .headerMain {
+    height: 600px;
+  }
+  .aboutTitle {
+    font-size: 36px;
+  }
+  .navBtnCont1 {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.863);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .navBtnCont {
+    display: none;
+  }
+  .navHamb {
+    display: block;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .aboutTextCont {
+    padding: 0;
+  }
+  .navWWrap {
+    width: 100%;
+  }
+}
+@media (min-width: 500px) {
+  .navBtnCont1 {
+    display: none;
+  }
+}
+
+.navWrap {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.navBtnHover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  height: 250px;
+  padding-top: 20px;
+}
+.navContInfo {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}

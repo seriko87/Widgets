@@ -62,9 +62,17 @@ body {
   color: var(--font-color);
   background-blend-mode: normal, color-burn;
   background-blend-mode: screen;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 a {
   /* color: var(--link-color); */
   text-decoration: none;
+  color: inherit;
+}
+
+html {
+  background-color: #000;
+  scroll-behavior: smooth;
 }
