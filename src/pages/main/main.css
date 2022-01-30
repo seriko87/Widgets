@@ -207,7 +207,9 @@ footer {
   margin: 0;
   padding: 0;
 } */
-
+.navHamb {
+  display: none;
+}
 @media (max-width: 1200px) {
   .mainWeather {
     width: 530px;
@@ -237,6 +239,11 @@ footer {
   .mainNav {
     justify-content: space-around;
     gap: 0;
+  }
+  .navHamb {
+    display: block;
+  }
+  .navBtnCont {
   }
 }
 @media (max-width: 420px) {

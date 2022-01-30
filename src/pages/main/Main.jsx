@@ -5,6 +5,7 @@ import Contact from '../contact/Contact';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
+  const [hamb, setHamb] = useState(false);
 
   const scrollEventListener = () => {
     if (window.scrollY < 400) {
@@ -75,10 +76,20 @@ const Main = () => {
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
         <div className="navLogo">Rapid Info</div>
-        <div className="navBtnCont">
-          <button className="navBtn">About</button>
 
+        <button className="navHamb" onClick={() => setHamb(!hamb)}>
+          |||
+        </button>
+
+        <div
+          className="navBtnCont"
+          style={hamb ? { display: 'inline' } : { display: 'none' }}
+        >
+          <button className="navBtn">About</button>
           <button className="navBtn">Contact</button>
+          <Link to="/home">
+            <button className="mainGotryBtn">Launch</button>
+          </Link>
         </div>
       </nav>
       <div className="headerMain">
