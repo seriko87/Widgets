@@ -28,6 +28,7 @@
   background: var(--bg-overlay);
   resize: none;
   outline-offset: 2px;
+  font-size: 16px;
 }
 .contactMessage textarea:focus {
   background: var(--font-color-1);
@@ -48,6 +49,7 @@
   border: var(--glass-border-1);
   background: var(--bg-overlay);
   outline-offset: 2px;
+  font-size: 16px;
 }
 .contactName input:focus {
   background: var(--font-color-1);
@@ -85,7 +87,7 @@
     width: 90%;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .contactNameCont {
     flex-direction: column;
   }
@@ -94,5 +96,9 @@
   }
   .contactTitle {
     font-size: 36px;
+  }
+  .contactMain {
+    margin-top: 30px;
+    height: 100%;
   }
 }

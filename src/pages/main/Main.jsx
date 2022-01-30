@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './main.css';
 import Contact from '../contact/Contact';
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
   const [hamb, setHamb] = useState(false);
 
   const scrollEventListener = () => {
-    if (window.scrollY < 400) {
+    if (window.scrollY < 200) {
       return setNavbar(true);
-    } else if (window.scrollY > 400) {
+    } else if (window.scrollY > 200) {
       return setNavbar(false);
     }
   };
@@ -22,75 +26,62 @@ const Main = () => {
     };
   }, []);
 
-  const widgetImg = [
-    {
-      id: 'time',
-      name: 'Time',
-      imgUrl: 'images/blkscr.png',
-      tech: '',
-    },
-    {
-      id: 'weather',
-      name: 'Weather',
-      imgUrl: 'images/weather.png',
-      tech: 'Track weather up to 3 day, used Weather api.',
-    },
-    {
-      id: 'news',
-      name: 'News',
-      imgUrl: 'images/news.png',
-      tech: 'Browse categorized news, used Bing news api.',
-    },
-    {
-      id: 'covid',
-      name: 'Covid Info',
-      imgUrl: 'images/covid.png',
-      tech: 'Covid data for daily and totals, used Disease sh api.',
-    },
-    {
-      id: 'blackScreen',
-      name: 'Colorfull Screen',
-      imgUrl: 'images/blkscr.png',
-      tech: 'Check different colors on your screen.',
-    },
-    {
-      id: 'calculator',
-      name: 'Calculator',
-      imgUrl: 'images/calc.png',
-      tech: '',
-    },
-    {
-      id: 'forex',
-      name: 'Crypto Prices',
-      imgUrl: 'images/crypto_d.png',
-      tech: 'Track Crypto prices, you can add up to 3 crypto, used Crypto api.',
-    },
-    {
-      id: 'matchCards',
-      name: 'Match Cards',
-      imgUrl: 'images/matchCard.png',
-    },
-  ];
-
   return (
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
-        <div className="navLogo">Rapid Info</div>
+        <div className="navWrap">
+          <div className="navLogo">Rapid Info</div>
 
-        <button className="navHamb" onClick={() => setHamb(!hamb)}>
-          |||
-        </button>
-
-        <div
-          className="navBtnCont"
-          style={hamb ? { display: 'inline' } : { display: 'none' }}
-        >
-          <button className="navBtn">About</button>
-          <button className="navBtn">Contact</button>
-          <Link to="/home">
-            <button className="mainGotryBtn">Launch</button>
-          </Link>
+          <button className="navHamb" onClick={() => setHamb(!hamb)}>
+            {!hamb ? (
+              <MenuIcon fontSize="large" />
+            ) : (
+              <MenuOpenIcon fontSize="large" />
+            )}
+          </button>
+          <div className="navBtnCont">
+            <button className="navBtn">About</button>
+            <button className="navBtn">Contact</button>
+            <Link to="/home">
+              <button className="mainGotryBtn">Launch</button>
+            </Link>
+          </div>
         </div>
+
+        {hamb && (
+          <div className="navBtnCont1">
+            <div className="navBtnHover">
+              <button className="navBtn" onClick={() => setHamb(false)}>
+                <a href="#aboutMain">About</a>
+              </button>
+              <button className="navBtn" onClick={() => setHamb(false)}>
+                <a href="#contactMain">Contact</a>
+              </button>
+              <Link to="/home">
+                <button className="mainGotryBtn">Launch</button>
+              </Link>
+            </div>
+
+            <div className="navContInfo">
+              <a
+                href="mailto:serdarash@gmail.com"
+                className="contactLink"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MailOutlineIcon />
+              </a>
+              <a
+                href="https://github.com/seriko87/rapid_info"
+                target="_blank"
+                rel="noreferrer"
+                className="contactLink"
+              >
+                <GitHubIcon />
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
       <div className="headerMain">
         <div className="mainGradient"></div>
@@ -99,7 +90,7 @@ const Main = () => {
           <button className="mainGotryBtn">Try now</button>
         </Link>
       </div>
-      <div className="aboutMain">
+      <div className="aboutMain" id="aboutMain">
         <img src="images/aboutPic.png" alt="weather" className="mainWeather" />
 
         <section className="aboutTextCont">

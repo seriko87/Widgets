@@ -29,19 +29,19 @@
   left: 0;
   width: 100%;
   z-index: 99;
-  height: 60px;
-  /* background-color: var(--bg-overlay-1); */
+  height: 80px;
+  background: rgba(0, 0, 0, 0.863);
   display: flex;
   justify-content: center;
   align-self: center;
-  gap: 50%;
+
   transition: all 0.5s linear;
-  position: absolute;
+
   background: transparent;
 }
 .navScrolled {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.596);
+  background: rgba(0, 0, 0, 0.863);
 }
 
 .navLogo {
@@ -240,13 +240,8 @@ footer {
     justify-content: space-around;
     gap: 0;
   }
-  .navHamb {
-    display: block;
-  }
-  .navBtnCont {
-  }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .mainWeather {
     width: 100%;
   }
@@ -255,9 +250,62 @@ footer {
     font-size: 36px;
   }
   .headerMain {
-    height: 420px;
+    height: 600px;
   }
   .aboutTitle {
     font-size: 36px;
   }
+  .navBtnCont1 {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.863);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .navBtnCont {
+    display: none;
+  }
+  .navHamb {
+    display: block;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .aboutTextCont {
+    padding: 0;
+  }
+  .navWWrap {
+    width: 100%;
+  }
+}
+@media (min-width: 500px) {
+  .navBtnCont1 {
+    display: none;
+  }
+}
+
+.navWrap {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.navBtnHover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  height: 250px;
+  padding-top: 20px;
+}
+.navContInfo {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
