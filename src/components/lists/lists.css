@@ -5,6 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+}
+.listWrap:hover {
+  background: rgb(39, 117, 235);
 }
 
 .switchList {
