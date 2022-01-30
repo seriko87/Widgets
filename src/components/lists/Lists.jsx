@@ -13,17 +13,24 @@ const Lists = ({ item }) => {
   const handleChange = (id) => {
     addRemoveList(id, dispatch);
   };
+
   return (
-    <div className="listWrap">
+    <button className="listWrap" onClick={() => handleChange(item.id)}>
       <div className="widgetTitle">{listName}</div>
 
-      <Switch
+      {/* <Switch
         {...label}
         className="switchList"
         checked={item.status}
         onChange={() => handleChange(item.id)}
-      />
-    </div>
+      /> */}
+
+      {item.status ? (
+        <div className="listOnBtn">On</div>
+      ) : (
+        <div className="listOffBtn">Off</div>
+      )}
+    </button>
   );
 };
 

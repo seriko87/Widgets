@@ -5,10 +5,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--font-color);
+}
+.listWrap:hover {
+  background: var(--link-color);
+  color: var(--font-color-2);
+}
+.listWrap:active {
+  background: var(--bg-overlay-1);
 }
 
 .switchList {
   opacity: 0.7;
+  z-index: 99;
 }
 
 .switchList:hover {
@@ -17,4 +29,19 @@
 
 .widgetTitle {
   padding-left: 20px;
+}
+
+.listOnBtn {
+  color: var(--color-alert-1);
+  font-size: 16px;
+  margin-right: 10px;
+  text-shadow: 0 0 4px #0fa, 0 0 5px #0fa, 0 0 7px #0fa, 0 0 10px #0fa;
+  opacity: 0.8;
+}
+.listOffBtn {
+  color: var(--color-alert);
+  font-size: 16px;
+  margin-right: 10px;
+  opacity: 0.7;
+  text-shadow: 0 0 7px rgb(241, 56, 81), 0 0 10px rgb(241, 56, 81);
 }

@@ -21,3 +21,26 @@
 .profileBtnHomeOpen:hover {
   border: 2px solid var(--font-color-2);
 }
+.container {
+  transition: all 0.3s linear;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--link-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--font-color-2);
+
+  border: 3px solid var(--bg-overlay);
+}
