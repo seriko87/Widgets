@@ -84,7 +84,6 @@ const Main = () => {
         )}
       </nav>
       <div className="headerMain">
-        {/* <div className="mainGradient"></div> */}
         <span className="mainTitleText">Welcome to Rapid Info Widgets App</span>
         <Link to="/home">
           <button className="mainGotryBtn">Try now</button>
@@ -119,29 +118,7 @@ const Main = () => {
           </ul>
         </section>
       </div>
-      {/* <div className="widgetsMain">
-        <div className="widgetsTitle">Widgets</div>
-        <section className="widgetsImgCont">
-          {widgetImg.map((item) => {
-            return (
-              <span className="widgetsMainImgWrap">
-                <span className="widgetImgTitle">
-                  <div className="widgetNameTitle">
-                    <h3>{item.name}</h3>
-                    <span className="widgetNameDesc">{item.tech}</span>
-                  </div>
-                </span>
-                <img
-                  src={item.imgUrl}
-                  alt={item.name}
-                  key={item.id}
-                  className="widgetImgMain"
-                />
-              </span>
-            );
-          })}
-        </section>
-      </div> */}
+
       <Contact />
       <footer> © 2022 All Rights Reserverd Rapid Info</footer>
     </div>
