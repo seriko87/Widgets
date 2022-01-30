@@ -84,14 +84,18 @@ const Main = () => {
         )}
       </nav>
       <div className="headerMain">
-        <div className="mainGradient"></div>
+        {/* <div className="mainGradient"></div> */}
         <span className="mainTitleText">Welcome to Rapid Info Widgets App</span>
         <Link to="/home">
           <button className="mainGotryBtn">Try now</button>
         </Link>
       </div>
       <div className="aboutMain" id="aboutMain">
-        <img src="images/aboutPic.png" alt="weather" className="mainWeather" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2FaboutPic.png?alt=media&token=6ae3c6e2-bc2b-4720-8b0b-7efd89769f6b"
+          alt="weather"
+          className="mainWeather"
+        />
 
         <section className="aboutTextCont">
           <h1 className="aboutTitle">About</h1>

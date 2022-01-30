@@ -5,7 +5,7 @@
 
 .headerMain {
   height: 100vh;
-  background-image: url('../../../public/images/back.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2Fback2.jpg?alt=media&token=5eaa7ccf-97f3-4e8f-b296-129598ec746c');
   background-position: center;
   position: relative;
   display: flex;
@@ -81,9 +81,12 @@
   border-radius: 5px;
   border: none;
   font-size: 16px;
-  background: var(--link-color);
+  background: rgb(39, 117, 235);
   color: white;
   cursor: pointer;
+}
+.mainGotryBtn:hover {
+  background: rgb(22, 143, 68);
 }
 
 /* middle section */
