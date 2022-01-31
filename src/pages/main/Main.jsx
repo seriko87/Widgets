@@ -124,7 +124,7 @@ const Main = () => {
             </li>
             <li>
               <strong>API:</strong> Rapid Api, Weather Api, Covid Data API, Geo
-              Location Mapbox, Bing News Api
+              Location Mapbox, Bing News Api, ExchangeRate Api
             </li>
           </ul>
         </section>
