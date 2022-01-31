@@ -145,7 +145,6 @@ export const curData = [
   { id: 'TZS', country: 'Tanzanian Shilling' },
   { id: 'UAH', country: 'Ukrainian Hryvnia' },
   { id: 'UGX', country: 'Ugandan Shilling' },
-
   { id: 'UYU', country: 'Uruguayan Peso' },
   { id: 'UZS', country: "Uzbekistani So'm" },
   { id: 'VES', country: 'Venezuelan Bolívar Soberano' },

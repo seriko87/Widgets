@@ -75,3 +75,22 @@ html {
   scroll-behavior: smooth;
   background: var(--bg-gradient-1);
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--link-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-overlay);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--font-color-3);
+  /* border: 3px solid var(--bg-overlay); */
+}

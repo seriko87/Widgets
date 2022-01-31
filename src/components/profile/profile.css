@@ -39,16 +39,11 @@
 .listsContainer {
   border-top: 1px solid var(--bg-overlay-1);
   width: 100%;
-  /* display: flex;
-  flex-direction: column; */
-  /* gap: 5px; */
+
   height: 40vh;
   overflow-y: scroll;
-  /* scrollbar-width: none; */
 }
-/* .listsContainer::-webkit-scrollbar {
-  display: none;
-} */
+
 .profileWrap {
   display: flex;
   flex-direction: column;

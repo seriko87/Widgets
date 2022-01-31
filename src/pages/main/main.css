@@ -123,6 +123,10 @@ footer {
 .navHamb {
   display: none;
 }
+
+.aboutList li {
+  list-style: none;
+}
 @media (max-width: 1200px) {
   .mainWeather {
     width: 530px;

@@ -85,3 +85,13 @@
   margin-top: 15px;
   margin-left: 10px;
 }
+
+.currencyForm input[type='number'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.currencyForm input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
