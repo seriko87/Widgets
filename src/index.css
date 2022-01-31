@@ -58,7 +58,6 @@ code {
 
 /* 3 */
 body {
-  background: var(--bg-gradient-1);
   color: var(--font-color);
   background-blend-mode: normal, color-burn;
   background-blend-mode: screen;
@@ -73,6 +72,25 @@ a {
 }
 
 html {
-  background-color: #000;
   scroll-behavior: smooth;
+  background: var(--bg-gradient-1);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--link-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-overlay);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--font-color-3);
+  /* border: 3px solid var(--bg-overlay); */
 }

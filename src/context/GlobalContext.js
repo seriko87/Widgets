@@ -32,6 +32,11 @@ const newList = [
   { id: 'calculator', name: 'Calculator', status: false },
   { id: 'forex', name: 'Crypto Prices', status: false },
   { id: 'matchCards', name: 'Match Cards', status: false },
+  {
+    id: 'currency',
+    name: 'Currency Convert',
+    status: false,
+  },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;

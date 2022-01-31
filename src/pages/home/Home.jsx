@@ -11,6 +11,7 @@ import Time from '../../components/time/Time';
 import Calculator from '../../components/calculator/Calculator';
 import Forex from '../../components/forex/Forex';
 import MatchCards from '../../widgets/matchCards/MatchCards';
+import Currency from '../../widgets/currency/Currency';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -66,6 +67,12 @@ function Home() {
       name: 'Match Cards',
       status: false,
       component: <MatchCards key="matchCards" />,
+    },
+    {
+      id: 'currency',
+      name: 'Currency Convert',
+      status: false,
+      component: <Currency key="currency" />,
     },
   ];
 

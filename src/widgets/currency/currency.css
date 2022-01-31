@@ -1,0 +1,97 @@
+.currencyCont {
+  width: 400px;
+  height: 340px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.currencyForm {
+  height: 150px;
+
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fromWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.fromWrap input {
+  box-sizing: content-box;
+  border: none;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  width: 100%;
+  background-color: var(--bg-gradient-1);
+  color: var(--font-color);
+  border-radius: 5px 0 0 5px;
+  border: var(--glass-border-1);
+}
+.fromWrap select {
+  border: none;
+  box-sizing: border-box;
+  height: 41.6px;
+  width: 100%;
+  background-color: var(--bg-gradient-1);
+  color: var(--font-color);
+  border-radius: 0 5px 5px 0;
+  border: var(--glass-border-1);
+}
+.curInputWrap {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+}
+
+.currencyResult {
+  height: 150px;
+  border: var(--glass-border-1);
+  background-color: var(--bg-gradient-1);
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.curUptDate {
+  font-size: 14px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: var(--font-color-3);
+}
+.currToLabel {
+  font-size: 30px;
+  margin-left: 10px;
+}
+.currFromLabel {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.currencyForm input[type='number'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.currencyForm input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}

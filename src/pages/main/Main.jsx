@@ -108,23 +108,30 @@ const Main = () => {
             desktop enviroment.
           </span>
           <ul className="aboutList">
-            <li> Front-end: HTML, CSS, JavaScript, React Js</li>
-            <li>Back-end: Firebase, Firebase Auth, Firebase database, NoSQL</li>
             <li>
-              React Packages: React Charts, Axios, Material Ui, Draggable,
-              React-Router
+              <strong>Front-end:</strong> HTML, CSS, JavaScript, React Js
             </li>
-            <li>State: useContext, useReducer</li>
             <li>
-              API: Rapid Api, Weather Api, Covid Data API, Geo Location Mapbox,
-              Bing News Api
+              <strong>Back-end:</strong> Firebase, Firebase Auth, Firebase
+              database, NoSQL
+            </li>
+            <li>
+              <strong>React Packages:</strong> React Charts, Axios, Material Ui,
+              Draggable, React-Router
+            </li>
+            <li>
+              <strong>State:</strong> useContext, useReducer
+            </li>
+            <li>
+              <strong>API:</strong> Rapid Api, Weather Api, Covid Data API, Geo
+              Location Mapbox, Bing News Api, ExchangeRate Api
             </li>
           </ul>
         </section>
       </div>
 
       <Contact />
-      <footer> © 2022 All Rights Reserverd Rapid Info</footer>
+      <footer> © 2022 All Rights Reserved Rapid Info</footer>
     </div>
   );
 };

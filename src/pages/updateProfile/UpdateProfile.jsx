@@ -179,10 +179,6 @@ const UpdateProfile = () => {
     }
   };
 
-  function handleCancel() {
-    navigate('/', { replace: true });
-  }
-
   const handleChangeFile = (e) => {
     setPhoto(e.target.files[0]);
     setTempPhoto(URL.createObjectURL(e.target.files[0]));
@@ -200,133 +196,148 @@ const UpdateProfile = () => {
   }, [error, message]);
 
   return (
-    <div className="updateProfileContainer">
-      <div className="updateContainer">
-        <div className="updateProfileTitle">Edit Profile</div>
-        <div className="updateProfPic">
-          <label className="updatePicIcon">
-            <input
-              type="file"
-              accept=".jpg,.jpeg,.png, .webp"
-              className="custom-file-icon"
-              onChange={handleChangeFile}
+    <div className="updateMainCont">
+      <div className="updateProfileContainer">
+        <div className="updateContainer">
+          <div className="updateProfileTitle">Edit Profile</div>
+          <div className="updateProfPic">
+            <label className="updatePicIcon">
+              <input
+                type="file"
+                accept=".jpg,.jpeg,.png, .webp"
+                className="custom-file-icon"
+                onChange={handleChangeFile}
+              />
+              <PhotoCameraOutlinedIcon className="photoAddIcon" />
+            </label>
+            {photoSave && (
+              <button
+                className="saveBtnUpdatePic"
+                onClick={handlePhotoChange}
+                style={
+                  !photoSave ? { bottom: -26 + 'px' } : { bottom: -2 + 'px' }
+                }
+              >
+                Save
+              </button>
+            )}
+            <img
+              src={tempPhoto ? tempPhoto : newPhoto}
+              alt="Profile"
+              className="updateProfilePic"
             />
-            <PhotoCameraOutlinedIcon className="photoAddIcon" />
-          </label>
-          {photoSave && (
-            <button
-              className="saveBtnUpdatePic"
-              onClick={handlePhotoChange}
+          </div>
+        </div>
+
+        <form className="updateProfileWrap">
+          <div className="inputWrapProfile">
+            <label htmlFor="name" className="updateLabel">
+              Name:{' '}
+            </label>
+
+            <input
+              className="updateProfileInput"
+              placeholder="Please enter name"
+              name="name"
+              type="text"
+              id="name"
+              onChange={(e) => setUserName(e.target.value)}
+              value={userName}
               style={
-                !photoSave ? { bottom: -26 + 'px' } : { bottom: -2 + 'px' }
+                !nameSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }
               }
-            >
-              Save
-            </button>
-          )}
-          <img
-            src={tempPhoto ? tempPhoto : newPhoto}
-            alt="Profile"
-            className="updateProfilePic"
-          />
-        </div>
-      </div>
+            />
+            {nameSave && (
+              <button className="saveBtnUpdate" onClick={handleNameChange}>
+                Save
+              </button>
+            )}
+          </div>
+          <div className="inputWrapProfile">
+            <label htmlFor="email" className="updateLabel">
+              E-mail:{' '}
+            </label>
+            <input
+              className="updateProfileInput"
+              name="email"
+              type="email"
+              id="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              style={
+                !emailSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }
+              }
+              value={email}
+            />
+            {emailSave && (
+              <button className="saveBtnUpdate" onClick={handleEmailChange}>
+                Save
+              </button>
+            )}
+          </div>
 
-      <form className="updateProfileWrap">
-        <div className="inputWrapProfile">
-          <label htmlFor="name" className="updateLabel">
-            Name:{' '}
-          </label>
-
-          <input
-            className="updateProfileInput"
-            placeholder="Please enter name"
-            name="name"
-            type="text"
-            id="name"
-            onChange={(e) => setUserName(e.target.value)}
-            value={userName}
-            style={!nameSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
-          />
-          {nameSave && (
-            <button className="saveBtnUpdate" onClick={handleNameChange}>
-              Save
-            </button>
-          )}
+          <div className="inputWrapProfile">
+            <label htmlFor="password" className="updateLabel">
+              Password:{' '}
+            </label>
+            <input
+              placeholder="Leave blank to keep same"
+              className="updateProfileInput"
+              name="password"
+              onFocus={() => setFocus(true)}
+              onBlur={() => setFocus(false)}
+              onChange={(e) => setPassword(e.target.value)}
+              type={passVisStatus ? 'text' : 'password'}
+              ref={passRef}
+              value={password}
+              style={
+                !passSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }
+              }
+            />
+            {passSave &&
+              (!passVisStatus ? (
+                <VisibilityIcon
+                  className="passVisIcon"
+                  onClick={() => handleVisPass()}
+                />
+              ) : (
+                <VisibilityOffIcon
+                  className="passVisIcon"
+                  onClick={() => handleVisPass()}
+                />
+              ))}
+            {hasFocus ? (
+              <div className="passUpdateInfo">
+                <div className="triangle"></div>
+                {passText.map((item, index) => {
+                  return (
+                    <PasswordContainer
+                      pass={password}
+                      item={item}
+                      key={index}
+                    />
+                  );
+                })}
+              </div>
+            ) : null}
+            {passSave && (
+              <button className="saveBtnUpdate" onClick={handlePassChange}>
+                Save
+              </button>
+            )}
+          </div>
+          {error && <div className="profileUpdateError">{error}</div>}
+          {message && <div className="profileSuccesMessage">{message}</div>}
+        </form>
+        <div className="updateBtnWrap">
+          <button
+            className="cancelProfileBtn"
+            onClick={() => navigate('/home', { replace: true })}
+          >
+            Go back
+          </button>
         </div>
-        <div className="inputWrapProfile">
-          <label htmlFor="email" className="updateLabel">
-            E-mail:{' '}
-          </label>
-          <input
-            className="updateProfileInput"
-            name="email"
-            type="email"
-            id="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            style={!emailSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
-            value={email}
-          />
-          {emailSave && (
-            <button className="saveBtnUpdate" onClick={handleEmailChange}>
-              Save
-            </button>
-          )}
-        </div>
-
-        <div className="inputWrapProfile">
-          <label htmlFor="password" className="updateLabel">
-            Password:{' '}
-          </label>
-          <input
-            placeholder="Leave blank to keep same"
-            className="updateProfileInput"
-            name="password"
-            onFocus={() => setFocus(true)}
-            onBlur={() => setFocus(false)}
-            onChange={(e) => setPassword(e.target.value)}
-            type={passVisStatus ? 'text' : 'password'}
-            ref={passRef}
-            value={password}
-            style={!passSave ? { width: 317.5 + 'px' } : { width: 250 + 'px' }}
-          />
-          {passSave &&
-            (!passVisStatus ? (
-              <VisibilityIcon
-                className="passVisIcon"
-                onClick={() => handleVisPass()}
-              />
-            ) : (
-              <VisibilityOffIcon
-                className="passVisIcon"
-                onClick={() => handleVisPass()}
-              />
-            ))}
-          {hasFocus ? (
-            <div className="passUpdateInfo">
-              <div className="triangle"></div>
-              {passText.map((item, index) => {
-                return (
-                  <PasswordContainer pass={password} item={item} key={index} />
-                );
-              })}
-            </div>
-          ) : null}
-          {passSave && (
-            <button className="saveBtnUpdate" onClick={handlePassChange}>
-              Save
-            </button>
-          )}
-        </div>
-        {error && <div className="profileUpdateError">{error}</div>}
-        {message && <div className="profileSuccesMessage">{message}</div>}
-      </form>
-      <div className="updateBtnWrap">
-        <button className="cancelProfileBtn" onClick={handleCancel}>
-          Go back
-        </button>
       </div>
     </div>
   );
