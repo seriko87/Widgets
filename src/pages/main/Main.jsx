@@ -124,7 +124,7 @@ const Main = () => {
       </div>
 
       <Contact />
-      <footer> © 2022 All Rights Reserverd Rapid Info</footer>
+      <footer> © 2022 All Rights Reserved Rapid Info</footer>
     </div>
   );
 };
