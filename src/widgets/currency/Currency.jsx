@@ -4,13 +4,14 @@ import CloseWidget from '../../components/closeWidget/CloseWidget';
 import './currency.css';
 import { curData } from './curData';
 import axios from 'axios';
+import { formatPrice } from '../../functions/functions';
 const Currency = () => {
   const [currency, setCurrency] = useState({});
   const [fromCur, setFromCur] = useState('USD');
   const [toCur, setToCur] = useState('USD');
-  const [result, setResult] = useState(1);
   const [fromCurValue, setFromCurValue] = useState(1);
   const [toCurValue, setToCurValue] = useState(1);
+  const [convertRate, setConvertRate] = useState(1);
   const [updateDate, setUpdateDate] = useState();
 
   const RAPID_KEY = process.env.REACT_APP_RAPID_API;
@@ -31,7 +32,8 @@ const Currency = () => {
     try {
       const res = await axios(conf);
       setCurrency(res.data.rates);
-      setUpdateDate(new Date(res.data.time_last_update_unix));
+      let timestamp = res.data.time_last_update_unix;
+      setUpdateDate(new Date(timestamp * 1000));
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +42,37 @@ const Currency = () => {
   useEffect(() => {
     getCurrency(options);
   }, []);
-  console.log(fromCur, 'to', toCur);
-  console.log(updateDate);
+
+  useEffect(() => {
+    const first = 1 / currency[fromCur] || 1;
+    const fff = currency[toCur] || 1;
+    const second = first * fff;
+    setConvertRate(second);
+    setToCurValue(fromCurValue * second);
+  }, [fromCur, toCur]);
+
+  const handleChange = (cur, value) => {
+    if (cur === 'from') {
+      setFromCurValue(Number(value));
+      let newValue = value * convertRate;
+
+      if (newValue > 1) {
+        setToCurValue(newValue.toFixed(2));
+      } else {
+        setToCurValue(value * convertRate);
+      }
+    } else {
+      setToCurValue(Number(value));
+      let newValue1 = value / convertRate;
+
+      if (newValue1 > 1) {
+        setFromCurValue(newValue1.toFixed(2));
+      } else {
+        setFromCurValue(value / convertRate);
+      }
+    }
+  };
+
   return (
     <Draggable handle="strong">
       <div className="currencyCont box no-cursor">
@@ -55,7 +86,7 @@ const Currency = () => {
                 type="number"
                 id="fromCur"
                 value={fromCurValue}
-                onChange={(e) => setFromCurValue(e.target.value)}
+                onChange={(e) => handleChange('from', e.target.value)}
               />
               <select
                 name="currency"
@@ -80,7 +111,7 @@ const Currency = () => {
                 type="number"
                 id="fromCur"
                 value={toCurValue}
-                onChange={(e) => setToCurValue(e.target.value)}
+                onChange={(e) => handleChange('to', e.target.value)}
               />
               <select
                 name="currency"
@@ -101,23 +132,24 @@ const Currency = () => {
         </div>
         <div className="currencyResult">
           <div className="curUptDate">
-            {/* {updateDate.getDate() +
-              '/' +
-              (updateDate.getMonth() + 1) +
-              '/' +
-              updateDate.getFullYear() +
-              ' ' +
-              updateDate.getHours() +
-              ':' +
-              updateDate.getMinutes() +
-              ':' +
-              updateDate.getSeconds()} */}
+            {' '}
+            Last update:{' '}
+            {updateDate &&
+              updateDate.getMonth() +
+                1 +
+                '/' +
+                updateDate.getDate() +
+                '/' +
+                updateDate.getFullYear()}
           </div>
           <div className="currFromLabel">
             {fromCurValue} {fromCur} equals to
           </div>
           <div className="currToLabel">
-            {result} {toCur}{' '}
+            {fromCurValue * convertRate > 1
+              ? (fromCurValue * convertRate).toFixed(2)
+              : fromCurValue * convertRate}{' '}
+            {toCur}{' '}
           </div>
         </div>
       </div>

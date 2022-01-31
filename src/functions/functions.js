@@ -15,6 +15,7 @@ export function numberFormatter(num) {
   return num;
 }
 
+// formatting
 export const formatPrice = (a) => {
   let num = 0;
 
