@@ -39,7 +39,7 @@
 
 .navLogo {
   color: white;
-  font-size: 18px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,6 +198,9 @@ footer {
   }
   .navWWrap {
     width: 100%;
+  }
+  .navLogo {
+    font-size: 24px;
   }
 }
 @media (min-width: 500px) {
