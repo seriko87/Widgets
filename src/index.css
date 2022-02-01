@@ -32,6 +32,7 @@ code {
   --bg-overlay: white;
   --color-alert: rgb(185, 24, 24);
   --color-alert-1: rgb(22, 143, 68);
+  --color-purple: rgb(104, 0, 223);
 }
 
 /* 2 */
@@ -54,6 +55,7 @@ code {
   --bg-overlay-2: rgb(62, 62, 62);
   --color-alert: rgb(247, 157, 157);
   --color-alert-1: rgb(108, 223, 179);
+  --color-purple: rgb(129, 34, 238);
 }
 
 /* 3 */
