@@ -65,31 +65,40 @@ const StopWatch = () => {
 
   return (
     <div className="stopWatchCont">
-      <div className="stopWatchMain">{formatTime(time)}</div>
-      {lap.length !== 0 && (
-        <div className="stwLapListCont">
-          {lap?.map((item, index) => {
-            return (
-              <div
-                className={
-                  fastLap === item ? 'stwLapList fastLap' : 'stwLapList'
-                }
-              >
-                <span>Lap{index + 1}</span>
-                <span>{formatTime(item)}</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <div
+        className="stopWatchMain"
+        style={lap.length === 0 ? { fontSize: '56px' } : { fontSize: '40px' }}
+      >
+        {formatTime(time)}
+      </div>
+
+      <div
+        className={
+          lap.length !== 0 ? 'stwLapListCont' : 'stwLapListCont showLapList'
+        }
+      >
+        {lap?.map((item, index) => {
+          return (
+            <div
+              className={fastLap === item ? 'stwLapList fastLap' : 'stwLapList'}
+            >
+              <span>Lap{index + 1}</span>
+              <span>{formatTime(item)}</span>
+            </div>
+          );
+        })}
+      </div>
+
       <div className="stwBtn">
-        <button
-          className="stwBtnLap"
-          onClick={handleLap}
-          disabled={isPaused ? true : false}
-        >
-          Lap
-        </button>
+        {time !== 0 && (
+          <button
+            className="stwBtnLap"
+            onClick={handleLap}
+            disabled={isPaused ? true : false}
+          >
+            Lap
+          </button>
+        )}
         {!isActive ? (
           <button className="stwBtnStart" onClick={() => handleStart()}>
             Start
