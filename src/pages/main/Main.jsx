@@ -103,9 +103,9 @@ const Main = () => {
         <section className="aboutTextCont">
           <h1 className="aboutTitle">About</h1>
           <span className="aboutMainText">
-            This is widgets web app that show usefull information about chosen
-            topic similar to windows or MacOS widgets. It is designed to use on
-            desktop enviroment.
+            This is a widgets app that shows useful information about chosen
+            topics that are similar to Windows or macOS widgets. It is designed
+            to use in a desktop environment.
           </span>
           <ul className="aboutList">
             <li>
@@ -123,7 +123,7 @@ const Main = () => {
               <strong>State:</strong> useContext, useReducer
             </li>
             <li>
-              <strong>API:</strong> Rapid Api, Weather Api, Covid Data API, Geo
+              <strong>API:</strong> Rapid Api, Weather API, Covid Data API, Geo
               Location Mapbox, Bing News Api, ExchangeRate Api
             </li>
           </ul>

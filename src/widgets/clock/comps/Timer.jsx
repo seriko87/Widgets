@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './timer.css';
+import alarms from './alarm.mp3';
 
 const Timer = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(3609);
+  const [time, setTime] = useState(3);
+  const [startAlarm, setStartAlarm] = useState(false);
+  const audioRef = useRef(new Audio(alarms));
+  const circleRef = useRef();
 
   useEffect(() => {
     let interval = null;
@@ -22,6 +26,10 @@ const Timer = () => {
     };
   }, [isActive, isPaused]);
 
+  /**
+   * It takes in a number and returns a string that is formatted as hh:mm:ss.
+   * @returns The time in hours, minutes, and seconds.
+   */
   const formatTime = (e) => {
     let h = Math.floor(e / 3600);
     let m = Math.floor(e / 60) % 60;
@@ -32,6 +40,7 @@ const Timer = () => {
     s = `${s}`.padStart(2, '0');
     return h + ':' + m + ':' + s;
   };
+
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
@@ -39,26 +48,61 @@ const Timer = () => {
   const handlePause = () => {
     setIsPaused(!isPaused);
   };
-
-  let sounds = {
-    test: new Audio('assets/alarm.wav'),
+  const handleStop = () => {
+    setIsPaused(false);
+    setIsActive(false);
+    setStartAlarm(false);
+    setTime(3);
+    audioRef.current.pause();
   };
 
-  function playSound(sound) {
-    // sounds[sound].volume = 0.1;
-    sounds[sound].play();
-  }
-  function stopSound(sound) {
-    sounds[sound].stop();
-  }
+  useEffect(() => {
+    if (time === 0 && isActive) {
+      setStartAlarm(true);
+      setIsActive(false);
+      setTime(0);
+      audioRef.current.play();
+    }
+  }, [time]);
 
-  playSound(sounds.test);
+  let circleLengh = circleRef.current.r.baseVal.value * 2 * Math.PI;
+
+  circleRef.current.style.strokeDasharray = `${circleLengh} ${circleLengh}`;
+  function setProgress(percent) {
+    const offset = (percent / 100) * circleLengh;
+    circleRef.current.style.strokeDashoffset = offset;
+  }
+  setProgress(80);
   return (
     <div className="timerCont">
-      <div className="timerCircle">
-        <div>{formatTime(time)}</div>
+      <div className="timerCircle" style={{}}>
+        <div className="timerTime">{formatTime(time)}</div>
+        <svg height="150" width="150" className="timerCircleSvg">
+          <circle
+            cx="75"
+            cy="75"
+            r="70"
+            stroke="black"
+            strokeWidth="4"
+            fill="none"
+            ref={circleRef}
+          />
+        </svg>
       </div>
-      <div className="timerFinished">{formatTime(time)}</div>
+      <input type="nu" />
+      {startAlarm && (
+        <div className="timerFinished">
+          <div>{formatTime(time)}</div>
+          <div className="stwBtnAlarm">
+            <button className="stwBtnStart" onClick={() => handleStop()}>
+              Dismiss
+            </button>
+            <button className="stwBtnStart" onClick={() => handleStart()}>
+              Restart
+            </button>
+          </div>
+        </div>
+      )}
       {!isActive ? (
         <button className="stwBtnStart" onClick={() => handleStart()}>
           Start
@@ -68,6 +112,9 @@ const Timer = () => {
           {!isPaused ? 'Pause' : 'Resume'}
         </button>
       )}
+      <button className="stwBtnStart" onClick={() => handleStop()}>
+        Cancel
+      </button>
     </div>
   );
 };
