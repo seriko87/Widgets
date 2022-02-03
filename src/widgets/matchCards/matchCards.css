@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  position: relative;
 }
 
 .matchControlsCont {
@@ -136,4 +137,20 @@
 .matchCardWrap1 svg {
   width: 46px;
   height: 46px;
+}
+
+.matchCardFinished {
+  width: 250px;
+  position: absolute;
+  height: 150px;
+  left: 77px;
+  top: 50%;
+  background: #fbcb40;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: var(--bg-color-4);
+  font-weight: 600;
 }

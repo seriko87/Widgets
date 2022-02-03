@@ -14,6 +14,7 @@ const MatchCards = () => {
   const [trueCards, setTrueCards] = useState([]);
   const [cardOpened, setCardOpened] = useState(0);
   const [moveNum, setMoveNum] = useState(0);
+  const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     const newArr = matchCards.map((item) => {
@@ -69,6 +70,14 @@ const MatchCards = () => {
     setCardOpened(0);
     setMoveNum(0);
   };
+  useEffect(() => {
+    if (cardOpened === 8) {
+      setFinished(true);
+      setTimeout(() => {
+        setFinished(false);
+      }, 5000);
+    }
+  }, [moveNum]);
 
   return (
     <Draggable handle="strong">
@@ -99,13 +108,17 @@ const MatchCards = () => {
             Reset
           </button>
         </div>
+
+        {finished && (
+          <div className="matchCardFinished">Congratulations!!!</div>
+        )}
         <div className="matchCardsCont">
           {cardList.map((item, i) => {
             return (
               <button
                 className="matchCard"
                 key={i}
-                onClick={twoOpened ? '' : () => handleClick(item.id, i)}
+                onClick={twoOpened ? null : () => handleClick(item.id, i)}
                 disabled={trueCards.includes(item.id) ? true : false}
               >
                 {item.status ? (

@@ -8,19 +8,6 @@ const BlackScreen = () => {
   const [color, setColor] = useState('black');
   const [textColor, setTextColor] = useState();
 
-  // function openFullscreen(e) {
-  //   if (e.target.requestFullscreen) {
-  //     document.requestFullscreen();
-  //   } else if (e.target.webkitRequestFullscreen) {
-  //     /* Safari */
-  //     e.target.webkitRequestFullscreen();
-  //   } else if (e.target.msRequestFullscreen) {
-  //     /* IE11 */
-  //     e.target.msRequestFullscreen();
-  //   }
-  //   setFullScreen(false);
-  // }
-
   function openFullscreen() {
     let elem = document.querySelector('.blackScreen');
 
@@ -37,19 +24,6 @@ const BlackScreen = () => {
       document.exitFullscreen();
     }
   }
-
-  /* Close fullscreen */
-  // function closeFullscreen(e) {
-  //   if (document.exitFullscreen) {
-  //     document.exitFullscreen();
-  //   } else if (document.webkitExitFullscreen) {
-  //     /* Safari */
-  //     document.webkitExitFullscreen();
-  //   } else if (document.msExitFullscreen) {
-  //     /* IE11 */
-  //     document.msExitFullscreen();
-  //   }
-  // }
 
   document.addEventListener('fullscreenchange', function () {
     var full_screen_element = document.fullscreenElement;

@@ -5,7 +5,7 @@ import alarms from './alarm.mp3';
 const Timer = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(0);
   const [timer, setTimer] = useState({ hour: 0, minute: 0, second: 0 });
 
   const [startAlarm, setStartAlarm] = useState(false);
@@ -42,11 +42,14 @@ const Timer = () => {
   };
 
   const handleStart = () => {
-    setIsActive(true);
-    setIsPaused(false);
-    let time = timer.hour * 3600 + timer.minute * 60 + timer.second;
+    let times = timer.hour * 3600 + timer.minute * 60 + timer.second;
+    if (times !== 0) {
+      setIsActive(true);
+      setIsPaused(false);
 
-    setTime(time);
+      setTime(times);
+    }
+
     setStartAlarm(false);
     audioRef.current.pause();
   };
@@ -69,10 +72,12 @@ const Timer = () => {
       audioRef.current.play();
     }
 
-    setProgress(
-      (circleLengh / (timer.hour * 3600 + timer.minute * 60 + timer.second)) *
-        time
-    );
+    if (time !== 0) {
+      setProgress(
+        (circleLengh / (timer.hour * 3600 + timer.minute * 60 + timer.second)) *
+          time
+      );
+    }
   }, [time]);
 
   function setProgress(percent) {
