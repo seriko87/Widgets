@@ -5,6 +5,7 @@ import {
   updateUserEmail,
   updateUserProfile,
   updadateUserPassword,
+  deleteAccoutn,
 } from '../../firebase';
 import './updateProfile.css';
 import {
@@ -26,7 +27,9 @@ const UpdateProfile = () => {
     'https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/userImg%2FHTNHxmCPGLYBTFTy3DcUOURi1Fw1avat.png?alt=media&token=b48261ad-6dbe-401c-942b-7566f621aeb6'
   );
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState(
+    'Failed to update password, you must have signed in recently.'
+  );
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
@@ -105,6 +108,9 @@ const UpdateProfile = () => {
     setEmail(currentUser?.email || '');
   }, [currentUser]);
 
+  /**
+   * Update the user's profile name
+   */
   const handleNameChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -121,6 +127,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * It uploads the photo to the database.
+   */
   const handlePhotoChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -138,6 +147,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * Update the user's email address
+   */
   const handleEmailChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -151,7 +163,9 @@ const UpdateProfile = () => {
             setEmailSave(false);
           })
           .catch((error) => {
-            setError('Failed to update email, try log in again');
+            setError(
+              'Failed to update email, you must have signed in recently.'
+            );
           });
       } else {
         setError('Plase enter valid email address');
@@ -159,6 +173,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * It updates the user's password.
+   */
   const handlePassChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -171,12 +188,29 @@ const UpdateProfile = () => {
             setPassword('');
           })
           .catch(() => {
-            setError('Failed to update password, try log in again');
+            setError(
+              'Failed to update password, you must have signed in recently.'
+            );
           });
       } else {
         setError('Please Enter Valid Password');
       }
     }
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    setMessage('');
+    setError('');
+
+    deleteAccoutn()
+      .then(() => {
+        setMessage('Profile password updated');
+        setPassword('');
+      })
+      .catch(() => {
+        setError('Failed to delete account, you must have signed in recently.');
+      });
   };
 
   const handleChangeFile = (e) => {
@@ -329,7 +363,11 @@ const UpdateProfile = () => {
           </div>
           {error && <div className="profileUpdateError">{error}</div>}
           {message && <div className="profileSuccesMessage">{message}</div>}
+          <button className="deleteProfileBtn" onClick={() => handleDelete()}>
+            Delete Accound
+          </button>
         </form>
+
         <div className="updateBtnWrap">
           <button
             className="cancelProfileBtn"
