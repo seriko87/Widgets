@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './worldClock.css';
 
 const WorldClock = () => {
   const [time, setTime] = useState({ hh: 0, mm: 0, ss: 0 });
   const [fullScreen, setFullScreen] = useState(false);
+  const ref = useRef();
 
   let newTime = new Date();
   const options = {
@@ -36,10 +37,37 @@ const WorldClock = () => {
     };
   }, []);
 
+  function openFullscreen() {
+    let elem = document.querySelector('.worldClockMainFull');
+    console.log(elem);
+    if (!document.fullscreenElement) {
+      elem
+        .requestFullscreen()
+        .then(() => {})
+        .catch((err) => {
+          alert(
+            `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+          );
+        });
+    } else {
+      document.exitFullscreen();
+    }
+  }
+
+  document.addEventListener('fullscreenchange', function () {
+    var full_screen_element = document.fullscreenElement;
+
+    if (full_screen_element === null) {
+      setFullScreen(false);
+    } else {
+      setFullScreen(true);
+    }
+  });
+
   return (
     <div className="worldClockCont">
       {!fullScreen && (
-        <div className="worldClockMain" onClick={() => setFullScreen(true)}>
+        <div className="worldClockMain" onClick={() => openFullscreen()}>
           <span className="clockTime">
             <span className="clockHour">{time.hh}</span>:
             <span className="clockSecond">{time.mm}</span>:
@@ -52,25 +80,24 @@ const WorldClock = () => {
         </div>
       )}
 
-      {fullScreen && (
-        <div
-          className="worldClockMainFull"
-          onClick={() => setFullScreen(false)}
-        >
-          <div className="clockFullWrap">
-            <span className="clockTimeFull">
-              <span className="clockHourFull">
-                {time.hh}:{time.mm}
-              </span>
-              <span className="clockSecAPFull">
-                <span className="clockSecondFull">{time.ss}</span>
-                <span className="clockAmPmFull"> {time.ampm}</span>
-              </span>
+      <div
+        className="worldClockMainFull"
+        onClick={() => openFullscreen()}
+        style={fullScreen ? { display: 'block' } : { display: 'none' }}
+      >
+        <div className="clockFullWrap">
+          <span className="clockTimeFull">
+            <span className="clockHourFull">
+              {time.hh}:{time.mm}
             </span>
-            <div className="worldDateMainFull"> {date}</div>
-          </div>
+            <span className="clockSecAPFull">
+              <span className="clockSecondFull">{time.ss}</span>
+              <span className="clockAmPmFull"> {time.ampm}</span>
+            </span>
+          </span>
+          <div className="worldDateMainFull"> {date}</div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
