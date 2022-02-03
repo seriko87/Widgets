@@ -95,7 +95,7 @@
 .worldDateMainFull {
   color: var(--font-color-3);
   position: absolute;
-  bottom: 0;
+  bottom: -20px;
 }
 .clockFullWrap {
   position: relative;
