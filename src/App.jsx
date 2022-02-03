@@ -39,7 +39,7 @@ function App() {
             }
           />
           <Route path="update-profile" element={<UpdateProfile />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<Error />} />
         </Routes>
       )}
     </div>
