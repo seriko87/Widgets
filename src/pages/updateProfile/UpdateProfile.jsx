@@ -5,6 +5,7 @@ import {
   updateUserEmail,
   updateUserProfile,
   updadateUserPassword,
+  deleteAccount,
 } from '../../firebase';
 import './updateProfile.css';
 import {
@@ -105,6 +106,9 @@ const UpdateProfile = () => {
     setEmail(currentUser?.email || '');
   }, [currentUser]);
 
+  /**
+   * Update the user's profile name
+   */
   const handleNameChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -121,6 +125,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * It uploads the photo to the database.
+   */
   const handlePhotoChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -138,6 +145,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * Update the user's email address
+   */
   const handleEmailChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -151,7 +161,9 @@ const UpdateProfile = () => {
             setEmailSave(false);
           })
           .catch((error) => {
-            setError('Failed to update email, try log in again');
+            setError(
+              'Failed to update email, you must have signed in recently.'
+            );
           });
       } else {
         setError('Plase enter valid email address');
@@ -159,6 +171,9 @@ const UpdateProfile = () => {
     }
   };
 
+  /**
+   * It updates the user's password.
+   */
   const handlePassChange = (e) => {
     e.preventDefault();
     setMessage('');
@@ -171,12 +186,28 @@ const UpdateProfile = () => {
             setPassword('');
           })
           .catch(() => {
-            setError('Failed to update password, try log in again');
+            setError(
+              'Failed to update password, you must have signed in recently.'
+            );
           });
       } else {
         setError('Please Enter Valid Password');
       }
     }
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    setMessage('');
+    setError('');
+
+    await deleteAccount()
+      .then(() => {
+        navigate('/', { replace: true });
+      })
+      .catch(() => {
+        setError('Failed to delete account, you must have signed in recently.');
+      });
   };
 
   const handleChangeFile = (e) => {
@@ -329,7 +360,11 @@ const UpdateProfile = () => {
           </div>
           {error && <div className="profileUpdateError">{error}</div>}
           {message && <div className="profileSuccesMessage">{message}</div>}
+          <button className="deleteProfileBtn" onClick={handleDelete}>
+            Delete Accound
+          </button>
         </form>
+
         <div className="updateBtnWrap">
           <button
             className="cancelProfileBtn"

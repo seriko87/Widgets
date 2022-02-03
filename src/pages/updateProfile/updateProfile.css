@@ -31,10 +31,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  height: 306px;
   justify-content: flex-start;
   padding-top: 20px;
   gap: 30px;
+  position: relative;
 }
 
 .updateProfileInput:focus {
@@ -109,6 +110,7 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 .updateProfPic {
   position: relative;
@@ -212,4 +214,66 @@
   bottom: -2px;
   width: 100%;
   z-index: 5;
+}
+
+.deleteProfileBtn {
+  height: 35px;
+  background-color: var(--color-alert);
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  opacity: 0.9;
+  position: absolute;
+  bottom: 0px;
+}
+
+@media screen and (max-width: 499px) {
+  .updateProfileContainer {
+    width: 100%;
+  }
+
+  .updateProfileWrap {
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+  }
+  .inputWrapProfile {
+    flex-direction: column;
+    width: 317.5px;
+    align-items: flex-start;
+  }
+  .updateProfileInput {
+    width: 100%;
+  }
+  .updatePicIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .updateProfilePic {
+    width: 80px;
+    height: 80px;
+  }
+  .updateProfPic {
+    height: 80px;
+  }
+  .saveBtnUpdate {
+    bottom: 0;
+  }
+  .passUpdateInfo {
+    top: 80px;
+    left: 0;
+  }
+  .profileSuccesMessage {
+    width: 320px;
+  }
+  .profileUpdateError {
+    width: 320px;
+  }
 }
