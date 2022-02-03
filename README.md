@@ -12,15 +12,15 @@ This website is intended for desktop or big screen use.
 
 - Front-end: HTML, CSS, JavaScript, React Js
 - Back-end: Firebase, Firebase Auth, Firebase database, NoSQL
-- React Packages: React Charts, Axios, Material Ui, Draggable, React-Router
+- React Packages: React Charts, Axios, Material Ui, Draggable, React-Router, EmailJs, React form
 - State: useContext, useReducer
 - API: Rapid Api, Weather Api, Covid Open Disease Data API, Geo Location Mapbox, Bing News Api
 
 ### Current Features
 
 - Working user authentication
-- Seven widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices)
-- Night mode
+- Nine widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices, Match Cards, Currency Converter)
+- Day / Night mode
 
 ### Coming Soon
 

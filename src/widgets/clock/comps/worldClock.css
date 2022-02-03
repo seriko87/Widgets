@@ -1,5 +1,5 @@
 .worldClockCont {
-  font-size: 46px;
+  font-size: 60px;
   font-family: 'Roboto', sans-serif;
   height: 200px;
   width: 330px;
@@ -12,7 +12,6 @@
 }
 
 .worldClockMain {
-  background-color: var(--glass-bg-1);
   border: var(--glass-border-1);
   padding: 10px;
   border-radius: 10px;
@@ -30,7 +29,7 @@
 }
 
 .clockSecond {
-  width: 59px;
+  width: 75px;
 
   display: flex;
   justify-content: center;
@@ -39,7 +38,7 @@
   display: flex;
 }
 .clockHour {
-  width: 59px;
+  width: 75px;
   display: flex;
   justify-content: flex-end;
 }
