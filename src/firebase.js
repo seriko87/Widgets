@@ -73,7 +73,7 @@ export function updateUserEmail(email) {
 export function updadateUserPassword(password) {
   return updatePassword(auth.currentUser, password);
 }
-export function deleteAccoutn() {
+export function deleteAccount() {
   return deleteUser(auth.currentUser);
 }
 export function sendPassReset(email) {
