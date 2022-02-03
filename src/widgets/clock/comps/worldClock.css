@@ -2,7 +2,7 @@
   font-size: 46px;
   font-family: 'Roboto', sans-serif;
   height: 120px;
-  width: 240px;
+  width: 330px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,8 +21,33 @@
   justify-content: center;
   align-items: center;
   font-family: 'Rubik', sans-serif;
+  width: 300px;
+  height: 120px;
 }
 
 .worldDateMain {
   font-size: 16px;
+}
+
+.clockSecond {
+  width: 59px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+.clockTime {
+  display: flex;
+}
+.clockHour {
+  width: 59px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clockAmPm {
+  font-size: 26px;
+  margin-left: 5px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 5px;
 }

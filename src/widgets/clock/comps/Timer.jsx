@@ -5,10 +5,14 @@ import alarms from './alarm.mp3';
 const Timer = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(3);
+  const [time, setTime] = useState(10);
+  const [timer, setTimer] = useState({ hour: 0, minute: 0, second: 0 });
+
   const [startAlarm, setStartAlarm] = useState(false);
+
   const audioRef = useRef(new Audio(alarms));
   const circleRef = useRef();
+  let circleLengh = 140 * Math.PI;
 
   useEffect(() => {
     let interval = null;
@@ -26,10 +30,6 @@ const Timer = () => {
     };
   }, [isActive, isPaused]);
 
-  /**
-   * It takes in a number and returns a string that is formatted as hh:mm:ss.
-   * @returns The time in hours, minutes, and seconds.
-   */
   const formatTime = (e) => {
     let h = Math.floor(e / 3600);
     let m = Math.floor(e / 60) % 60;
@@ -44,6 +44,11 @@ const Timer = () => {
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
+    let time = timer.hour * 3600 + timer.minute * 60 + timer.second;
+
+    setTime(time);
+    setStartAlarm(false);
+    audioRef.current.pause();
   };
   const handlePause = () => {
     setIsPaused(!isPaused);
@@ -52,7 +57,7 @@ const Timer = () => {
     setIsPaused(false);
     setIsActive(false);
     setStartAlarm(false);
-    setTime(3);
+
     audioRef.current.pause();
   };
 
@@ -63,58 +68,127 @@ const Timer = () => {
       setTime(0);
       audioRef.current.play();
     }
+
+    setProgress(
+      (circleLengh / (timer.hour * 3600 + timer.minute * 60 + timer.second)) *
+        time
+    );
   }, [time]);
 
-  let circleLengh = circleRef.current.r.baseVal.value * 2 * Math.PI;
-
-  circleRef.current.style.strokeDasharray = `${circleLengh} ${circleLengh}`;
   function setProgress(percent) {
-    const offset = (percent / 100) * circleLengh;
-    circleRef.current.style.strokeDashoffset = offset;
+    const offset = circleLengh - percent;
+    console.log(offset);
+    if (circleRef.current) {
+      circleRef.current.style.strokeDashoffset = offset;
+    }
   }
-  setProgress(80);
+
+  const handleIncrease = (type, incDec) => {
+    if (type === 'h') {
+      if (incDec === 'inc') {
+        setTimer({ ...timer, hour: timer.hour === 99 ? 0 : timer.hour + 1 });
+      } else {
+        setTimer({ ...timer, hour: timer.hour === 0 ? 99 : timer.hour - 1 });
+      }
+    }
+    if (type === 'm') {
+      if (incDec === 'inc') {
+        setTimer({
+          ...timer,
+          minute: timer.minute === 59 ? 0 : timer.minute + 1,
+        });
+      } else {
+        setTimer({
+          ...timer,
+          minute: timer.minute === 0 ? 59 : timer.minute - 1,
+        });
+      }
+    }
+    if (type === 's') {
+      if (incDec === 'inc') {
+        setTimer({
+          ...timer,
+          second: timer.second === 59 ? 0 : timer.second + 1,
+        });
+      } else {
+        setTimer({
+          ...timer,
+          second: timer.second === 0 ? 59 : timer.second - 1,
+        });
+      }
+    }
+  };
+
   return (
     <div className="timerCont">
-      <div className="timerCircle" style={{}}>
-        <div className="timerTime">{formatTime(time)}</div>
-        <svg height="150" width="150" className="timerCircleSvg">
-          <circle
-            cx="75"
-            cy="75"
-            r="70"
-            stroke="black"
-            strokeWidth="4"
-            fill="none"
-            ref={circleRef}
-          />
-        </svg>
-      </div>
-      <input type="nu" />
+      {isActive && (
+        <div className="timerCircle">
+          <div className="timerTime">{formatTime(time)}</div>
+          <svg height="150" width="150" className="timerCircleSvg">
+            <circle
+              cx="75"
+              cy="75"
+              r="70"
+              strokeWidth="4"
+              fill="none"
+              strokeDasharray={`${circleLengh}`}
+              ref={circleRef}
+              className="cirlceSvg"
+              style={{ transition: 'all 0.2s linear' }}
+            />
+          </svg>
+        </div>
+      )}
+      {!isActive && (
+        <div className="timerIncCont">
+          <div className="timerIncBtn">
+            <button onClick={() => handleIncrease('h', 'inc')}>+</button>
+            <span id="timerHour">{`${timer.hour}`.padStart(2, '0')}</span>
+            <button onClick={() => handleIncrease('h', 'dec')}>-</button>
+          </div>
+          :
+          <div className="timerIncBtn">
+            <button onClick={() => handleIncrease('m', 'inc')}>+</button>
+            <span id="timerMinute">{`${timer.minute}`.padStart(2, '0')}</span>
+            <button onClick={() => handleIncrease('m', 'dec')}>-</button>
+          </div>
+          :
+          <div className="timerIncBtn">
+            <button onClick={() => handleIncrease('s', 'inc')}>+</button>
+            <span id="timerSecond">{`${timer.second}`.padStart(2, '0')}</span>
+            <button onClick={() => handleIncrease('s', 'dec')}>-</button>
+          </div>
+        </div>
+      )}
+
       {startAlarm && (
         <div className="timerFinished">
           <div>{formatTime(time)}</div>
           <div className="stwBtnAlarm">
-            <button className="stwBtnStart" onClick={() => handleStop()}>
+            <button className="stwBtnStart " onClick={() => handleStop()}>
               Dismiss
             </button>
-            <button className="stwBtnStart" onClick={() => handleStart()}>
+            <button className="stwBtnReset" onClick={() => handleStart()}>
               Restart
             </button>
           </div>
         </div>
       )}
-      {!isActive ? (
-        <button className="stwBtnStart" onClick={() => handleStart()}>
-          Start
+
+      <div className="timerControlBtn">
+        {!isActive ? (
+          <button className="stwBtnStart" onClick={() => handleStart()}>
+            Start
+          </button>
+        ) : (
+          <button className="stwBtnStart" onClick={() => handlePause()}>
+            {!isPaused ? 'Pause' : 'Resume'}
+          </button>
+        )}
+        <button className="stwBtnReset" onClick={() => handleStop()}>
+          Cancel
         </button>
-      ) : (
-        <button className="stwBtnStart" onClick={() => handlePause()}>
-          {!isPaused ? 'Pause' : 'Resume'}
-        </button>
-      )}
-      <button className="stwBtnStart" onClick={() => handleStop()}>
-        Cancel
-      </button>
+      </div>
     </div>
   );
 };
