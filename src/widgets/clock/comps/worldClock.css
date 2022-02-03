@@ -1,0 +1,105 @@
+.worldClockCont {
+  font-size: 46px;
+  font-family: 'Roboto', sans-serif;
+  height: 200px;
+  width: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.worldClockMain {
+  background-color: var(--glass-bg-1);
+  border: var(--glass-border-1);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+  width: 300px;
+  height: 200px;
+}
+
+.worldDateMain {
+  font-size: 16px;
+}
+
+.clockSecond {
+  width: 59px;
+
+  display: flex;
+  justify-content: center;
+}
+.clockTime {
+  display: flex;
+}
+.clockHour {
+  width: 59px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clockAmPm {
+  font-size: 26px;
+  margin-left: 5px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+.worldClockMainFull {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  z-index: 9999;
+  background: var(--background-color);
+}
+
+.clockHourFull {
+  color: #fbcb40;
+}
+.clockSecAPFull {
+  display: flex;
+  flex-direction: column;
+}
+
+.clockTimeFull {
+  display: flex;
+  font-size: 250px;
+  position: relative;
+}
+
+.clockSecondFull {
+  font-size: 50%;
+  color: var(--font-color);
+  display: flex;
+  position: absolute;
+  top: 20px;
+}
+.clockAmPmFull {
+  font-size: 45%;
+  position: absolute;
+  bottom: 30px;
+  color: var(--font-color-3);
+}
+.clockSecAPFull {
+  position: relative;
+  margin-left: 20px;
+}
+
+.worldDateMainFull {
+  color: var(--font-color-3);
+  position: absolute;
+  bottom: 0;
+}
+.clockFullWrap {
+  position: relative;
+  margin-top: 20vh;
+  margin-left: 5vw;
+}

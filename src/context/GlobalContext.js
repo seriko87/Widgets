@@ -5,8 +5,8 @@ import GlobalReducer from './GlobalReducer';
 // initial state
 const newList = [
   {
-    id: 'time',
-    name: 'Time',
+    id: 'clock',
+    name: 'Clock',
     status: false,
   },
   {

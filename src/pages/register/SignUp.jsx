@@ -72,7 +72,7 @@ const SignUp = () => {
     }
     setLoading(false);
     if (user) {
-      navigate('/', { replace: true });
+      navigate('/home', { replace: true });
     }
   };
 

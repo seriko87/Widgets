@@ -12,6 +12,7 @@ import Calculator from '../../components/calculator/Calculator';
 import Forex from '../../components/forex/Forex';
 import MatchCards from '../../widgets/matchCards/MatchCards';
 import Currency from '../../widgets/currency/Currency';
+import Clock from '../../widgets/clock/Clock';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -21,10 +22,10 @@ function Home() {
 
   const widgetList = [
     {
-      id: 'time',
-      name: 'Time',
+      id: 'clock',
+      name: 'Clock',
       status: false,
-      component: <Time key="time" />,
+      component: <Clock key="clock" />,
     },
     {
       id: 'weather',
@@ -46,7 +47,7 @@ function Home() {
     },
     {
       id: 'blackScreen',
-      name: 'Colorfull Screen',
+      name: 'Colorful Screen',
       status: false,
       component: <BlackScreen key="blackScreen" />,
     },
