@@ -13,6 +13,7 @@ import Forex from '../../components/forex/Forex';
 import MatchCards from '../../widgets/matchCards/MatchCards';
 import Currency from '../../widgets/currency/Currency';
 import Clock from '../../widgets/clock/Clock';
+import Quotes from '../../widgets/quotes/Quotes';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -74,6 +75,12 @@ function Home() {
       name: 'Currency Convert',
       status: false,
       component: <Currency key="currency" />,
+    },
+    {
+      id: 'quotes',
+      name: 'Quotes',
+      status: false,
+      component: <Quotes key="quotes" />,
     },
   ];
 
