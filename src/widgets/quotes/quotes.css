@@ -1,0 +1,50 @@
+.quotesCont {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  width: 400px;
+
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.quotesQuote {
+  margin-top: 20px;
+  width: 90%;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+}
+.quotesAuthor {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.quotesBtn button {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--font-color);
+  opacity: 0.2;
+  cursor: pointer;
+}
+.quotesBtn button:hover {
+  opacity: 0.8;
+}
+.quotesBtn button:active {
+  opacity: 0.2;
+}
+.quoteLoading {
+  margin-top: 20px;
+}

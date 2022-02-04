@@ -37,6 +37,11 @@ const newList = [
     name: 'Currency Convert',
     status: false,
   },
+  {
+    id: 'quotes',
+    name: 'Quotes',
+    status: false,
+  },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;

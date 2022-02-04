@@ -1,7 +1,7 @@
 import React from 'react';
 import './loading.css';
 
-const Loading = ({ width, height, size }) => {
+const Loading = ({ width, height }) => {
   const style = {
     width: width,
     height: height,
