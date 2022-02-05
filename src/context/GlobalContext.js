@@ -26,7 +26,7 @@ const newList = [
   },
   {
     id: 'blackScreen',
-    name: 'Colorfull Screen',
+    name: 'Colorful Screen',
     status: false,
   },
   { id: 'calculator', name: 'Calculator', status: false },
@@ -40,6 +40,11 @@ const newList = [
   {
     id: 'quotes',
     name: 'Quotes',
+    status: false,
+  },
+  {
+    id: 'rollDice',
+    name: 'Roll Dice',
     status: false,
   },
 ];
