@@ -7,7 +7,6 @@ import BlackScreen from '../../components/blackScreen/BlackScreen';
 import Weather from '../../components/weather/Weather';
 import News from '../../components/news/News';
 import Covid from '../../components/covid/Covid';
-import Time from '../../components/time/Time';
 import Calculator from '../../components/calculator/Calculator';
 import Forex from '../../components/forex/Forex';
 import MatchCards from '../../widgets/matchCards/MatchCards';
@@ -15,6 +14,7 @@ import Currency from '../../widgets/currency/Currency';
 import Clock from '../../widgets/clock/Clock';
 import Quotes from '../../widgets/quotes/Quotes';
 import RollDice from '../../widgets/rollDice/RollDice';
+import ImgWidget from '../../widgets/imgWidget/ImgWidget';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -88,6 +88,12 @@ function Home() {
       name: 'Roll Dice',
       status: false,
       component: <RollDice />,
+    },
+    {
+      id: 'imgWidget',
+      name: 'Images',
+      status: false,
+      component: <ImgWidget />,
     },
   ];
 

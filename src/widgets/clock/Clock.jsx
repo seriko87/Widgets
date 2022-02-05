@@ -24,7 +24,6 @@ const Clock = () => {
     setActive(newD);
   };
 
-  console.log(active);
   return (
     <Draggable handle="strong">
       <div className="clockCont box no-cursor">

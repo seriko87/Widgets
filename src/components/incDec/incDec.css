@@ -1,0 +1,35 @@
+.numberIncBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.numberIncBtn button {
+  border: var(--glass-border-1);
+  cursor: pointer;
+  font-size: 26px;
+  color: var(--font-color);
+  background: var(--bg-gradient-1);
+  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.numberIncBtn button:hover {
+  opacity: 1;
+}
+.numberIncBtn button:active {
+  opacity: 0.8;
+}
+
+.numberIncDec {
+  font-family: 'Rubik', sans-serif;
+  font-size: 26px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

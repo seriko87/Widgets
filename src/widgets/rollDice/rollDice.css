@@ -18,11 +18,12 @@
 .rdWrap {
   display: flex;
   width: 100%;
-  /* border: var(--glass-border-1); */
+  border: var(--glass-border-1);
   margin-top: 20px;
   border-radius: 5px 5px 0 0;
   justify-content: space-around;
   height: 170px;
+  margin-bottom: 5px;
 }
 
 .rdScreen {
@@ -80,6 +81,8 @@
   width: 250px;
   justify-content: center;
   gap: 20px;
+  border: var(--glass-border-1);
+  border-radius: 0 0 5px 0;
 }
 
 .rdBtnWrap {

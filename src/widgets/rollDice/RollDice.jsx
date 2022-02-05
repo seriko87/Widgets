@@ -3,20 +3,14 @@ import './rollDice.css';
 import Draggable from 'react-draggable';
 import CloseWidget from '../../components/closeWidget/CloseWidget';
 import Dice from './Dice';
+import IncDec from '../../components/incDec/IncDec';
 
 const RollDice = () => {
-  const [diceNum, setDiceNum] = useState(1);
-  const [randArray, setRandArray] = useState([1]);
+  const [diceNum, setNumber] = useState(1);
+  const [randArray, setRandArray] = useState([1, 2, 3, 4, 5, 6]);
   const [totalNum, setTotalNum] = useState(0);
   const [maxNum, setMaxNum] = useState(0);
 
-  const handleIncrease = (incDec) => {
-    if (incDec === 'inc') {
-      setDiceNum(diceNum === 8 ? 1 : diceNum + 1);
-    } else {
-      setDiceNum(diceNum === 1 ? 8 : diceNum - 1);
-    }
-  };
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -38,7 +32,7 @@ const RollDice = () => {
   const handleReset = () => {
     setMaxNum(0);
     setRandArray([1]);
-    setDiceNum(1);
+    setNumber(1);
     setTotalNum(0);
   };
 
@@ -48,11 +42,8 @@ const RollDice = () => {
         <strong className="cursor" style={{ width: 90 + '%' }}></strong>
         <CloseWidget id="rollDice" />
         <div className="rdWrap">
-          <div className="timerIncBtn">
-            <button onClick={() => handleIncrease('inc')}>+</button>
-            <span id="timerSecond">{diceNum}</span>
-            <button onClick={() => handleIncrease('dec')}>-</button>
-          </div>
+          <IncDec number={diceNum} setNumber={setNumber} max={8} min={1} />
+
           <div className="rdScreen">
             {randArray.map((item, index) => {
               return <Dice key={index} number={item} />;

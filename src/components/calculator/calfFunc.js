@@ -34,7 +34,7 @@ export const calcFunc = [
   },
   {
     id: 'square',
-    label: 'x2',
+    label: 'x*x',
     className: 'calcFunc',
     func: (num1) => {
       return num1 * num1;
@@ -42,7 +42,7 @@ export const calcFunc = [
   },
   {
     id: 'squareRoot',
-    label: '2/x',
+    label: 'sqrt(x)',
     className: 'calcFunc',
     func: (num) => {
       return Math.sqrt(num);
