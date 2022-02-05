@@ -361,7 +361,7 @@ const UpdateProfile = () => {
           {error && <div className="profileUpdateError">{error}</div>}
           {message && <div className="profileSuccesMessage">{message}</div>}
           <button className="deleteProfileBtn" onClick={handleDelete}>
-            Delete Accound
+            Delete Account
           </button>
         </form>
 
