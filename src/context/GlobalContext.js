@@ -42,6 +42,11 @@ const newList = [
     name: 'Quotes',
     status: false,
   },
+  {
+    id: 'rollDice',
+    name: 'Roll Dice',
+    status: false,
+  },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;

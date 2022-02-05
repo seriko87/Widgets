@@ -1,0 +1,54 @@
+.diceComp {
+  width: 60px;
+  height: 60px;
+  border: var(--glass-border-1);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  background: var(--color-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.diceDot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--font-color-2);
+  border-radius: 50%;
+  position: absolute;
+}
+.diceWrap {
+  width: 45px;
+  height: 45px;
+
+  position: relative;
+}
+.centerDot {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.rightTopDot {
+  right: 0;
+  top: 0;
+}
+.leftBottomDot {
+  left: 0;
+  bottom: 0;
+}
+.leftTopDot {
+  left: 0;
+  top: 0;
+}
+.rightBottomDot {
+  right: 0;
+  bottom: 0;
+}
+.centerRightDot {
+  top: 18.5px;
+  right: 0;
+}
+.centerLeftDot {
+  top: 18.5px;
+  left: 0;
+}

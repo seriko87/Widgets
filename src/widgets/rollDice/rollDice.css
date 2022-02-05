@@ -1,0 +1,58 @@
+.rdCont {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.rdWrap {
+  display: flex;
+  width: 100%;
+  border: var(--glass-border-1);
+  margin-top: 20px;
+  border-radius: 5px 5px 0 0;
+  justify-content: space-around;
+  height: 170px;
+}
+
+.rdScreen {
+  width: 300px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-content: center;
+}
+
+.rdRollDiceBtn {
+  width: 100%;
+  height: 35px;
+  border-radius: 0 0 5px 5px;
+  border: none;
+  background: rgb(39, 117, 235);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  margin-top: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.rdRollDiceBtn:hover {
+  background: var(--color-alert-1);
+}
+.rdRollDiceBtn:active {
+  background: rgb(39, 117, 235);
+}

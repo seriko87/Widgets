@@ -14,6 +14,7 @@ import MatchCards from '../../widgets/matchCards/MatchCards';
 import Currency from '../../widgets/currency/Currency';
 import Clock from '../../widgets/clock/Clock';
 import Quotes from '../../widgets/quotes/Quotes';
+import RollDice from '../../widgets/rollDice/RollDice';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -81,6 +82,12 @@ function Home() {
       name: 'Quotes',
       status: false,
       component: <Quotes key="quotes" />,
+    },
+    {
+      id: 'rollDice',
+      name: 'Roll Dice',
+      status: false,
+      component: <RollDice />,
     },
   ];
 
