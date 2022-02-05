@@ -13,7 +13,7 @@
 .diceDot {
   width: 10px;
   height: 10px;
-  background-color: var(--font-color-2);
+  background-color: rgb(233, 233, 233);
   border-radius: 50%;
   position: absolute;
 }

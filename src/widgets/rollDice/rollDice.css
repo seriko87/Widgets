@@ -18,7 +18,7 @@
 .rdWrap {
   display: flex;
   width: 100%;
-  border: var(--glass-border-1);
+  /* border: var(--glass-border-1); */
   margin-top: 20px;
   border-radius: 5px 5px 0 0;
   justify-content: space-around;
@@ -37,17 +37,35 @@
 }
 
 .rdRollDiceBtn {
-  width: 100%;
-  height: 35px;
-  border-radius: 0 0 5px 5px;
+  width: 80px;
+  height: 100%;
+  border-radius: 0 5px 5px 0;
   border: none;
   background: rgb(39, 117, 235);
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
-  margin-top: 5px;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  margin-left: 2px;
+}
+.rdResetBtn {
+  width: 60px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  background: rgb(245, 46, 46);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.rdResetBtn:hover {
+  opacity: 0.8;
+}
+.rdResetBtn:active {
+  opacity: 1;
 }
 
 .rdRollDiceBtn:hover {
@@ -55,4 +73,36 @@
 }
 .rdRollDiceBtn:active {
   background: rgb(39, 117, 235);
+}
+
+.rdTotalInfo {
+  display: flex;
+  width: 250px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.rdBtnWrap {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.rdLast,
+.rdTotal {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rdInfoTitle {
+  font-size: 16px;
+}
+.rdInfo {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
