@@ -87,13 +87,13 @@ function Home() {
       id: 'rollDice',
       name: 'Roll Dice',
       status: false,
-      component: <RollDice />,
+      component: <RollDice key="rollDice" />,
     },
     {
       id: 'imgWidget',
       name: 'Images',
       status: false,
-      component: <ImgWidget />,
+      component: <ImgWidget key="imgWidget" />,
     },
   ];
 

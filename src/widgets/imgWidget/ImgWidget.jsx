@@ -109,7 +109,11 @@ const ImgWidget = () => {
             onChange={handleCategory}
           >
             {cat.map((item) => {
-              return <option value={item}>{item}</option>;
+              return (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              );
             })}
           </select>
         </div>
