@@ -1,0 +1,125 @@
+.imgWidgetCont {
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding-top: 10px;
+}
+.imgWidgetControls {
+  height: 60px;
+  position: relative;
+  width: 100%;
+}
+.imgNextBtn,
+.imgPrevBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--font-color);
+  position: absolute;
+  top: 50%px;
+  padding: 0;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.imgNextBtn {
+  right: 0;
+}
+.imgPrevBtn {
+  left: 0;
+}
+
+.imgPrevBtn:hover,
+.imgNextBtn:hover {
+  opacity: 1;
+}
+.imgPrevBtn:active,
+.imgNextBtn:active {
+  opacity: 0.7;
+}
+
+.imgRefBtn {
+  border: none;
+  background: none;
+  color: var(--font-color);
+  font-size: 18px;
+}
+
+.imgWidgetWrap {
+  position: relative;
+  min-width: 300px;
+
+  overflow: hidden;
+}
+.imgWidgetWrap img {
+  width: 100%;
+}
+.imgPexelsInfo {
+  position: absolute;
+  width: 100%;
+  bottom: 4px;
+
+  font-size: 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(17, 25, 40, 0.329);
+  align-items: center;
+}
+
+.imgPexelsUser {
+  opacity: 0.5;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.imgPexelsUser:hover {
+  opacity: 1;
+}
+.imgWidgetDown {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.imgWidgetDown:hover {
+  opacity: 1;
+}
+
+.imgWidCategory {
+  height: 25px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-flow: row wrap;
+  margin-bottom: 5px;
+  position: relative;
+}
+#imgWidgetCatSel {
+  min-width: 100px;
+  height: 25px;
+  border: var(--glass-border-1);
+  background: none;
+  color: var(--font-color);
+}
+#imgWidgetCatSel option {
+  background: var(--bg-color-4);
+}
+
+.imgLoading {
+  width: 400px;
+  height: 300px;
+}
+.imgPexelsLink {
+  position: absolute;
+  right: 5px;
+  font-size: 12px;
+  top: 0;
+  opacity: 0.3;
+}

@@ -47,6 +47,11 @@ const newList = [
     name: 'Roll Dice',
     status: false,
   },
+  {
+    id: 'imgWidget',
+    name: 'Images',
+    status: false,
+  },
 ];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;

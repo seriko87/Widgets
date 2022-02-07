@@ -237,6 +237,8 @@
 @media screen and (max-width: 499px) {
   .updateProfileContainer {
     width: 100%;
+    border: none;
+    background: transparent;
   }
 
   .updateProfileWrap {
@@ -275,5 +277,8 @@
   }
   .profileUpdateError {
     width: 320px;
+  }
+  .updateMainCont {
+    height: 100%;
   }
 }

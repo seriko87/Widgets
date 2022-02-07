@@ -52,7 +52,6 @@ const News = () => {
     setCategory(cate);
   };
 
-  console.log(news);
   return (
     <Draggable handle="strong">
       <div className="newsWrapper box no-cursor">

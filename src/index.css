@@ -22,7 +22,7 @@ code {
   --bg-color-2: rgb(145, 145, 145);
   --font-color-2: #eee;
   --font-color-3: rgb(119, 119, 119);
-  --glass-bg-1: rgba(255, 255, 255, 0.2);
+  --glass-bg-1: rgba(241, 241, 241, 0.13);
   --glass-border-1: 1px solid rgba(109, 109, 109, 0.178);
   --bg-color-3: #204b8b;
   --bg-gradient-1: #e8ecf2;
@@ -45,7 +45,7 @@ code {
   --bg-color-2: rgb(196, 196, 196);
   --font-color-2: #333;
   --font-color-3: rgb(177, 177, 177);
-  --glass-bg-1: rgba(17, 25, 40, 0.49);
+  --glass-bg-1: rgba(17, 25, 40, 0.329);
   --glass-border-1: 1px solid rgba(255, 255, 255, 0.125);
   --bg-color-3: #204b8b;
   --bg-gradient-1: #212121;
