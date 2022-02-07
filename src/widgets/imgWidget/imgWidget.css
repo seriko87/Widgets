@@ -57,6 +57,8 @@
 .imgWidgetWrap {
   position: relative;
   min-width: 300px;
+
+  overflow: hidden;
 }
 .imgWidgetWrap img {
   width: 100%;
@@ -90,11 +92,20 @@
 }
 
 .imgWidCategory {
-  height: 30px;
+  height: 25px;
   width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-flow: row wrap;
+  margin-bottom: 5px;
 }
 #imgWidgetCatSel {
   min-width: 100px;
   height: 25px;
   border: none;
+}
+
+.imgLoading {
+  width: 400px;
+  height: 300px;
 }

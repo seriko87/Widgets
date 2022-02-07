@@ -7,7 +7,19 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import Loading from '../../components/loading/Loading';
 import DownloadIcon from '@mui/icons-material/Download';
-const cat = ['Nature', 'Tigers', 'Ocean', 'Dogs', 'Cats'];
+const cat = [
+  'Nature',
+  'Tigers',
+  'Ocean',
+  'Dogs',
+  'Cats',
+  'Fantasy',
+  'Abstract',
+  'Natural',
+  'Adult',
+  'Landscape',
+  'Dark',
+];
 
 const ImgWidget = () => {
   const [imgUrl, setImgUrl] = useState({ id: 0, img: '' });
@@ -70,9 +82,9 @@ const ImgWidget = () => {
     // getImg();
   };
 
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-    getImg(e.target.value);
+  const handleCategory = (value) => {
+    setCategory(value);
+    getImg(value);
   };
 
   console.log(imgUrl);
@@ -83,44 +95,53 @@ const ImgWidget = () => {
         <strong className="cursor" style={{ width: 90 + '%' }}></strong>
         <CloseWidget id="imgWidget" />
         <div className="imgWidCategory">
-          <label htmlFor="category">Category : </label>
-          <select
-            name="category"
-            id="imgWidgetCatSel"
-            onChange={handleCategory}
-          >
-            {cat.map((item) => {
-              return <option value={item}>{item}</option>;
-            })}
-          </select>
+          {cat.map((item) => {
+            return (
+              <button
+                className="catButton"
+                key={item}
+                onClick={() => handleCategory(item)}
+              >
+                {item}
+              </button>
+            );
+          })}
         </div>
-        {imgList && (
-          <div className="imgWidgetWrap">
-            <div className="imgPexelsInfo">
-              <a
-                href={imgUrl.img.url}
-                className="imgPexelsUser"
-                target={'_blank'}
-                rel="noreferrer"
-              >
-                by {imgUrl.img.photographer}
-              </a>
-
-              {/* <br />
-              <a href="https://www.pexels.com">photos provided by Pexels</a> */}
-              <a
-                href={imgUrl.img.src.original}
-                download="nature"
-                className="imgWidgetDown"
-                target={'_blank'}
-                rel="noreferrer"
-              >
-                <DownloadIcon fontSize="small" />
-              </a>
-            </div>
-
-            <img src={imgUrl.img.src.medium} alt={imgUrl.img.alt} />
+        {loading ? (
+          <div className="imgLoading">
+            <Loading width={'50px'} height={'50px'} />
           </div>
+        ) : (
+          <>
+            {imgList && (
+              <div className="imgWidgetWrap">
+                <div className="imgPexelsInfo">
+                  <a
+                    href={imgUrl.img.url}
+                    className="imgPexelsUser"
+                    target={'_blank'}
+                    rel="noreferrer"
+                  >
+                    by {imgUrl.img.photographer}
+                  </a>
+
+                  {/* <br />
+              <a href="https://www.pexels.com">photos provided by Pexels</a> */}
+                  <a
+                    href={imgUrl.img.src.original}
+                    download="nature"
+                    className="imgWidgetDown"
+                    target={'_blank'}
+                    rel="noreferrer"
+                  >
+                    <DownloadIcon fontSize="small" />
+                  </a>
+                </div>
+
+                <img src={imgUrl.img.src.medium} alt={imgUrl.img.alt} />
+              </div>
+            )}
+          </>
         )}
 
         <button className="imgNextBtn" onClick={() => handleNext(imgUrl.id)}>
