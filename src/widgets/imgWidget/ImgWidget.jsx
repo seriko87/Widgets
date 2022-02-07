@@ -19,6 +19,16 @@ const cat = [
   'Adult',
   'Landscape',
   'Dark',
+  'Crypto',
+  'Money',
+  'Trading',
+  'Business',
+  'Dance',
+  'Roses',
+  'Forest',
+  'Sky',
+  'Alone',
+  'Motivational Quotes',
 ];
 
 const ImgWidget = () => {
@@ -36,7 +46,7 @@ const ImgWidget = () => {
       params: {
         query: cat,
         page: 1,
-        per_page: 40,
+        per_page: 80,
         orientation: 'squarish',
       },
       headers: { Authorization: SITE_KEY },
@@ -48,7 +58,6 @@ const ImgWidget = () => {
       setImgUrl({ id: 0, img: res.data.photos[0] });
       setImgList(res.data.photos);
       setLoading(false);
-      console.log('img api called');
     } catch (error) {
       console.log(error);
     }
@@ -74,38 +83,35 @@ const ImgWidget = () => {
     }
   };
 
-  const handleRefresh = () => {
-    setRefresh(true);
-    setTimeout(() => {
-      setRefresh(false);
-    }, 60000);
-    // getImg();
+  //   const handleRefresh = () => {
+  //     setRefresh(true);
+  //     setTimeout(() => {
+  //       setRefresh(false);
+  //     }, 60000);
+  //     // getImg();
+  //   };
+
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+    getImg(e.target.value);
   };
 
-  const handleCategory = (value) => {
-    setCategory(value);
-    getImg(value);
-  };
-
-  console.log(imgUrl);
-  console.log('category', category);
   return (
     <Draggable handle="strong">
       <div className="imgWidgetCont box no-cursor">
         <strong className="cursor" style={{ width: 90 + '%' }}></strong>
         <CloseWidget id="imgWidget" />
         <div className="imgWidCategory">
-          {cat.map((item) => {
-            return (
-              <button
-                className="catButton"
-                key={item}
-                onClick={() => handleCategory(item)}
-              >
-                {item}
-              </button>
-            );
-          })}
+          <label htmlFor="category">Category : </label>
+          <select
+            name="category"
+            id="imgWidgetCatSel"
+            onChange={handleCategory}
+          >
+            {cat.map((item) => {
+              return <option value={item}>{item}</option>;
+            })}
+          </select>
         </div>
         {loading ? (
           <div className="imgLoading">
@@ -125,8 +131,6 @@ const ImgWidget = () => {
                     by {imgUrl.img.photographer}
                   </a>
 
-                  {/* <br />
-              <a href="https://www.pexels.com">photos provided by Pexels</a> */}
                   <a
                     href={imgUrl.img.src.original}
                     download="nature"
@@ -137,7 +141,9 @@ const ImgWidget = () => {
                     <DownloadIcon fontSize="small" />
                   </a>
                 </div>
-
+                <a href="https://www.pexels.com" className="imgPexelsLink">
+                  photos provided by Pexels
+                </a>
                 <img src={imgUrl.img.src.medium} alt={imgUrl.img.alt} />
               </div>
             )}

@@ -11,7 +11,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  padding-top: 28px;
+  padding-top: 10px;
 }
 .imgWidgetControls {
   height: 60px;
@@ -68,11 +68,12 @@
   width: 100%;
   bottom: 4px;
 
-  font-size: 14px;
+  font-size: 12px;
   color: white;
   display: flex;
   justify-content: space-between;
   background: rgba(17, 25, 40, 0.329);
+  align-items: center;
 }
 
 .imgPexelsUser {
@@ -98,14 +99,27 @@
   gap: 10px;
   flex-flow: row wrap;
   margin-bottom: 5px;
+  position: relative;
 }
 #imgWidgetCatSel {
   min-width: 100px;
   height: 25px;
-  border: none;
+  border: var(--glass-border-1);
+  background: none;
+  color: var(--font-color);
+}
+#imgWidgetCatSel option {
+  background: var(--bg-color-4);
 }
 
 .imgLoading {
   width: 400px;
   height: 300px;
+}
+.imgPexelsLink {
+  position: absolute;
+  right: 5px;
+  font-size: 12px;
+  top: 0;
+  opacity: 0.3;
 }
