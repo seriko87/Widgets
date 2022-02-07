@@ -2,7 +2,7 @@
 
 After several small apps and tutorial web applications I decided to do my web application. I always have visited the same web pages to check daily updates like sport results, news, crypto prices, etc. but it is a hassle to check all those different pages. I first tried to use windows widgets but it is limited to only their list of widgets so I decided to make my own widgets application.
 
-Note: since some APIs are paid I had to remove some of my original widgets(crypto, sports). Actively looking for good free ones.
+Note: since some APIs are paid I had to remove some of my original widgets. Actively looking for good free ones.
 
 You can check live site here: www.sashyr.com
 
@@ -19,7 +19,7 @@ This website is intended for desktop or big screen use.
 ### Current Features
 
 - Working user authentication
-- Nine widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices, Match Cards, Currency Converter)
+- Widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices, Match Cards, Currency Converter, etc...)
 - Day / Night mode
 
 ### Coming Soon
