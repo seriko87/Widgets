@@ -81,6 +81,7 @@ const StopWatch = () => {
           return (
             <div
               className={fastLap === item ? 'stwLapList fastLap' : 'stwLapList'}
+              key={index}
             >
               <span>Lap{index + 1}</span>
               <span>{formatTime(item)}</span>
