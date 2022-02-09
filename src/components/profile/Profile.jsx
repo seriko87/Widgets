@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from 'react-router-dom';
+import { iconList } from '../../context/widgetList';
 
 const Profile = ({ user, setProOpenClose }) => {
   const [alert, setAlert] = useState(false);
@@ -69,8 +70,15 @@ const Profile = ({ user, setProOpenClose }) => {
           </div>
         ) : (
           <>
-            {list.map((item) => {
-              return <Lists key={item.id} item={item} setAlert={setAlert} />;
+            {list.map((item, index) => {
+              return (
+                <Lists
+                  key={item.id}
+                  item={item}
+                  setAlert={setAlert}
+                  icon={iconList[index].icon}
+                />
+              );
             })}
           </>
         )}

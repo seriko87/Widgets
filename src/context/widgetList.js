@@ -93,52 +93,42 @@ export const iconList = [
   },
   {
     id: 'weather',
-
     icon: <WbSunnyIcon />,
   },
   {
     id: 'covid',
-
     icon: <CoronavirusIcon />,
   },
   {
     id: 'blackScreen',
-
     icon: <ColorLensIcon />,
   },
   {
     id: 'calculator',
-
     icon: <CalculateIcon />,
   },
   {
     id: 'forex',
-
     icon: <PriceChangeIcon />,
   },
   {
     id: 'matchCards',
-
     icon: <StyleIcon />,
   },
   {
     id: 'currency',
-
     icon: <CurrencyExchangeIcon />,
   },
   {
     id: 'quotes',
-
     icon: <FormatQuoteIcon />,
   },
   {
     id: 'rollDice',
-
     icon: <CasinoIcon />,
   },
   {
     id: 'imgWidget',
-
     icon: <PhotoCameraBackIcon />,
   },
   {

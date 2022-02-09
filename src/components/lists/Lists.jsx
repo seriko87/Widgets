@@ -6,13 +6,12 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { useAuthState } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 
-const Lists = ({ item, setAlert }) => {
+const Lists = ({ item, setAlert, icon }) => {
   const { dispatch } = useContext(GlobalContext);
   const { currentUser } = useAuthState();
 
   const listName = item.name;
   const widgetUserAllow = item.user;
-  const icon = item.icon;
 
   const handleChange = (id) => {
     addRemoveList(id, dispatch);
