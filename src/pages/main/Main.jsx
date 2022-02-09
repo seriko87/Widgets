@@ -50,9 +50,7 @@ const Main = () => {
         <div
           className="navWrap"
           style={
-            hamb
-              ? { backgroundColor: '#204b8b' }
-              : { backgroundColor: 'inherit' }
+            hamb ? { backgroundColor: '#204b8b' } : { backgroundColor: 'none' }
           }
         >
           <div className="navLogo">
