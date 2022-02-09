@@ -25,52 +25,52 @@ function Home() {
 
   const widgetList = [
     {
-      status: false,
+      user: false,
       component: <Clock key="clock" />,
     },
     {
-      status: false,
+      user: false,
       component: <Weather key="weather" />,
     },
 
     {
-      status: false,
+      user: false,
       component: <Covid key="covid" />,
     },
     {
-      status: false,
+      user: false,
       component: <BlackScreen key="blackScreen" />,
     },
     {
-      status: false,
+      user: false,
       component: <Calculator key="calculator" />,
     },
     {
-      status: false,
+      user: false,
       component: <Forex key="forex" />,
     },
     {
-      status: false,
+      user: false,
       component: <MatchCards key="matchCards" />,
     },
     {
-      status: false,
+      user: false,
       component: <Currency key="currency" />,
     },
     {
-      status: false,
+      user: false,
       component: <Quotes key="quotes" />,
     },
     {
-      status: false,
+      user: false,
       component: <RollDice key="rollDice" />,
     },
     {
-      status: false,
+      user: false,
       component: <ImgWidget key="imgWidget" />,
     },
     {
-      status: false,
+      user: true,
       component: <News key="news" />,
     },
   ];
@@ -94,9 +94,18 @@ function Home() {
       )}
 
       {widgetList.map((item, index) => {
-        if (newList[index].status) {
-          return item.component;
+        if (item.user) {
+          if (currentUser) {
+            if (newList[index].status) {
+              return item.component;
+            }
+          }
+        } else {
+          if (newList[index].status) {
+            return item.component;
+          }
         }
+
         return null;
       })}
     </div>
