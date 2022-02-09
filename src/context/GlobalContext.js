@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect } from 'react';
-import CasinoIcon from '@mui/icons-material/Casino';
+
 import GlobalReducer from './GlobalReducer';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+
 import { newList } from './widgetList';
 // initial state
 

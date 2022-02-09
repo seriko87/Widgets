@@ -22,9 +22,6 @@ function Home() {
   const [proOpenClose, setProOpenClose] = useState(true);
   const { currentUser } = useAuthState();
   const [newList, setNewList] = useState(list);
-  const imgUrl =
-    (currentUser && currentUser.photoURL) ||
-    'https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/userImg%2FHTNHxmCPGLYBTFTy3DcUOURi1Fw1avat.png?alt=media&token=b48261ad-6dbe-401c-942b-7566f621aeb6';
 
   const widgetList = [
     {
@@ -85,11 +82,6 @@ function Home() {
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
-        {/* <img
-          src={currentUser ? currentUser.photoURL : imgUrl}
-          alt="Profile"
-          className="profile-picture"
-        /> */}
         <WidgetsIcon
           fontSize="large"
           className="profileIconHome"
