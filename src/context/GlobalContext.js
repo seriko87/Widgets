@@ -16,12 +16,7 @@ const newList = [
     status: false,
     user: false,
   },
-  {
-    id: 'news',
-    name: 'News',
-    status: false,
-    user: false,
-  },
+
   {
     id: 'covid',
     name: 'Covid Info',
@@ -58,6 +53,12 @@ const newList = [
   {
     id: 'imgWidget',
     name: 'Images',
+    status: false,
+    user: false,
+  },
+  {
+    id: 'news',
+    name: 'News',
     status: false,
     user: true,
   },

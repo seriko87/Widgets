@@ -38,12 +38,7 @@ function Home() {
       status: false,
       component: <Weather key="weather" />,
     },
-    {
-      id: 'news',
-      name: 'News',
-      status: false,
-      component: <News key="news" />,
-    },
+
     {
       id: 'covid',
       name: 'Covid Info',
@@ -97,6 +92,12 @@ function Home() {
       name: 'Images',
       status: false,
       component: <ImgWidget key="imgWidget" />,
+    },
+    {
+      id: 'news',
+      name: 'News',
+      status: false,
+      component: <News key="news" />,
     },
   ];
 

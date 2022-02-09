@@ -4,6 +4,7 @@ import './lists.css';
 import { addRemoveList } from '../../context/ApiCalls';
 import { GlobalContext } from '../../context/GlobalContext';
 import { useAuthState } from '../../firebase';
+import LockIcon from '@mui/icons-material/Lock';
 
 const Lists = ({ item, setAlert }) => {
   const { dispatch } = useContext(GlobalContext);
@@ -31,11 +32,10 @@ const Lists = ({ item, setAlert }) => {
         ) : (
           <button className="listWrap" onClick={() => setAlert(true)}>
             <div className="widgetTitle">{listName}</div>
-            {item.status ? (
-              <div className="listOnBtn">On</div>
-            ) : (
-              <div className="listOffBtn">Off</div>
-            )}
+
+            <div className="listOnBtn">
+              <LockIcon />
+            </div>
           </button>
         )
       ) : (
