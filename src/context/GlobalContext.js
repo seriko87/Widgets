@@ -1,68 +1,9 @@
 import { createContext, useReducer, useEffect } from 'react';
-
+import CasinoIcon from '@mui/icons-material/Casino';
 import GlobalReducer from './GlobalReducer';
-
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { newList } from './widgetList';
 // initial state
-const newList = [
-  {
-    id: 'clock',
-    name: 'Clock',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'weather',
-    name: 'Weather',
-    status: false,
-    user: false,
-  },
-
-  {
-    id: 'covid',
-    name: 'Covid Info',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'blackScreen',
-    name: 'Colorful Screen',
-    status: false,
-    user: false,
-  },
-  { id: 'calculator', name: 'Calculator', status: false, user: false },
-  { id: 'forex', name: 'Crypto Prices', status: false, user: false },
-  { id: 'matchCards', name: 'Match Cards', status: false, user: false },
-  {
-    id: 'currency',
-    name: 'Currency Convert',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'quotes',
-    name: 'Quotes',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'rollDice',
-    name: 'Roll Dice',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'imgWidget',
-    name: 'Images',
-    status: false,
-    user: false,
-  },
-  {
-    id: 'news',
-    name: 'News',
-    status: false,
-    user: true,
-  },
-];
 
 let list = JSON.parse(localStorage.getItem('list')) || null;
 

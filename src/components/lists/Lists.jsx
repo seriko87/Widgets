@@ -12,6 +12,7 @@ const Lists = ({ item, setAlert }) => {
 
   const listName = item.name;
   const widgetUserAllow = item.user;
+  const icon = item.icon;
 
   const handleChange = (id) => {
     addRemoveList(id, dispatch);
@@ -22,7 +23,11 @@ const Lists = ({ item, setAlert }) => {
       {widgetUserAllow ? (
         currentUser ? (
           <button className="listWrap" onClick={() => handleChange(item.id)}>
-            <div className="widgetTitle">{listName}</div>
+            <span className="iconWrapList">
+              {icon}
+              <div className="widgetTitle">{listName}</div>
+            </span>
+
             {item.status ? (
               <div className="listOnBtn">On</div>
             ) : (
@@ -31,8 +36,10 @@ const Lists = ({ item, setAlert }) => {
           </button>
         ) : (
           <button className="listWrap" onClick={() => setAlert(true)}>
-            <div className="widgetTitle">{listName}</div>
-
+            <span className="iconWrapList">
+              {icon}
+              <div className="widgetTitle">{listName}</div>
+            </span>
             <div className="listOnBtn">
               <LockIcon />
             </div>
@@ -40,7 +47,10 @@ const Lists = ({ item, setAlert }) => {
         )
       ) : (
         <button className="listWrap" onClick={() => handleChange(item.id)}>
-          <div className="widgetTitle">{listName}</div>
+          <span className="iconWrapList">
+            {icon}
+            <div className="widgetTitle">{listName}</div>
+          </span>
           {item.status ? (
             <div className="listOnBtn">On</div>
           ) : (

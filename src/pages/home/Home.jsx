@@ -15,6 +15,7 @@ import Clock from '../../widgets/clock/Clock';
 import Quotes from '../../widgets/quotes/Quotes';
 import RollDice from '../../widgets/rollDice/RollDice';
 import ImgWidget from '../../widgets/imgWidget/ImgWidget';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 function Home() {
   const { list } = useContext(GlobalContext);
@@ -27,75 +28,51 @@ function Home() {
 
   const widgetList = [
     {
-      id: 'clock',
-      name: 'Clock',
       status: false,
       component: <Clock key="clock" />,
     },
     {
-      id: 'weather',
-      name: 'Weather',
       status: false,
       component: <Weather key="weather" />,
     },
 
     {
-      id: 'covid',
-      name: 'Covid Info',
       status: false,
       component: <Covid key="covid" />,
     },
     {
-      id: 'blackScreen',
-      name: 'Colorful Screen',
       status: false,
       component: <BlackScreen key="blackScreen" />,
     },
     {
-      id: 'calculator',
-      name: 'Calculator',
       status: false,
       component: <Calculator key="calculator" />,
     },
     {
-      id: 'forex',
-      name: 'Crypto Prices',
       status: false,
       component: <Forex key="forex" />,
     },
     {
-      id: 'matchCards',
-      name: 'Match Cards',
       status: false,
       component: <MatchCards key="matchCards" />,
     },
     {
-      id: 'currency',
-      name: 'Currency Convert',
       status: false,
       component: <Currency key="currency" />,
     },
     {
-      id: 'quotes',
-      name: 'Quotes',
       status: false,
       component: <Quotes key="quotes" />,
     },
     {
-      id: 'rollDice',
-      name: 'Roll Dice',
       status: false,
       component: <RollDice key="rollDice" />,
     },
     {
-      id: 'imgWidget',
-      name: 'Images',
       status: false,
       component: <ImgWidget key="imgWidget" />,
     },
     {
-      id: 'news',
-      name: 'News',
       status: false,
       component: <News key="news" />,
     },
@@ -108,10 +85,15 @@ function Home() {
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
-        <img
+        {/* <img
           src={currentUser ? currentUser.photoURL : imgUrl}
           alt="Profile"
           className="profile-picture"
+        /> */}
+        <WidgetsIcon
+          fontSize="large"
+          className="profileIconHome"
+          sx={{ fontSize: 48 }}
         />
       </div>
 
