@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './worldClock.css';
 
 const WorldClock = () => {
   const [time, setTime] = useState({ hh: 0, mm: 0, ss: 0 });
   const [fullScreen, setFullScreen] = useState(false);
-  const ref = useRef();
 
   let newTime = new Date();
   const options = {
@@ -39,7 +38,7 @@ const WorldClock = () => {
 
   function openFullscreen() {
     let elem = document.querySelector('.worldClockMainFull');
-    console.log(elem);
+
     if (!document.fullscreenElement) {
       elem
         .requestFullscreen()

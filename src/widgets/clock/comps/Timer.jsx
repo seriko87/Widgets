@@ -82,7 +82,7 @@ const Timer = () => {
 
   function setProgress(percent) {
     const offset = circleLengh - percent;
-    console.log(offset);
+
     if (circleRef.current) {
       circleRef.current.style.strokeDashoffset = offset;
     }

@@ -27,7 +27,6 @@ This website is intended for desktop or big screen use.
 - Chat with online users
 - Todo widget
 - Sports tracker
-- Live website
 
 ### Issues
 

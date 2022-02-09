@@ -34,6 +34,7 @@ code {
   --color-alert: rgb(185, 24, 24);
   --color-alert-1: rgb(22, 143, 68);
   --color-purple: rgb(104, 0, 223);
+  --glass-bg-2: rgba(241, 241, 241, 0.719);
 }
 
 /* 2 */
@@ -46,6 +47,7 @@ code {
   --font-color-2: #333;
   --font-color-3: rgb(177, 177, 177);
   --glass-bg-1: rgba(17, 25, 40, 0.329);
+  --glass-bg-2: rgba(95, 95, 95, 0.39);
   --glass-border-1: 1px solid rgba(255, 255, 255, 0.125);
   --bg-color-3: #204b8b;
   --bg-gradient-1: #212121;
