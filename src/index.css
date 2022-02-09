@@ -79,6 +79,7 @@ a {
 html {
   scroll-behavior: smooth;
   background: var(--bg-gradient-1);
+  height: 100%;
 }
 
 * {

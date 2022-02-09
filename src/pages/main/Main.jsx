@@ -8,10 +8,12 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useAuthState } from '../../firebase';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import { style } from '@mui/system';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
   const [hamb, setHamb] = useState(false);
+  const [winSize, setWinSize] = useState(window.innerHeight);
   const { currentUser } = useAuthState();
 
   const scrollEventListener = () => {
@@ -22,10 +24,22 @@ const Main = () => {
     }
   };
 
+  const resizeEventListener = () => {
+    setWinSize(window.innerHeight);
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', scrollEventListener);
+
     return () => {
       window.removeEventListener('scroll', scrollEventListener);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeEventListener);
+    return () => {
+      window.removeEventListener('resize', resizeEventListener);
     };
   }, []);
 
@@ -33,7 +47,14 @@ const Main = () => {
   return (
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
-        <div className="navWrap">
+        <div
+          className="navWrap"
+          style={
+            hamb
+              ? { backgroundColor: '#204b8b' }
+              : { backgroundColor: 'inherit' }
+          }
+        >
           <div className="navLogo">
             {' '}
             <WidgetsIcon sx={{ fontSize: 35 }} /> <span>Widgets</span>
@@ -66,7 +87,7 @@ const Main = () => {
         </div>
 
         {hamb && (
-          <div className="navBtnCont1">
+          <div className="navBtnCont1" style={{ height: winSize - 80 }}>
             <div className="navBtnHover">
               <button className="navBtn" onClick={() => setHamb(false)}>
                 <a href="#aboutMain">About</a>
