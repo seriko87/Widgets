@@ -41,7 +41,7 @@ const Profile = ({ user, setProOpenClose }) => {
         ) : (
           <div>
             <Link to="/">
-              <h1>Widgets</h1>
+              <h1 className="profileTitle">Widgets</h1>
             </Link>
           </div>
         )}
@@ -49,7 +49,7 @@ const Profile = ({ user, setProOpenClose }) => {
 
       <div
         className="listsContainer"
-        style={user ? { height: '40vh' } : { height: '60vh' }}
+        style={user ? { height: '45vh' } : { height: '60vh' }}
       >
         {alert ? (
           <div className="loginAlert">
