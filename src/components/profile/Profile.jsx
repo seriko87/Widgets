@@ -41,7 +41,7 @@ const Profile = ({ user, setProOpenClose }) => {
         ) : (
           <div>
             <Link to="/">
-              <h1>Rapid Info</h1>
+              <h1>Widgets</h1>
             </Link>
           </div>
         )}

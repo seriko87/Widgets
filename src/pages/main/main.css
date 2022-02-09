@@ -39,12 +39,12 @@
 
 .navLogo {
   color: white;
-
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   font-size: 30px;
+  gap: 10px;
 }
 
 .navBtnCont {
