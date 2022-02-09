@@ -1,5 +1,4 @@
 import './App.css';
-
 import DarkModeToggle from './components/darkMode/DarkModeToggle';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import SignUp from './pages/register/SignUp';
@@ -10,6 +9,10 @@ import ForgotPassword from './pages/forgotPassword/ForgotPassword';
 import UpdateProfile from './pages/updateProfile/UpdateProfile';
 import Main from './pages/main/Main';
 import Error from './pages/404/Error';
+import ReactGA from 'react-ga';
+const TRACKING_ID = 'G-SLLQD0Z610';
+ReactGA.initialize(TRACKING_ID);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
   const { currentUser, loadingUser } = useAuthState();
@@ -35,7 +38,10 @@ function App() {
               !currentUser ? <ForgotPassword /> : <Navigate to="/home" />
             }
           />
-          <Route path="update-profile" element={<UpdateProfile />} />
+          <Route
+            path="update-profile"
+            element={currentUser ? <UpdateProfile /> : <Navigate to="/home" />}
+          />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
