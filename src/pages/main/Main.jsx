@@ -58,7 +58,7 @@ const Main = () => {
                 <button className="mainGotryBtn">Launch</button>
               </Link>
             ) : (
-              <Link to="/register">
+              <Link to="/signup">
                 <button className="mainGotryBtn">Register</button>
               </Link>
             )}
@@ -79,7 +79,7 @@ const Main = () => {
                   <button className="mainGotryBtn">Launch</button>
                 </Link>
               ) : (
-                <Link to="/register">
+                <Link to="/signup">
                   <button className="mainGotryBtn">Register</button>
                 </Link>
               )}
@@ -145,7 +145,7 @@ const Main = () => {
             </li>
             <li>
               <strong>API:</strong> Rapid Api, Weather API, Covid Data API, Geo
-              Location Mapbox, Bing News Api, ExchangeRate Api
+              Location Mapbox, Bing News Api, ExchangeRate Api, Pexels Api
             </li>
           </ul>
         </section>
