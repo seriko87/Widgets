@@ -1,4 +1,4 @@
-# Rapid Info Web Application
+# Widgets Web Application
 
 After several small apps and tutorial web applications I decided to do my web application. I always have visited the same web pages to check daily updates like sport results, news, crypto prices, etc. but it is a hassle to check all those different pages. I first tried to use windows widgets but it is limited to only their list of widgets so I decided to make my own widgets application.
 

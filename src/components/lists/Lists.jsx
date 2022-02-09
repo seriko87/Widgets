@@ -6,7 +6,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { useAuthState } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 
-const Lists = ({ item, setAlert }) => {
+const Lists = ({ item, setAlert, icon }) => {
   const { dispatch } = useContext(GlobalContext);
   const { currentUser } = useAuthState();
 
@@ -22,7 +22,11 @@ const Lists = ({ item, setAlert }) => {
       {widgetUserAllow ? (
         currentUser ? (
           <button className="listWrap" onClick={() => handleChange(item.id)}>
-            <div className="widgetTitle">{listName}</div>
+            <span className="iconWrapList">
+              {icon}
+              <div className="widgetTitle">{listName}</div>
+            </span>
+
             {item.status ? (
               <div className="listOnBtn">On</div>
             ) : (
@@ -31,8 +35,10 @@ const Lists = ({ item, setAlert }) => {
           </button>
         ) : (
           <button className="listWrap" onClick={() => setAlert(true)}>
-            <div className="widgetTitle">{listName}</div>
-
+            <span className="iconWrapList">
+              {icon}
+              <div className="widgetTitle">{listName}</div>
+            </span>
             <div className="listOnBtn">
               <LockIcon />
             </div>
@@ -40,7 +46,10 @@ const Lists = ({ item, setAlert }) => {
         )
       ) : (
         <button className="listWrap" onClick={() => handleChange(item.id)}>
-          <div className="widgetTitle">{listName}</div>
+          <span className="iconWrapList">
+            {icon}
+            <div className="widgetTitle">{listName}</div>
+          </span>
           {item.status ? (
             <div className="listOnBtn">On</div>
           ) : (

@@ -46,3 +46,10 @@
   opacity: 0.7;
   text-shadow: 0 0 7px rgb(241, 56, 81), 0 0 10px rgb(241, 56, 81);
 }
+
+.iconWrapList {
+  display: flex;
+  gap: 5px;
+  height: 100%;
+  align-items: center;
+}

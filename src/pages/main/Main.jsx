@@ -7,6 +7,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useAuthState } from '../../firebase';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
@@ -33,7 +34,10 @@ const Main = () => {
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
         <div className="navWrap">
-          <div className="navLogo">Rapid Info</div>
+          <div className="navLogo">
+            {' '}
+            <WidgetsIcon sx={{ fontSize: 35 }} /> <span>Widgets</span>
+          </div>
 
           <button className="navHamb" onClick={() => setHamb(!hamb)}>
             {!hamb ? (
@@ -54,7 +58,7 @@ const Main = () => {
                 <button className="mainGotryBtn">Launch</button>
               </Link>
             ) : (
-              <Link to="/register">
+              <Link to="/signup">
                 <button className="mainGotryBtn">Register</button>
               </Link>
             )}
@@ -75,7 +79,7 @@ const Main = () => {
                   <button className="mainGotryBtn">Launch</button>
                 </Link>
               ) : (
-                <Link to="/register">
+                <Link to="/signup">
                   <button className="mainGotryBtn">Register</button>
                 </Link>
               )}
@@ -103,7 +107,9 @@ const Main = () => {
         )}
       </nav>
       <div className="headerMain">
-        <span className="mainTitleText">Welcome to Rapid Info Widgets App</span>
+        <span className="mainTitleText">
+          Welcome to Widgets Web Application
+        </span>
         <Link to="/home">
           <button className="mainGotryBtn">Try now</button>
         </Link>
@@ -139,14 +145,14 @@ const Main = () => {
             </li>
             <li>
               <strong>API:</strong> Rapid Api, Weather API, Covid Data API, Geo
-              Location Mapbox, Bing News Api, ExchangeRate Api
+              Location Mapbox, Bing News Api, ExchangeRate Api, Pexels Api
             </li>
           </ul>
         </section>
       </div>
 
       <Contact />
-      <footer> © 2022 All Rights Reserved Rapid Info</footer>
+      <footer> © 2022 All Rights Reserved</footer>
     </div>
   );
 };

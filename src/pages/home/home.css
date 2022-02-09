@@ -1,14 +1,11 @@
 .profileBtnHomeOpen {
-  width: 50px;
-  height: 50px;
+  /* width: 50px;
+  height: 50px; */
   top: 10px;
   left: 10px;
   position: fixed;
   cursor: pointer;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0);
-  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  border: none;
 }
 
 .profile-picture {
@@ -18,9 +15,16 @@
   object-fit: cover;
 }
 
-.profileBtnHomeOpen:hover {
-  border: 2px solid var(--font-color-2);
-}
 .container {
   transition: all 0.3s linear;
+}
+
+.profileIconHome {
+  -webkit-text-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.767);
+  text-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.774);
+  width: 70px;
+  height: 70px;
+}
+.profileIconHome:hover {
+  filter: drop-shadow(2px 4px 2px rgb(0 0 0 / 0.4));
 }

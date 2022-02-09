@@ -13,7 +13,6 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState(' ');
-  const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [emailCorrect, setIsEmailCorrect] = useState(false);
   const [passCorrect, setPassCorrect] = useState(false);
