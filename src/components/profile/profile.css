@@ -42,6 +42,7 @@
 
   height: 40vh;
   overflow-y: scroll;
+  position: relative;
 }
 
 .profileWrap {
@@ -101,4 +102,51 @@
 
 .contactLink:hover {
   color: var(--link-color);
+}
+.loginAlert {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glass-bg-2);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99;
+  gap: 20px;
+}
+.loginAlertCnl,
+.loginAlertLogin {
+  width: 100px;
+  height: 35px;
+  border: var(--glass-border-1);
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.alertBtnWrap {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+.loginAlertLogin {
+  background-color: rgb(39, 117, 235);
+  color: white;
+}
+.alertMessageLogin {
+  width: 215px;
+  text-align: center;
+
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.alertMessageWrap {
+  background-color: var(--bg-overlay);
+  width: 100%;
+  height: 130px;
 }

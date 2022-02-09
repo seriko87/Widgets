@@ -1,36 +1,54 @@
 import React, { useContext } from 'react';
 import './lists.css';
-import Switch from '@mui/material/Switch';
+
 import { addRemoveList } from '../../context/ApiCalls';
 import { GlobalContext } from '../../context/GlobalContext';
+import { useAuthState } from '../../firebase';
 
-const Lists = ({ item }) => {
+const Lists = ({ item, setAlert }) => {
   const { dispatch } = useContext(GlobalContext);
+  const { currentUser } = useAuthState();
 
   const listName = item.name;
-  const label = { inputProps: { 'aria-label': 'Widget Added Status' } };
+  const widgetUserAllow = item.user;
 
   const handleChange = (id) => {
     addRemoveList(id, dispatch);
   };
 
   return (
-    <button className="listWrap" onClick={() => handleChange(item.id)}>
-      <div className="widgetTitle">{listName}</div>
-
-      {/* <Switch
-        {...label}
-        className="switchList"
-        checked={item.status}
-        onChange={() => handleChange(item.id)}
-      /> */}
-
-      {item.status ? (
-        <div className="listOnBtn">On</div>
+    <>
+      {widgetUserAllow ? (
+        currentUser ? (
+          <button className="listWrap" onClick={() => handleChange(item.id)}>
+            <div className="widgetTitle">{listName}</div>
+            {item.status ? (
+              <div className="listOnBtn">On</div>
+            ) : (
+              <div className="listOffBtn">Off</div>
+            )}
+          </button>
+        ) : (
+          <button className="listWrap" onClick={() => setAlert(true)}>
+            <div className="widgetTitle">{listName}</div>
+            {item.status ? (
+              <div className="listOnBtn">On</div>
+            ) : (
+              <div className="listOffBtn">Off</div>
+            )}
+          </button>
+        )
       ) : (
-        <div className="listOffBtn">Off</div>
+        <button className="listWrap" onClick={() => handleChange(item.id)}>
+          <div className="widgetTitle">{listName}</div>
+          {item.status ? (
+            <div className="listOnBtn">On</div>
+          ) : (
+            <div className="listOffBtn">Off</div>
+          )}
+        </button>
       )}
-    </button>
+    </>
   );
 };
 
