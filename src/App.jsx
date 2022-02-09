@@ -20,10 +20,7 @@ function App() {
       {!loadingUser && (
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route
-            path="home"
-            element={currentUser ? <Home /> : <Navigate to="/signup" />}
-          />
+          <Route path="home" element={<Home />} />
           <Route
             path="signup"
             element={!currentUser ? <SignUp /> : <Navigate to="/home" />}

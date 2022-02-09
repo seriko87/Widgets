@@ -6,10 +6,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useAuthState } from '../../firebase';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
   const [hamb, setHamb] = useState(false);
+  const { currentUser } = useAuthState();
 
   const scrollEventListener = () => {
     if (window.scrollY < 200) {
@@ -26,6 +28,7 @@ const Main = () => {
     };
   }, []);
 
+  console.log(currentUser);
   return (
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
@@ -46,9 +49,15 @@ const Main = () => {
             <button className="navBtn" onClick={() => setHamb(false)}>
               <a href="#contactMain">Contact</a>
             </button>
-            <Link to="/home">
-              <button className="mainGotryBtn">Launch</button>
-            </Link>
+            {currentUser ? (
+              <Link to="/home">
+                <button className="mainGotryBtn">Launch</button>
+              </Link>
+            ) : (
+              <Link to="/register">
+                <button className="mainGotryBtn">Register</button>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -61,9 +70,15 @@ const Main = () => {
               <button className="navBtn" onClick={() => setHamb(false)}>
                 <a href="#contactMain">Contact</a>
               </button>
-              <Link to="/home">
-                <button className="mainGotryBtn">Launch</button>
-              </Link>
+              {currentUser ? (
+                <Link to="/home">
+                  <button className="mainGotryBtn">Launch</button>
+                </Link>
+              ) : (
+                <Link to="/register">
+                  <button className="mainGotryBtn">Register</button>
+                </Link>
+              )}
             </div>
 
             <div className="navContInfo">

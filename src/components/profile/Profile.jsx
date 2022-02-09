@@ -22,7 +22,6 @@ const Profile = ({ user, setProOpenClose }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/', { replace: true });
   };
   return (
     <div className="profileContainer">
@@ -40,12 +39,17 @@ const Profile = ({ user, setProOpenClose }) => {
           </>
         ) : (
           <div>
-            <h1>Rapid Info</h1>
+            <Link to="/">
+              <h1>Rapid Info</h1>
+            </Link>
           </div>
         )}
       </div>
 
-      <div className="listsContainer">
+      <div
+        className="listsContainer"
+        style={user ? { height: '40vh' } : { height: '60vh' }}
+      >
         {alert ? (
           <div className="loginAlert">
             <div className="alertMessageLogin">
@@ -72,8 +76,8 @@ const Profile = ({ user, setProOpenClose }) => {
         )}
       </div>
 
-      <div className="profileBtnWrap">
-        {user ? (
+      {user && (
+        <div className="profileBtnWrap">
           <>
             <Link to="/update-profile" className="editProfileBtn">
               Edit profile
@@ -82,10 +86,8 @@ const Profile = ({ user, setProOpenClose }) => {
               Log out
             </button>
           </>
-        ) : (
-          <div></div>
-        )}
-      </div>
+        </div>
+      )}
       <div className="contactLinkContainer">
         <a
           href="mailto:serdarash@gmail.com"
