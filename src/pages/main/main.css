@@ -22,7 +22,7 @@
   left: 0;
   width: 100%;
   z-index: 99;
-  height: 80px;
+  height: 70px;
   background: rgba(0, 0, 0, 0.863);
   display: flex;
   justify-content: center;
@@ -175,7 +175,7 @@ footer {
   .navBtnCont1 {
     position: absolute;
     width: 100%;
-    top: 80px;
+    top: 70px;
     right: 0;
 
     background: var(--bg-color-3);
@@ -196,16 +196,19 @@ footer {
   .aboutTextCont {
     padding: 0;
   }
-  .navWWrap {
+  .navWrap {
     width: 100%;
   }
   .navLogo {
     font-size: 24px;
   }
 }
-@media (min-width: 500px) {
+@media (min-width: 501px) {
   .navBtnCont1 {
     display: none;
+  }
+  .navWrap {
+    background-color: transparent !important;
   }
 }
 

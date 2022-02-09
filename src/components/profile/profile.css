@@ -102,7 +102,7 @@
 }
 
 .contactLink:hover {
-  color: var(--link-color);
+  color: var(--link-color) !important;
 }
 .loginAlert {
   position: absolute;

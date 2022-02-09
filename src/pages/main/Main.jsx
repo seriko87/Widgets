@@ -85,7 +85,7 @@ const Main = () => {
         </div>
 
         {hamb && (
-          <div className="navBtnCont1" style={{ height: winSize - 80 }}>
+          <div className="navBtnCont1" style={{ height: winSize - 70 }}>
             <div className="navBtnHover">
               <button className="navBtn" onClick={() => setHamb(false)}>
                 <a href="#aboutMain">About</a>
@@ -110,6 +110,7 @@ const Main = () => {
                 className="contactLink"
                 target="_blank"
                 rel="noreferrer"
+                style={{ color: 'white' }}
               >
                 <MailOutlineIcon />
               </a>
@@ -118,6 +119,7 @@ const Main = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="contactLink"
+                style={{ color: 'white' }}
               >
                 <GitHubIcon />
               </a>
