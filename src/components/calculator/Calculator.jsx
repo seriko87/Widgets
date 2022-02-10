@@ -30,7 +30,7 @@ const Calculator = () => {
     setTempFunc({ func: func });
     setCurValue(0);
   };
-  console.log(funcId);
+
   const handleClick = (item) => {
     const func = item.func;
 

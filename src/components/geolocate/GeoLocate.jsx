@@ -13,7 +13,6 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
 
-  console.log(locationList);
   const config_data = {
     method: 'GET',
     url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json`,
@@ -63,7 +62,6 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
       setLocation('');
       setLocationList([]);
       setSearchOn(false);
-      console.log(position.coords.latitude, position.coords.longitude);
     }
   }
 
