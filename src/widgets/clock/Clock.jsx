@@ -35,19 +35,15 @@ const Clock = () => {
         <div className="clockBtnWrap">
           {active.map((item) => {
             return (
-              <>
-                <button
-                  key={item.id}
-                  onClick={() => handleClick(item.id)}
-                  className={
-                    item.status
-                      ? 'clockBtnAll clockBtnAllActive'
-                      : 'clockBtnAll'
-                  }
-                >
-                  {item.id}
-                </button>
-              </>
+              <button
+                key={item.id}
+                onClick={() => handleClick(item.id)}
+                className={
+                  item.status ? 'clockBtnAll clockBtnAllActive' : 'clockBtnAll'
+                }
+              >
+                {item.id}
+              </button>
             );
           })}
         </div>

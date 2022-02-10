@@ -23,7 +23,7 @@
 .contactMessage textarea {
   max-width: 100%;
   border-radius: 5px;
-  min-height: 100px;
+  min-height: 150px;
   padding: 5px;
   background: var(--bg-overlay);
   resize: none;

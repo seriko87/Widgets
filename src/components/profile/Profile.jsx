@@ -17,6 +17,8 @@ const Profile = ({ user, setProOpenClose }) => {
   const email = user && user.email;
   const name = user && user.displayName;
 
+  let windowSize = window.innerWidth;
+
   const imgUrl =
     (user && user.photoURL) ||
     'https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/userImg%2FHTNHxmCPGLYBTFTy3DcUOURi1Fw1avat.png?alt=media&token=b48261ad-6dbe-401c-942b-7566f621aeb6';
@@ -44,6 +46,11 @@ const Profile = ({ user, setProOpenClose }) => {
               <h1 className="profileTitle">Widgets</h1>
             </Link>
           </div>
+        )}
+        {windowSize < 780 && (
+          <span style={{ fontSize: '12px', textAlign: 'center' }}>
+            (Small screen detected, please use big screen device!)
+          </span>
         )}
       </div>
 

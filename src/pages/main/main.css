@@ -5,7 +5,7 @@
 
 .headerMain {
   height: 100vh;
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2Fback2.jpg?alt=media&token=5eaa7ccf-97f3-4e8f-b296-129598ec746c');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2Faaaa.jpg?alt=media&token=8d42a175-09ed-446d-a7a6-8016cf892819');
   background-position: center;
   position: relative;
   display: flex;
@@ -14,6 +14,9 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .mainNav {
@@ -23,13 +26,10 @@
   width: 100%;
   z-index: 99;
   height: 70px;
-
   display: flex;
   justify-content: center;
   align-self: center;
-
   transition: all 0.5s linear;
-
   background: transparent;
 }
 .navScrolled {
@@ -126,6 +126,11 @@ footer {
 
 .aboutList li {
   list-style: none;
+  line-height: 1.6;
+  padding: 0;
+}
+.aboutMainText {
+  line-height: 1.6;
 }
 @media (max-width: 1200px) {
   .mainWeather {

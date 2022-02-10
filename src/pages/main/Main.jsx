@@ -8,7 +8,6 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useAuthState } from '../../firebase';
 import WidgetsIcon from '@mui/icons-material/Widgets';
-import { style } from '@mui/system';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
@@ -43,7 +42,6 @@ const Main = () => {
     };
   }, []);
 
-  console.log(currentUser);
   return (
     <div className="mainContainer">
       <nav className={navbar ? 'mainNav' : 'mainNav navScrolled'}>
@@ -139,7 +137,7 @@ const Main = () => {
       </div>
       <div className="aboutMain" id="aboutMain">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2FaboutPic.png?alt=media&token=6ae3c6e2-bc2b-4720-8b0b-7efd89769f6b"
+          src="https://firebasestorage.googleapis.com/v0/b/rapid-info-433c6.appspot.com/o/websiteImg%2FaboutPic1.png?alt=media&token=20523736-a991-4158-ba3d-8c18dc5f911c"
           alt="weather"
           className="mainWeather"
         />
