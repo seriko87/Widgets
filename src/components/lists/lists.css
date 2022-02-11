@@ -1,7 +1,7 @@
 .listWrap {
   height: 45px;
   width: 100%;
-  background-color: var(--bg-overlay-1);
+  background-color: var(--bg-overlay-2);
   display: flex;
   justify-content: space-between;
   align-items: center;

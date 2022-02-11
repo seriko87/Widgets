@@ -28,7 +28,11 @@ const Profile = ({ user, setProOpenClose }) => {
   };
   return (
     <div className="profileContainer">
-      <button className="profileBtnHome" onClick={() => setProOpenClose(false)}>
+      <button
+        className="profileBtnHome"
+        onClick={() => setProOpenClose(false)}
+        arial-label="Close sidebar"
+      >
         <CloseOutlinedIcon className="profileOpenCloseBtn" />
       </button>
       <div className="profileWrap">

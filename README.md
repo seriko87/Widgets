@@ -4,9 +4,9 @@ After several small apps and tutorial web applications I decided to do my web ap
 
 Note: since some APIs are paid I had to remove some of my original widgets. Actively looking for good free ones.
 
-You can check live site here: www.sashyr.com
+You can check live site here: [www.sashyr.com](www.sashyr.com)
 
-This website is intended for desktop or big screen use.
+**This website is intended for desktop or big screen use.**
 
 ## Used Technologies
 
