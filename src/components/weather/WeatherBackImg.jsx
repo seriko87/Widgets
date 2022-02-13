@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 const WeatherBackImg = ({ code, isDay }) => {
   const [weatherArray, setWeatherArray] = useState();
 
+  // setting background picture based on weather api codes
   useEffect(() => {
     if (code <= 1005) {
       setWeatherArray(weatherData.sunny);
