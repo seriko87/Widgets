@@ -23,14 +23,14 @@ const Quotes = () => {
 
   const getQuotes = async () => {
     setLoading(true);
-    await axios(options)
-      .then((data) => {
-        setQuotes(data.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    try {
+      const res = await axios(options);
+      setQuotes(res.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getQuotes();
