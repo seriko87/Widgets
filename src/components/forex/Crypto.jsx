@@ -48,9 +48,11 @@ const Crypto = ({ crypto, token }) => {
       console.log('API call error:', error);
     }
   };
+
   useEffect(() => {
     getCryptoPrice(crypto.id);
   }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       getCryptoPrice(crypto.id);
