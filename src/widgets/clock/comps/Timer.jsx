@@ -69,6 +69,7 @@ const Timer = () => {
       setStartAlarm(true);
       setIsActive(false);
       setTime(0);
+      audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
 
