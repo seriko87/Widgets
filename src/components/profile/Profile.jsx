@@ -109,7 +109,7 @@ const Profile = ({ user, setProOpenClose }) => {
       )}
       <div className="contactLinkContainer">
         <a
-          href="mailto:serdarash@gmail.com"
+          href="mailto:sashyr.dev@gmail.com"
           className="contactLink"
           target="_blank"
           rel="noreferrer"
