@@ -53,6 +53,8 @@ const Crypto = ({ crypto, token }) => {
     getCryptoPrice(crypto.id);
   }, []);
 
+  // adding 5min update interval after crypto added
+
   useEffect(() => {
     const interval = setInterval(() => {
       getCryptoPrice(crypto.id);
@@ -63,6 +65,7 @@ const Crypto = ({ crypto, token }) => {
     };
   }, [crypto.id]);
 
+  /* This is a useEffect hook that is used to set the font size of the price. */
   useEffect(() => {
     let curLeng = formattedPrice.length;
 

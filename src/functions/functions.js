@@ -27,7 +27,7 @@ export const formatPrice = (a) => {
     }
   }
   let arr = [];
-  const nnn = str.map((item, index) => {
+  str.map((item, index) => {
     if (index > num) {
       if (item === '0') {
         return item;

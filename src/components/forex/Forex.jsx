@@ -70,6 +70,7 @@ const Forex = () => {
     }
   };
 
+  // cleaning up the alert
   useEffect(() => {
     const interval = setTimeout(() => {
       setAlert('');
