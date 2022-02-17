@@ -72,15 +72,10 @@ const Main = () => {
             <button className="navBtn" onClick={() => setHamb(false)}>
               <a href="#contactMain">Contact</a>
             </button>
-            {currentUser ? (
-              <Link to="/home">
-                <button className="mainGotryBtn">Launch</button>
-              </Link>
-            ) : (
-              <Link to="/signup">
-                <button className="mainGotryBtn">Register</button>
-              </Link>
-            )}
+
+            <Link to="/home">
+              <button className="mainGotryBtn">Launch</button>
+            </Link>
           </div>
         </div>
 
@@ -93,15 +88,10 @@ const Main = () => {
               <button className="navBtn" onClick={() => setHamb(false)}>
                 <a href="#contactMain">Contact</a>
               </button>
-              {currentUser ? (
-                <Link to="/home">
-                  <button className="mainGotryBtn">Launch</button>
-                </Link>
-              ) : (
-                <Link to="/signup">
-                  <button className="mainGotryBtn">Register</button>
-                </Link>
-              )}
+
+              <Link to="/home">
+                <button className="mainGotryBtn">Launch</button>
+              </Link>
             </div>
 
             <div className="navContInfo">
