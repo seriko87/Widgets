@@ -40,7 +40,7 @@ const Profile = ({ user, setProOpenClose }) => {
           <>
             <img src={imgUrl} alt="Profile" className="profilePic" />
             <div className="profileInfo">
-              <span className="">{name ? name : 'Edit your name'}</span>
+              <span className="">{name ? name : 'Your Name'}</span>
               <span>{email}</span>
             </div>
           </>
@@ -109,7 +109,7 @@ const Profile = ({ user, setProOpenClose }) => {
       )}
       <div className="contactLinkContainer">
         <a
-          href="mailto:serdarash@gmail.com"
+          href="mailto:sashyr.dev@gmail.com"
           className="contactLink"
           target="_blank"
           rel="noreferrer"

@@ -13,6 +13,7 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
 
+  // mapbox api call
   const config_data = {
     method: 'GET',
     url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json`,
@@ -40,12 +41,16 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
     location && getLocation();
   }, [location]);
 
+  // setting new cordinates long,lat anlso sending user location to dispatch
   const handleClickInput = (cords) => {
     setCordinates(`${cords[1]},${cords[0]}`);
     setLocation('');
     setUserLocation(`${cords[1]},${cords[0]}`, dispatch);
   };
 
+  /**
+   * it gets the current location of the user and sets the location in the state.
+   */
   function getCurLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);

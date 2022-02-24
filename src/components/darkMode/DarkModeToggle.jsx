@@ -40,17 +40,6 @@ const toggleTheme = (e) => {
 const DarkModeToggle = () => {
   return (
     <div className="toggle-theme-wrapper">
-      {/* <label className="toggle-theme" htmlFor="checkbox">
-        <input
-          type="checkbox"
-          id="checkbox"
-          // 6
-          onChange={toggleTheme}
-          defaultChecked={defaultDark}
-        />
-        <div className="slider round"></div>
-      </label> */}
-
       <DarkModeUISwitch onChange={toggleTheme} defaultChecked={defaultDark} />
     </div>
   );

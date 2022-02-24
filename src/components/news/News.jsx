@@ -9,7 +9,6 @@ import Draggable from 'react-draggable';
 const News = () => {
   const [news, setNews] = useState();
   const [category, setCategory] = useState(newsCategory[0]);
-
   const [loading, setLoading] = useState(true);
 
   const API_KEY = process.env.REACT_APP_RAPID_API;
