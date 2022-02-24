@@ -40,7 +40,7 @@ const Profile = ({ user, setProOpenClose }) => {
           <>
             <img src={imgUrl} alt="Profile" className="profilePic" />
             <div className="profileInfo">
-              <span className="">{name ? name : 'Edit your name'}</span>
+              <span className="">{name ? name : 'Your Name'}</span>
               <span>{email}</span>
             </div>
           </>
