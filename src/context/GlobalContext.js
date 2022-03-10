@@ -31,6 +31,7 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(state.list));
   }, [state.list]);
+
   useEffect(() => {
     localStorage.setItem('location', JSON.stringify(state.location));
   }, [state.location]);

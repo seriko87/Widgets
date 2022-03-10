@@ -1,5 +1,6 @@
 import React from 'react';
 import './dice.css';
+import PropTypes from 'prop-types';
 
 const diceClass = {
   1: ['centerDot'],
@@ -34,6 +35,10 @@ const Dice = ({ number }) => {
       </div>
     </div>
   );
+};
+
+Dice.propTypes = {
+  number: PropTypes.number,
 };
 
 export default Dice;
