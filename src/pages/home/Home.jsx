@@ -1,14 +1,12 @@
 import './home.css';
-import { useContext, useState, useEffect } from 'react';
+import { useState } from 'react';
 import Profile from '../../components/profile/Profile';
 import { useAuthState } from '../../firebase';
-import { GlobalContext } from '../../context/GlobalContext';
-import BlackScreen from '../../components/blackScreen/BlackScreen';
-import Weather from '../../components/weather/Weather';
-import News from '../../components/news/News';
-import Covid from '../../components/covid/Covid';
-import Calculator from '../../components/calculator/Calculator';
-import Forex from '../../components/forex/Forex';
+import BlackScreen from '../../widgets/blackScreen/BlackScreen';
+import Weather from '../../widgets/weather/Weather';
+import News from '../../widgets/news/News';
+import Covid from '../../widgets/covid/Covid';
+import Calculator from '../../widgets/calculator/Calculator';
 import MatchCards from '../../widgets/matchCards/MatchCards';
 import Currency from '../../widgets/currency/Currency';
 import Clock from '../../widgets/clock/Clock';
@@ -16,12 +14,14 @@ import Quotes from '../../widgets/quotes/Quotes';
 import RollDice from '../../widgets/rollDice/RollDice';
 import ImgWidget from '../../widgets/imgWidget/ImgWidget';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import { useSelector } from 'react-redux';
+import { widgets } from '../../redux/features/widgetList/widgetListSlice';
+import Forex from '../../widgets/forex/Forex';
 
 function Home() {
-  const { list } = useContext(GlobalContext);
+  const list = useSelector(widgets);
   const [proOpenClose, setProOpenClose] = useState(true);
   const { currentUser } = useAuthState();
-  const [newList, setNewList] = useState(list);
 
   const widgetList = [
     {
@@ -75,10 +75,6 @@ function Home() {
     },
   ];
 
-  useEffect(() => {
-    setNewList(list);
-  }, [list]);
-
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
@@ -93,21 +89,21 @@ function Home() {
         <Profile user={currentUser} setProOpenClose={setProOpenClose} />
       )}
 
-      {widgetList.map((item, index) => {
-        if (item.user) {
-          if (currentUser) {
-            if (newList[index].status) {
+      {list &&
+        widgetList.map((item, index) => {
+          if (item.user) {
+            if (currentUser) {
+              if (list[index].status) {
+                return item.component;
+              }
+            }
+          } else {
+            if (list[index].status) {
               return item.component;
             }
           }
-        } else {
-          if (newList[index].status) {
-            return item.component;
-          }
-        }
-
-        return null;
-      })}
+          return null;
+        })}
     </div>
   );
 }

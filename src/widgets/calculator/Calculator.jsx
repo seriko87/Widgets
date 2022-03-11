@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import './calculator.css';
 import { calcFunc } from './calfFunc';
-import CloseWidget from '../closeWidget/CloseWidget';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
 
 const Calculator = () => {
   const [resNum, setResNum] = useState(0);

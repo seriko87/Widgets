@@ -13,7 +13,7 @@ You can check live site here: [www.sashyr.com](https://sashyr.com)
 - **Front-end:** HTML, CSS, JavaScript, React Js
 - **Back-end:** Firebase, Firebase Auth, Firebase database, NoSQL
 - **React Packages:** React Charts, Axios, Material Ui, Draggable, React-Router, EmailJs, React form
-- **State:** useContext, useReducer
+- **State:** Redux, Redux-toolkit
 - **API:** Rapid Api, Weather Api, Covid Open Disease Data API, Geo Location Mapbox, Bing News Api
 
 ### Current Features

@@ -11,6 +11,7 @@
 .closeWidget {
   color: var(--font-color-3);
   height: 24px;
+  width: 24px;
 }
 .closeWidget:hover {
   color: red;

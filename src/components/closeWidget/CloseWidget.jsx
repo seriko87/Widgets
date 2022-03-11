@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import './closeWidget.css';
-import { GlobalContext } from '../../context/GlobalContext';
-import { addRemoveList } from '../../context/ApiCalls';
+import { useDispatch } from 'react-redux';
+import { addRemoveWidget } from '../../redux/features/widgetList/widgetListSlice';
 
 const CloseWidget = ({ id }) => {
-  const { dispatch } = useContext(GlobalContext);
+  const dispatch = useDispatch();
   const handleChange = (id) => {
-    addRemoveList(id, dispatch);
+    dispatch(addRemoveWidget(id));
   };
   return (
     <div className="closeWidgetCont" onClick={() => handleChange(id)}>
