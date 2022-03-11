@@ -20,6 +20,7 @@ const widgetListSlice = createSlice({
   reducers: {
     addRemoveWidget: (state, action) => {
       /* Updating the state of the widget list. */
+
       state.list = state.list.map((item) => {
         if (item.id === action.payload) {
           return { ...item, status: !item.status };

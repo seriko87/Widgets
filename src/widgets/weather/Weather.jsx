@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import './weather.css';
-import GeoLocate from '../geolocate/GeoLocate';
+import GeoLocate from '../../components/geolocate/GeoLocate';
 import WeatherDay from './WeatherDay';
 import WeatherBackImg from './WeatherBackImg';
 import WeatherChart from './WeatherChart';
@@ -10,6 +10,8 @@ import Draggable from 'react-draggable';
 import { GlobalContext } from '../../context/GlobalContext';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { addRemoveList } from '../../context/ApiCalls';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
+import { useDispatch } from 'react=redux';
 
 const Weather = () => {
   const [weather, setWeather] = useState();
@@ -123,7 +125,7 @@ const Weather = () => {
                 </button>
                 <div
                   className="closeWidgetCont"
-                  onClick={() => handleChange('weather')}
+                  onClick={dispatch(addRemoveWidget('weather'))}
                   style={{
                     position: 'relative',
                     width: 30 + 'px',

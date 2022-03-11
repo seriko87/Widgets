@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './crypto.css';
 import axios from 'axios';
 import { formatPrice, numberFormatter } from '../../functions/functions';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
-import { GlobalContext } from '../../context/GlobalContext';
+
 import { remCryptoList } from '../../context/ApiCalls';
+import { useDispatch } from 'react-redux';
+import { removeCrypto } from '../../redux/features/widget/widgetSlice';
 
 const Crypto = ({ crypto, token }) => {
-  const { dispatch } = useContext(GlobalContext);
   const [priChange, setPriChange] = useState();
   const [cryptoPrice, setCryptoPrice] = useState();
   const [price, setPrice] = useState();
@@ -16,6 +17,7 @@ const Crypto = ({ crypto, token }) => {
   const [fontSize, setFontSize] = useState(36);
   const RAPID_KEY = process.env.REACT_APP_RAPID_API;
   let priceChange = cryptoPrice?.pricePercentChange.change24h;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     priceChange > 0 ? setPriChange(true) : setPriChange(false);
@@ -79,7 +81,7 @@ const Crypto = ({ crypto, token }) => {
   }, [formattedPrice]);
 
   const handleDel = (id) => {
-    remCryptoList(id, dispatch);
+    dispatch(removeCrypto(id));
   };
 
   return (

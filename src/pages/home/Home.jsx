@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Profile from '../../components/profile/Profile';
 import { useAuthState } from '../../firebase';
 import BlackScreen from '../../components/blackScreen/BlackScreen';
-import Weather from '../../components/weather/Weather';
+import Weather from '../../widgets/weather/Weather';
 import News from '../../components/news/News';
 import Covid from '../../components/covid/Covid';
 import Calculator from '../../components/calculator/Calculator';

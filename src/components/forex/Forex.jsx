@@ -1,20 +1,22 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CloseWidget from '../closeWidget/CloseWidget';
 import Autocomplete from '@mui/material/Autocomplete';
 import './forex.css';
 import Crypto from './Crypto';
 import { forexData } from './forexData';
-import { GlobalContext } from '../../context/GlobalContext';
-import { addCryptoList } from '../../context/ApiCalls';
 import Draggable from 'react-draggable';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { useSelector, useDispatch } from 'react-redux';
+import { cryptoList, addCrypto } from '../../redux/features/widget/widgetSlice';
+
 const Forex = () => {
   const [crypto, setCrypto] = useState('');
   const [token, setToken] = useState('');
   const [alert, setAlert] = useState('');
   const [searchOn, setSearchOn] = useState(false);
-  const { cryptoData, dispatch } = useContext(GlobalContext);
+  const cryptoData = useSelector(cryptoList);
+  const dispatch = useDispatch();
 
   const RAPID_KEY = process.env.REACT_APP_RAPID_API;
 
@@ -64,7 +66,7 @@ const Forex = () => {
         if (check) {
           setAlert('This crypto already added');
         } else {
-          addCryptoList(crypto, dispatch);
+          dispatch(addCrypto(crypto));
         }
       }
     }
