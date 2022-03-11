@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './profile.css';
 import { logout } from '../../firebase';
 import Lists from '../lists/Lists';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from 'react-router-dom';
-import { iconList } from '../../context/widgetList';
+import { iconList } from '../../redux/features/widgetList/widgetList';
 import { useSelector } from 'react-redux';
 import { widgets } from '../../redux/features/widgetList/widgetListSlice';
 
@@ -85,12 +84,18 @@ const Profile = ({ user, setProOpenClose }) => {
         ) : (
           <>
             {list?.map((item, index) => {
-              return <Lists key={item.id} item={item} setAlert={setAlert} />;
+              return (
+                <Lists
+                  key={item.id}
+                  item={item}
+                  setAlert={setAlert}
+                  icon={iconList.filter((icon) => icon.id === item.id)[0].icon}
+                />
+              );
             })}
           </>
         )}
       </div>
-
       {user && (
         <div className="profileBtnWrap">
           <>

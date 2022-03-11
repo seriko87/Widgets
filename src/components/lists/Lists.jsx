@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
 import './lists.css';
 import { useDispatch } from 'react-redux';
 import { addRemoveWidget } from '../../redux/features/widgetList/widgetListSlice';
 
-import { addRemoveList } from '../../context/ApiCalls';
-import { GlobalContext } from '../../context/GlobalContext';
 import { useAuthState } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 
@@ -18,6 +15,7 @@ const Lists = ({ item, setAlert, icon }) => {
   const handleChange = (id) => {
     dispatch(addRemoveWidget(id));
   };
+  console.log(icon);
 
   return (
     <>
@@ -25,7 +23,7 @@ const Lists = ({ item, setAlert, icon }) => {
         currentUser ? (
           <button className="listWrap" onClick={() => handleChange(item.id)}>
             <span className="iconWrapList">
-              {/* {icon} */}
+              {icon}
               <div className="widgetTitle">{listName}</div>
             </span>
 
@@ -38,7 +36,7 @@ const Lists = ({ item, setAlert, icon }) => {
         ) : (
           <button className="listWrap" onClick={() => setAlert(true)}>
             <span className="iconWrapList">
-              {/* {icon} */}
+              {icon}
               <div className="widgetTitle">{listName}</div>
             </span>
             <div className="listOnBtn">
