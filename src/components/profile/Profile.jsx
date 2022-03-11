@@ -85,14 +85,7 @@ const Profile = ({ user, setProOpenClose }) => {
         ) : (
           <>
             {list?.map((item, index) => {
-              return (
-                <Lists
-                  key={item.id}
-                  item={item}
-                  setAlert={setAlert}
-                  icon={item.icon}
-                />
-              );
+              return <Lists key={item.id} item={item} setAlert={setAlert} />;
             })}
           </>
         )}

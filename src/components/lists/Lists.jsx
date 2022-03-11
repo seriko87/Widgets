@@ -25,7 +25,7 @@ const Lists = ({ item, setAlert, icon }) => {
         currentUser ? (
           <button className="listWrap" onClick={() => handleChange(item.id)}>
             <span className="iconWrapList">
-              {icon}
+              {/* {icon} */}
               <div className="widgetTitle">{listName}</div>
             </span>
 
@@ -38,7 +38,7 @@ const Lists = ({ item, setAlert, icon }) => {
         ) : (
           <button className="listWrap" onClick={() => setAlert(true)}>
             <span className="iconWrapList">
-              {icon}
+              {/* {icon} */}
               <div className="widgetTitle">{listName}</div>
             </span>
             <div className="listOnBtn">

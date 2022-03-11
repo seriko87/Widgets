@@ -1,8 +1,7 @@
 import './home.css';
-import { useContext, useState, useEffect } from 'react';
+import { useState } from 'react';
 import Profile from '../../components/profile/Profile';
 import { useAuthState } from '../../firebase';
-import { GlobalContext } from '../../context/GlobalContext';
 import BlackScreen from '../../components/blackScreen/BlackScreen';
 import Weather from '../../components/weather/Weather';
 import News from '../../components/news/News';
@@ -76,6 +75,7 @@ function Home() {
     },
   ];
 
+  console.log(list);
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
@@ -90,20 +90,21 @@ function Home() {
         <Profile user={currentUser} setProOpenClose={setProOpenClose} />
       )}
 
-      {widgetList.map((item, index) => {
-        if (item.user) {
-          if (currentUser) {
+      {list &&
+        widgetList.map((item, index) => {
+          if (item.user) {
+            if (currentUser) {
+              if (list[index].status) {
+                return item.component;
+              }
+            }
+          } else {
             if (list[index].status) {
               return item.component;
             }
           }
-        } else {
-          if (list[index].status) {
-            return item.component;
-          }
-        }
-        return null;
-      })}
+          return null;
+        })}
     </div>
   );
 }
