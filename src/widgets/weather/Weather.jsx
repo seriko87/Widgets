@@ -1,17 +1,15 @@
-import React from 'react';
 import axios from 'axios';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import './weather.css';
 import GeoLocate from '../../components/geolocate/GeoLocate';
 import WeatherDay from './WeatherDay';
 import WeatherBackImg from './WeatherBackImg';
 import WeatherChart from './WeatherChart';
 import Draggable from 'react-draggable';
-import { GlobalContext } from '../../context/GlobalContext';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { addRemoveList } from '../../context/ApiCalls';
-import CloseWidget from '../../components/closeWidget/CloseWidget';
-import { useDispatch } from 'react=redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addRemoveWidget } from '../../redux/features/widgetList/widgetListSlice';
+import { locationGps } from '../../redux/features/widget/widgetSlice';
 
 const Weather = () => {
   const [weather, setWeather] = useState();
@@ -19,8 +17,9 @@ const Weather = () => {
   const [metric, setMetric] = useState(false);
   const [weatherCode, setWeatherCode] = useState();
   const [searchOn, setSearchOn] = useState(true);
-  const { location, dispatch } = useContext(GlobalContext);
+  const location = useSelector(locationGps);
   const API_KEY = process.env.REACT_APP_RAPID_API;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (location) {
@@ -56,9 +55,6 @@ const Weather = () => {
     cordinates && getWeather();
   }, [cordinates]);
 
-  const handleChange = (id) => {
-    addRemoveList(id, dispatch);
-  };
   return (
     <Draggable handle="strong">
       <div className="weatherMain">
@@ -125,7 +121,7 @@ const Weather = () => {
                 </button>
                 <div
                   className="closeWidgetCont"
-                  onClick={dispatch(addRemoveWidget('weather'))}
+                  onClick={() => dispatch(addRemoveWidget('weather'))}
                   style={{
                     position: 'relative',
                     width: 30 + 'px',

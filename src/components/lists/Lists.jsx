@@ -15,7 +15,6 @@ const Lists = ({ item, setAlert, icon }) => {
   const handleChange = (id) => {
     dispatch(addRemoveWidget(id));
   };
-  console.log(icon);
 
   return (
     <>

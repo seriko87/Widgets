@@ -75,7 +75,6 @@ function Home() {
     },
   ];
 
-  console.log(list);
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>

@@ -3,12 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const widgetSlice = createSlice({
   name: 'widgetData',
   initialState: {
-    location: '',
+    location: JSON.parse(localStorage.getItem('location')) ?? null,
     cryptoData: [],
   },
   reducers: {
-    setLocation: (state, action) => {
+    setLocationGps: (state, action) => {
+      console.log(action);
       state.location = action.payload;
+      localStorage.setItem('location', JSON.stringify(state.location));
     },
     addCrypto: (state, action) => {
       state.cryptoData = [...state.cryptoData, action.payload];
@@ -21,9 +23,9 @@ const widgetSlice = createSlice({
   },
 });
 
-export const { addCrypto, setLocation, removeCrypto } = widgetSlice.actions;
+export const { addCrypto, setLocationGps, removeCrypto } = widgetSlice.actions;
 
-export const location = (state) => state.widgetData.location;
+export const locationGps = (state) => state.widgetData.location;
 export const cryptoList = (state) => state.widgetData.cryptoData;
 
 export default widgetSlice.reducer;

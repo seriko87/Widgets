@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './geoLocate.css';
-import { setUserLocation } from '../../context/ApiCalls';
-import { GlobalContext } from '../../context/GlobalContext';
+
+import { useDispatch } from 'react-redux';
+import { setLocationGps } from '../../redux/features/widget/widgetSlice';
 import GpsFixedOutlinedIcon from '@mui/icons-material/GpsFixedOutlined';
 import Autocomplete from '@mui/material/Autocomplete';
 
 const GeoLocate = ({ setCordinates, setSearchOn }) => {
-  const { dispatch } = useContext(GlobalContext);
+  const dispatch = useDispatch();
   const geo_access_token = process.env.REACT_APP_GEO_TOKEN;
   const [locationList, setLocationList] = useState([]);
   const [location, setLocation] = useState('');
@@ -45,7 +45,7 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   const handleClickInput = (cords) => {
     setCordinates(`${cords[1]},${cords[0]}`);
     setLocation('');
-    setUserLocation(`${cords[1]},${cords[0]}`, dispatch);
+    dispatch(setLocationGps(`${cords[1]},${cords[0]}`));
   };
 
   /**
@@ -59,9 +59,10 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
     }
 
     function showPosition(position) {
-      setUserLocation(
-        `${position.coords.latitude},${position.coords.longitude}`,
-        dispatch
+      dispatch(
+        setLocationGps(
+          `${position.coords.latitude},${position.coords.longitude}`
+        )
       );
       setCordinates(`${position.coords.latitude},${position.coords.longitude}`);
       setLocation('');
