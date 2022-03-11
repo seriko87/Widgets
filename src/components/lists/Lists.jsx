@@ -1,7 +1,6 @@
 import './lists.css';
 import { useDispatch } from 'react-redux';
 import { addRemoveWidget } from '../../redux/features/widgetList/widgetListSlice';
-
 import { useAuthState } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 
