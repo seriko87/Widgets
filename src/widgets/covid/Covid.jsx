@@ -4,9 +4,9 @@ import CovidChart from './CovidChart';
 import './covid.css';
 import { countries } from './countries';
 import ChartDaily from './ChartDaily';
-import CloseWidget from '../closeWidget/CloseWidget';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
 import Draggable from 'react-draggable';
-import Loading from '../loading/Loading';
+import Loading from '../../components/loading/Loading';
 
 const Covid = () => {
   const [covidData, setCovidData] = useState();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CloseWidget from '../closeWidget/CloseWidget';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
 import Autocomplete from '@mui/material/Autocomplete';
 import './forex.css';
 import Crypto from './Crypto';

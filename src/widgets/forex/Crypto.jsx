@@ -3,8 +3,6 @@ import './crypto.css';
 import axios from 'axios';
 import { formatPrice, numberFormatter } from '../../functions/functions';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
-
-import { remCryptoList } from '../../context/ApiCalls';
 import { useDispatch } from 'react-redux';
 import { removeCrypto } from '../../redux/features/widget/widgetSlice';
 

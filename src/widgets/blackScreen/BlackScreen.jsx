@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
 import './blackScreen.css';
-import CloseWidget from '../closeWidget/CloseWidget';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
 
 const BlackScreen = () => {
   const [fullScreen, setFullScreen] = useState(false);

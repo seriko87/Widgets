@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './news.css';
-import CloseWidget from '../closeWidget/CloseWidget';
+import CloseWidget from '../../components/closeWidget/CloseWidget';
 import EachNews from './EachNews';
 import { newsCategory } from './newsCategory';
-import Loading from '../loading/Loading';
+import Loading from '../../components/loading/Loading';
 import Draggable from 'react-draggable';
 const News = () => {
   const [news, setNews] = useState();

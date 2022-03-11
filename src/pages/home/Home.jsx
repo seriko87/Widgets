@@ -2,12 +2,11 @@ import './home.css';
 import { useState } from 'react';
 import Profile from '../../components/profile/Profile';
 import { useAuthState } from '../../firebase';
-import BlackScreen from '../../components/blackScreen/BlackScreen';
+import BlackScreen from '../../widgets/blackScreen/BlackScreen';
 import Weather from '../../widgets/weather/Weather';
-import News from '../../components/news/News';
-import Covid from '../../components/covid/Covid';
-import Calculator from '../../components/calculator/Calculator';
-import Forex from '../../components/forex/Forex';
+import News from '../../widgets/news/News';
+import Covid from '../../widgets/covid/Covid';
+import Calculator from '../../widgets/calculator/Calculator';
 import MatchCards from '../../widgets/matchCards/MatchCards';
 import Currency from '../../widgets/currency/Currency';
 import Clock from '../../widgets/clock/Clock';
@@ -17,6 +16,7 @@ import ImgWidget from '../../widgets/imgWidget/ImgWidget';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import { useSelector } from 'react-redux';
 import { widgets } from '../../redux/features/widgetList/widgetListSlice';
+import Forex from '../../widgets/forex/Forex';
 
 function Home() {
   const list = useSelector(widgets);
