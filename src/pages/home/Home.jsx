@@ -76,10 +76,6 @@ function Home() {
     },
   ];
 
-  // useEffect(() => {
-  //   setNewList(list);
-  // }, [list]);
-
   return (
     <div className="container">
       <div className="profileBtnHomeOpen" onClick={() => setProOpenClose(true)}>
