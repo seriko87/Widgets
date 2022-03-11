@@ -9,10 +9,13 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from 'react-router-dom';
 import { iconList } from '../../context/widgetList';
+import { useSelector } from 'react-redux';
+import { widgets } from '../../redux/features/widgetList/widgetListSlice';
 
 const Profile = ({ user, setProOpenClose }) => {
   const [alert, setAlert] = useState(false);
-  const { list } = useContext(GlobalContext);
+  const list = useSelector(widgets);
+
   const navigate = useNavigate();
   const email = user && user.email;
   const name = user && user.displayName;
@@ -81,13 +84,13 @@ const Profile = ({ user, setProOpenClose }) => {
           </div>
         ) : (
           <>
-            {list.map((item, index) => {
+            {list?.map((item, index) => {
               return (
                 <Lists
                   key={item.id}
                   item={item}
                   setAlert={setAlert}
-                  icon={iconList[index].icon}
+                  icon={item.icon}
                 />
               );
             })}

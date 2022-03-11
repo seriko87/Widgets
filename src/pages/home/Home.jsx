@@ -16,12 +16,13 @@ import Quotes from '../../widgets/quotes/Quotes';
 import RollDice from '../../widgets/rollDice/RollDice';
 import ImgWidget from '../../widgets/imgWidget/ImgWidget';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import { useSelector } from 'react-redux';
+import { widgets } from '../../redux/features/widgetList/widgetListSlice';
 
 function Home() {
-  const { list } = useContext(GlobalContext);
+  const list = useSelector(widgets);
   const [proOpenClose, setProOpenClose] = useState(true);
   const { currentUser } = useAuthState();
-  const [newList, setNewList] = useState(list);
 
   const widgetList = [
     {
@@ -75,9 +76,9 @@ function Home() {
     },
   ];
 
-  useEffect(() => {
-    setNewList(list);
-  }, [list]);
+  // useEffect(() => {
+  //   setNewList(list);
+  // }, [list]);
 
   return (
     <div className="container">
@@ -96,16 +97,15 @@ function Home() {
       {widgetList.map((item, index) => {
         if (item.user) {
           if (currentUser) {
-            if (newList[index].status) {
+            if (list[index].status) {
               return item.component;
             }
           }
         } else {
-          if (newList[index].status) {
+          if (list[index].status) {
             return item.component;
           }
         }
-
         return null;
       })}
     </div>

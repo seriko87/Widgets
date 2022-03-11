@@ -10,7 +10,7 @@ import CasinoIcon from '@mui/icons-material/Casino';
 import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
-export const newList = [
+export const widgetsList = [
   {
     id: 'clock',
     name: 'Clock',
@@ -94,57 +94,6 @@ export const newList = [
     name: 'News',
     status: false,
     user: true,
-    icon: <NewspaperIcon />,
-  },
-];
-
-export const iconList = [
-  {
-    id: 'clock',
-    icon: <AccessTimeIcon />,
-  },
-  {
-    id: 'weather',
-    icon: <WbSunnyIcon />,
-  },
-  {
-    id: 'covid',
-    icon: <CoronavirusIcon />,
-  },
-  {
-    id: 'blackScreen',
-    icon: <ColorLensIcon />,
-  },
-  {
-    id: 'calculator',
-    icon: <CalculateIcon />,
-  },
-  {
-    id: 'forex',
-    icon: <PriceChangeIcon />,
-  },
-  {
-    id: 'matchCards',
-    icon: <StyleIcon />,
-  },
-  {
-    id: 'currency',
-    icon: <CurrencyExchangeIcon />,
-  },
-  {
-    id: 'quotes',
-    icon: <FormatQuoteIcon />,
-  },
-  {
-    id: 'rollDice',
-    icon: <CasinoIcon />,
-  },
-  {
-    id: 'imgWidget',
-    icon: <PhotoCameraBackIcon />,
-  },
-  {
-    id: 'news',
     icon: <NewspaperIcon />,
   },
 ];

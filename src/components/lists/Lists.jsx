@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import './lists.css';
+import { useDispatch } from 'react-redux';
+import { addRemoveWidget } from '../../redux/features/widgetList/widgetListSlice';
 
 import { addRemoveList } from '../../context/ApiCalls';
 import { GlobalContext } from '../../context/GlobalContext';
@@ -7,14 +9,14 @@ import { useAuthState } from '../../firebase';
 import LockIcon from '@mui/icons-material/Lock';
 
 const Lists = ({ item, setAlert, icon }) => {
-  const { dispatch } = useContext(GlobalContext);
+  const dispatch = useDispatch();
   const { currentUser } = useAuthState();
 
   const listName = item.name;
   const widgetUserAllow = item.user;
 
   const handleChange = (id) => {
-    addRemoveList(id, dispatch);
+    dispatch(addRemoveWidget(id));
   };
 
   return (
