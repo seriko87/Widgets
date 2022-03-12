@@ -6,14 +6,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { useAuthState } from '../../firebase';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 
 const Main = () => {
   const [navbar, setNavbar] = useState(true);
   const [hamb, setHamb] = useState(false);
   const [winSize, setWinSize] = useState(window.innerHeight);
-  const { currentUser } = useAuthState();
 
   const scrollEventListener = () => {
     if (window.scrollY < 200) {
