@@ -98,15 +98,4 @@ html {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--font-color-3);
-  /* border: 3px solid var(--bg-overlay); */
 }
-
-/*
-Reset 
-*/
-
-/* *,
-*::after,
-*::before {
-  box-sizing: border-box;
-} */
