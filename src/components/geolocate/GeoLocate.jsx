@@ -23,22 +23,27 @@ const GeoLocate = ({ setCordinates, setSearchOn }) => {
   };
 
   useEffect(() => {
-    const getLocation = async () => {
-      try {
-        const res = await axios(config_data);
+    const timeout = setTimeout(() => {
+      const getLocation = async () => {
+        try {
+          const res = await axios(config_data);
 
-        const newList = res.data.features.map((element) => {
-          let label = element.place_name;
-          let cords = element['geometry']['coordinates'];
-          return { label: label, cords: cords, id: element.id };
-        });
+          const newList = res.data.features.map((element) => {
+            let label = element.place_name;
+            let cords = element['geometry']['coordinates'];
+            return { label: label, cords: cords, id: element.id };
+          });
 
-        setLocationList(newList);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    location && getLocation();
+          setLocationList(newList);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      location && getLocation();
+    }, 300);
+
+    return () => clearTimeout(timeout);
   }, [location]);
 
   // setting new cordinates long,lat anlso sending user location to dispatch
