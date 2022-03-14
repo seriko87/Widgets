@@ -4,7 +4,7 @@ import CloseWidget from '../../components/closeWidget/CloseWidget';
 import './currency.css';
 import { curData } from './curData';
 import axios from 'axios';
-import { formatPrice } from '../../functions/functions';
+
 const Currency = () => {
   const [currency, setCurrency] = useState({});
   const [fromCur, setFromCur] = useState('USD');
