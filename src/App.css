@@ -32,3 +32,20 @@
   cursor: grab;
   opacity: 1;
 }
+
+/* Utility Classes */
+
+.widgetContainer {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  background: var(--bg-color-4);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
