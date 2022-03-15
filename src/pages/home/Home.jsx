@@ -70,11 +70,11 @@ function Home() {
       user: false,
       component: <ImgWidget key="imgWidget" />,
     },
+    { user: false, component: <Todo key="todo" /> },
     {
       user: true,
       component: <News key="news" />,
     },
-    { user: false, component: <Todo key="todo" /> },
   ];
 
   return (

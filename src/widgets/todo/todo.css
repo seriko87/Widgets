@@ -1,4 +1,38 @@
-.todoWidget {
+/* .todoWidget {
   width: 700px;
   height: 500px;
+} */
+.todoWrap {
+  width: 700px;
+  height: 500px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.todo-category {
+  border: 1px solid blue;
+  width: 35%;
+  height: 100%;
+}
+
+.todo-list {
+  width: 65%;
+  border: 1px solid blue;
+  height: 100%;
+}
+
+.todo-task-items {
+  height: 35px;
+  width: 80%;
+}
+
+.todo-task-delete {
+  color: var(--color-alert);
+  opacity: 0.1;
+  cursor: pointer;
+}
+.todo-task-delete:hover {
+  opacity: 1;
 }
