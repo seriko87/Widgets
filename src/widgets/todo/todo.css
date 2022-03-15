@@ -12,7 +12,6 @@
 }
 
 .todo-category {
-  border: 1px solid blue;
   width: 35%;
   height: 100%;
 }
@@ -68,7 +67,9 @@
   align-items: center;
   box-sizing: border-box;
 }
-
+.todo-error {
+  border: 1px solid var(--color-alert);
+}
 .todo-task-delete {
   color: var(--color-alert);
   opacity: 0.1;
@@ -77,7 +78,11 @@
 .todo-task-delete:hover {
   opacity: 1;
 }
-
+.todo-label {
+  margin-top: 10px;
+  width: 90%;
+  margin-bottom: 5px;
+}
 .task-list-container {
   display: flex;
   flex-direction: column;

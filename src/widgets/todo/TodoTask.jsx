@@ -18,7 +18,6 @@ const TodoTask = ({ task }) => {
         <Checkbox
           checked={finished}
           onChange={() => dispatch(taskComplete(id))}
-          //   sx={{ color: 'rgb(97, 97, 97)' }}
           className="todo-checkbox"
         />
 
