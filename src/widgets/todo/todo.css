@@ -25,7 +25,11 @@
 
 .todo-task-items {
   height: 35px;
-  width: 80%;
+  width: 90%;
+  background-color: var(--bg-overlay-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todo-task-delete {
@@ -35,4 +39,12 @@
 }
 .todo-task-delete:hover {
   opacity: 1;
+}
+
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }

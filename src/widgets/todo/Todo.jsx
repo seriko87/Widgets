@@ -39,7 +39,7 @@ const Todo = () => {
                 add
               </button>
             </form>
-            <div>
+            <div className="task-list-container">
               {taskList.map((item) => {
                 return <TodoTask task={item} />;
               })}
