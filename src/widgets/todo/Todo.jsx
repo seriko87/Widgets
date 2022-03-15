@@ -20,7 +20,13 @@ const Todo = () => {
   return (
     <Draggable handle="strong">
       <div className="widgetContainer todoWidget box no-cursor">
-        <strong className="cursor" style={{ width: 90 + '%' }}></strong>
+        <strong
+          className="cursor"
+          style={{ width: 90 + '%', paddingLeft: '10px' }}
+        >
+          {' '}
+          Todo Widget
+        </strong>
         <CloseWidget id="todo" />
 
         <div className="todoWrap">
@@ -28,7 +34,7 @@ const Todo = () => {
             <button className="btn-add-category">Add Category</button>
           </aside>
           <div className="todo-list">
-            <form action="">
+            <form action="" className="todo-form">
               <input
                 type="text"
                 className="todo-input"

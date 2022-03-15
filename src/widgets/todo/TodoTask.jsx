@@ -18,11 +18,13 @@ const TodoTask = ({ task }) => {
         <Checkbox
           checked={finished}
           onChange={() => dispatch(taskComplete(id))}
-          className="checkBox"
-          sx={{ color: 'rgb(177, 177, 177)' }}
+          //   sx={{ color: 'rgb(97, 97, 97)' }}
+          className="todo-checkbox"
         />
 
-        <span>{text}</span>
+        <span className={finished ? 'todo-task-finished' : undefined}>
+          {text}
+        </span>
       </span>
 
       <DeleteForeverOutlinedIcon
