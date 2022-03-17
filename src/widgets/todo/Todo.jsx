@@ -3,9 +3,14 @@ import Draggable from 'react-draggable';
 import './todo.css';
 import CloseWidget from '../../components/closeWidget/CloseWidget';
 import { useSelector, useDispatch } from 'react-redux';
-import { todoLists, addList } from '../../redux/features/todo/todoSlice';
+import {
+  todoLists,
+  addList,
+  removeList,
+} from '../../redux/features/todo/todoSlice';
 import TabPanel from '../../components/tabPanel/TabPanel';
 import TodoTasks from './TodoTasks';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 const Todo = () => {
   const taskList = useSelector(todoLists);
@@ -25,6 +30,9 @@ const Todo = () => {
     dispatch(addList());
   };
 
+  const handleDeleteList = (id) => {
+    dispatch(removeList(id));
+  };
   return (
     <Draggable handle="strong">
       <div className="widgetContainer todoWidget box no-cursor">
@@ -48,6 +56,10 @@ const Todo = () => {
                   }
                 >
                   {item.name}
+                  <DeleteForeverOutlinedIcon
+                    onClick={() => handleDeleteList(item.listId)}
+                    className="todo-task-delete"
+                  />
                 </button>
               );
             })}

@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { removeTask, taskComplete } from '../../redux/features/todo/todoSlice';
 import Checkbox from '@mui/material/Checkbox';
 
-const TodoTask = ({ task }) => {
+const TodoTask = ({ task, listIndex }) => {
   const dispatch = useDispatch();
   const { taskId, text, finished } = task;
 
   const handleDel = () => {
-    dispatch(removeTask(taskId));
+    dispatch(removeTask([taskId, listIndex]));
   };
 
   return (
@@ -17,7 +17,7 @@ const TodoTask = ({ task }) => {
       <span>
         <Checkbox
           checked={finished}
-          onChange={() => dispatch(taskComplete(taskId))}
+          onChange={() => dispatch(taskComplete([taskId, listIndex]))}
           className="todo-checkbox"
         />
 

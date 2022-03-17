@@ -26,15 +26,24 @@ const todoSlice = createSlice({
         name: name + ' ' + state.list.length + 1,
       });
     },
+    removeList: (state, action) => {
+      state.list = state.list.filter((item) => item.listId !== action.payload);
+    },
     addTask: (state, action) => {
-      state.list[action.payload.listIndex].taskArray.push(action.payload.task);
+      state.list[action.payload.listIndex].taskArray.unshift(
+        action.payload.task
+      );
     },
     removeTask: (state, action) => {
-      state.list = state.list.filter((item) => item.id !== action.payload);
+      state.list[action.payload[1]].taskArray = state.list[
+        action.payload[1]
+      ].taskArray.filter((item) => item.taskId !== action.payload[0]);
     },
     taskComplete: (state, action) => {
-      state.list = state.list.taskArray.map((item) => {
-        if (item.taskId === action.payload) {
+      state.list[action.payload[1]].taskArray = state.list[
+        action.payload[1]
+      ].taskArray.map((item) => {
+        if (item.taskId === action.payload[0]) {
           return { ...item, finished: !item.finished };
         }
         return item;
@@ -43,7 +52,8 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTask, removeTask, taskComplete, addList } = todoSlice.actions;
+export const { addTask, removeTask, taskComplete, addList, removeList } =
+  todoSlice.actions;
 export const todoLists = (state) => state.todoList.list;
 
 export default todoSlice.reducer;

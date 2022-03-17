@@ -47,14 +47,14 @@ const TodoTasks = ({ tasks, listIndex }) => {
         <span className="todo-label">Active</span>
         {taskArray.map((item) => {
           if (!item.finished) {
-            return <TodoTask task={item} />;
+            return <TodoTask task={item} listIndex={listIndex} />;
           }
           return null;
         })}
         <span className="todo-label">Finished</span>
         {taskArray.map((item) => {
           if (item.finished) {
-            return <TodoTask task={item} />;
+            return <TodoTask task={item} listIndex={listIndex} />;
           }
           return null;
         })}
