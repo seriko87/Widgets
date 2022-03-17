@@ -4,7 +4,7 @@ import './todo.css';
 import CloseWidget from '../../components/closeWidget/CloseWidget';
 import { useSelector, useDispatch } from 'react-redux';
 import { todoLists, addList } from '../../redux/features/todo/todoSlice';
-
+import TabPanel from '../../components/tabPanel/TabPanel';
 import TodoTasks from './TodoTasks';
 
 const Todo = () => {
@@ -17,9 +17,11 @@ const Todo = () => {
       dispatch(addList());
     }
   }, []);
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (newValue) => {
     setTabIndex(newValue);
   };
+
+  console.log(tabIndex);
 
   return (
     <Draggable handle="strong">
@@ -36,13 +38,32 @@ const Todo = () => {
         <div className="todoWrap">
           <aside className="todo-category">
             {taskList.map((item, index) => {
-              return <button onClick={handleTabChange}>{item.name}</button>;
+              return (
+                <button
+                  onClick={() => handleTabChange(index)}
+                  className={
+                    tabIndex === index ? 'todo-tab active' : 'todo-tab'
+                  }
+                >
+                  {item.name}
+                </button>
+              );
             })}
             <button className="btn-add-category">Add Category</button>
           </aside>
 
           {taskList.map((item, index) => {
-            return <TodoTasks tasks={item} listIndex={index} />;
+            return (
+              <div
+                role="tabpanel"
+                className="todo-tab-content"
+                hidden={tabIndex !== index}
+              >
+                {tabIndex === index && (
+                  <TodoTasks tasks={item} listIndex={index} />
+                )}
+              </div>
+            );
           })}
         </div>
       </div>

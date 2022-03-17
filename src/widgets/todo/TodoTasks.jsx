@@ -31,7 +31,7 @@ const TodoTasks = ({ tasks, listIndex }) => {
     }
   };
   return (
-    <div className="todo-list">
+    <>
       <form action="" className="todo-form">
         <input
           type="text"
@@ -59,7 +59,7 @@ const TodoTasks = ({ tasks, listIndex }) => {
           return null;
         })}
       </div>
-    </div>
+    </>
   );
 };
 

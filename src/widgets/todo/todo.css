@@ -33,9 +33,8 @@
   border: var(--glass-border-1);
   box-sizing: border-box;
 }
-.todo-list {
+.todo-tab-content {
   width: 65%;
-
   height: 100%;
 }
 .btn-add {
@@ -97,4 +96,14 @@
 
 .todo-checkbox {
   color: var(--font-color) !important;
+}
+.todo-tab {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.todo-tab.active {
+  background-color: var(--bg-gradient-1);
 }
