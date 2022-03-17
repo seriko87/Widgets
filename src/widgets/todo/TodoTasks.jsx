@@ -33,17 +33,20 @@ const TodoTasks = ({ tasks, listIndex }) => {
   return (
     <>
       <form action="" className="todo-form">
-        <input
-          type="text"
-          className={error ? 'todo-input todo-error' : 'todo-input'}
-          value={note}
-          onChange={handleChange}
-        />
-        <button className="btn-add" onClick={handleSubmit}>
-          add
-        </button>
+        <span className="todo-label">Add Note</span>
+        <span>
+          <input
+            type="text"
+            className={error ? 'todo-input todo-error' : 'todo-input'}
+            value={note}
+            onChange={handleChange}
+          />
+          <button className="btn-add" onClick={handleSubmit}>
+            add
+          </button>
+        </span>
       </form>
-      <div className="task-list-container">
+      <div className="task-task-container">
         <span className="todo-label">Active</span>
         {taskArray.map((item) => {
           if (!item.finished) {

@@ -23,7 +23,7 @@ const todoSlice = createSlice({
       state.list.unshift({
         listId: listId,
         taskArray: [],
-        name: name + ' ' + state.list.length + 1,
+        name: name + ' ' + state.list.length,
       });
     },
     removeList: (state, action) => {
