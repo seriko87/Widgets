@@ -3,39 +3,23 @@ import Draggable from 'react-draggable';
 import './todo.css';
 import CloseWidget from '../../components/closeWidget/CloseWidget';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  addTask,
-  todoLists,
-  addList,
-} from '../../redux/features/todo/todoSlice';
-import TodoTask from './TodoTask';
+import { todoLists, addList } from '../../redux/features/todo/todoSlice';
+
+import TodoTasks from './TodoTasks';
 
 const Todo = () => {
-  const [task, setTask] = useState('');
-  const [error, setError] = useState(false);
   const taskList = useSelector(todoLists);
+  const [tabIndex, setTabIndex] = useState(0);
   const dispatch = useDispatch();
-
-  const handleChange = (e) => {
-    setTask(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const id = Date.now();
-    if (task.length === 0) {
-      setError(true);
-    } else {
-      dispatch(addTask({ id: id, text: task, finished: false }));
-      setError(false);
-      setTask('');
-    }
-  };
 
   useEffect(() => {
     if (taskList.length === 0) {
       dispatch(addList());
     }
   }, []);
+  const handleTabChange = (event, newValue) => {
+    setTabIndex(newValue);
+  };
 
   return (
     <Draggable handle="strong">
@@ -51,37 +35,15 @@ const Todo = () => {
 
         <div className="todoWrap">
           <aside className="todo-category">
+            {taskList.map((item, index) => {
+              return <button onClick={handleTabChange}>{item.name}</button>;
+            })}
             <button className="btn-add-category">Add Category</button>
           </aside>
-          <div className="todo-list">
-            <form action="" className="todo-form">
-              <input
-                type="text"
-                className={error ? 'todo-input todo-error' : 'todo-input'}
-                value={task}
-                onChange={handleChange}
-              />
-              <button className="btn-add" onClick={handleSubmit}>
-                add
-              </button>
-            </form>
-            <div className="task-list-container">
-              <span className="todo-label">Active</span>
-              {taskList.map((item) => {
-                if (!item.finished) {
-                  return <TodoTask task={item} />;
-                }
-                return null;
-              })}
-              <span className="todo-label">Finished</span>
-              {taskList.map((item) => {
-                if (item.finished) {
-                  return <TodoTask task={item} />;
-                }
-                return null;
-              })}
-            </div>
-          </div>
+
+          {taskList.map((item, index) => {
+            return <TodoTasks tasks={item} listIndex={index} />;
+          })}
         </div>
       </div>
     </Draggable>

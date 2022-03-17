@@ -3,7 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 const todoSlice = createSlice({
   name: 'todoList',
   initialState: {
-    list: [],
+    list: [
+      {
+        listId: 1543215,
+        taskArray: [],
+        name: 'New Tab 2',
+      },
+      {
+        listId: 15432215,
+        taskArray: [],
+        name: 'New Tab 3',
+      },
+    ],
   },
   reducers: {
     addList: (state, action) => {
@@ -11,19 +22,19 @@ const todoSlice = createSlice({
       let name = 'New List';
       state.list.push({
         listId: listId,
-        task: [],
+        taskArray: [],
         name: name + ' ' + state.list.length + 1,
       });
     },
     addTask: (state, action) => {
-      state.list[action.payload.id].push(action.payload);
+      state.list[action.payload.listIndex].taskArray.push(action.payload.task);
     },
     removeTask: (state, action) => {
       state.list = state.list.filter((item) => item.id !== action.payload);
     },
     taskComplete: (state, action) => {
-      state.list = state.list.map((item) => {
-        if (item.id === action.payload) {
+      state.list = state.list.taskArray.map((item) => {
+        if (item.taskId === action.payload) {
           return { ...item, finished: !item.finished };
         }
         return item;

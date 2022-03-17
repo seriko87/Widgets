@@ -6,18 +6,18 @@ import Checkbox from '@mui/material/Checkbox';
 
 const TodoTask = ({ task }) => {
   const dispatch = useDispatch();
-  const { id, text, finished } = task;
+  const { taskId, text, finished } = task;
 
   const handleDel = () => {
-    dispatch(removeTask(id));
+    dispatch(removeTask(taskId));
   };
 
   return (
-    <div key={id} className="todo-task-items">
+    <div key={taskId} className="todo-task-items">
       <span>
         <Checkbox
           checked={finished}
-          onChange={() => dispatch(taskComplete(id))}
+          onChange={() => dispatch(taskComplete(taskId))}
           className="todo-checkbox"
         />
 
