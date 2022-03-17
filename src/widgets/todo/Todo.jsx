@@ -21,7 +21,9 @@ const Todo = () => {
     setTabIndex(newValue);
   };
 
-  console.log(tabIndex);
+  const addNewNote = () => {
+    dispatch(addList());
+  };
 
   return (
     <Draggable handle="strong">
@@ -49,7 +51,9 @@ const Todo = () => {
                 </button>
               );
             })}
-            <button className="btn-add-category">Add Category</button>
+            <button className="btn-add-category" onClick={addNewNote}>
+              Add New Note
+            </button>
           </aside>
 
           {taskList.map((item, index) => {

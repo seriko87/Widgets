@@ -105,5 +105,5 @@
   cursor: pointer;
 }
 .todo-tab.active {
-  background-color: var(--bg-gradient-1);
+  background-color: var(--bg-color-2);
 }
