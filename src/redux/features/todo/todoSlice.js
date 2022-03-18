@@ -29,6 +29,9 @@ const todoSlice = createSlice({
     removeList: (state, action) => {
       state.list = state.list.filter((item) => item.listId !== action.payload);
     },
+    renameList: (state, action) => {
+      state.list[action.payload[0]].name = action.payload[1];
+    },
     addTask: (state, action) => {
       state.list[action.payload.listIndex].taskArray.unshift(
         action.payload.task
@@ -52,8 +55,14 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTask, removeTask, taskComplete, addList, removeList } =
-  todoSlice.actions;
+export const {
+  addTask,
+  removeTask,
+  taskComplete,
+  addList,
+  removeList,
+  renameList,
+} = todoSlice.actions;
 export const todoLists = (state) => state.todoList.list;
 
 export default todoSlice.reducer;

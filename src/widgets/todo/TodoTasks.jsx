@@ -33,7 +33,7 @@ const TodoTasks = ({ tasks, listIndex }) => {
   return (
     <>
       <form action="" className="todo-form">
-        <span className="todo-label">Add Note</span>
+        <span className="todo-label">Add Task</span>
         <span>
           <input
             type="text"
@@ -54,7 +54,7 @@ const TodoTasks = ({ tasks, listIndex }) => {
           }
           return null;
         })}
-        <span className="todo-label">Finished</span>
+        <span className="todo-label">Completed</span>
         {taskArray.map((item) => {
           if (item.finished) {
             return <TodoTask task={item} listIndex={listIndex} />;
