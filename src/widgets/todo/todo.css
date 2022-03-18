@@ -97,6 +97,7 @@
 
 .todo-task-finished {
   opacity: 0.7;
+  text-decoration: line-through;
 }
 
 .todo-checkbox {
@@ -117,7 +118,7 @@
   background-color: var(--bg-overlay-1);
 }
 .todo-tab-wrap {
-  width: 100%;
+  width: 98%;
   height: 40px;
   border: none;
   background-color: transparent;

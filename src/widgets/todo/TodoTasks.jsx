@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addTask, todoLists } from '../../redux/features/todo/todoSlice';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../../redux/features/todo/todoSlice';
 import TodoTask from './TodoTask';
 
 const TodoTasks = ({ tasks, listIndex }) => {
@@ -47,14 +47,12 @@ const TodoTasks = ({ tasks, listIndex }) => {
         </span>
       </form>
       <div className="task-task-container">
-        <span className="todo-label">Active</span>
         {taskArray.map((item) => {
           if (!item.finished) {
             return <TodoTask task={item} listIndex={listIndex} />;
           }
           return null;
         })}
-        <span className="todo-label">Completed</span>
         {taskArray.map((item) => {
           if (item.finished) {
             return <TodoTask task={item} listIndex={listIndex} />;
