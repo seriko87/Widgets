@@ -10,8 +10,9 @@ import CasinoIcon from '@mui/icons-material/Casino';
 import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
 export const widgetsList = {
-  version: 4,
+  version: 5,
   data: [
     {
       id: 'clock',
@@ -81,6 +82,12 @@ export const widgetsList = {
       user: false,
     },
     {
+      id: 'todo',
+      name: 'To-do',
+      status: false,
+      user: false,
+    },
+    {
       id: 'news',
       name: 'News',
       status: false,
@@ -133,6 +140,7 @@ export const iconList = [
     id: 'imgWidget',
     icon: <PhotoCameraBackIcon />,
   },
+  { id: 'todo', icon: <NoteAltIcon /> },
   {
     id: 'news',
     icon: <NewspaperIcon />,

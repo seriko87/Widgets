@@ -17,6 +17,7 @@ import WidgetsIcon from '@mui/icons-material/Widgets';
 import { useSelector } from 'react-redux';
 import { widgets } from '../../redux/features/widgetList/widgetListSlice';
 import Forex from '../../widgets/forex/Forex';
+import Todo from '../../widgets/todo/Todo';
 
 function Home() {
   const list = useSelector(widgets);
@@ -69,6 +70,7 @@ function Home() {
       user: false,
       component: <ImgWidget key="imgWidget" />,
     },
+    { user: false, component: <Todo key="todo" /> },
     {
       user: true,
       component: <News key="news" />,

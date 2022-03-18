@@ -47,10 +47,10 @@ const Login = () => {
   }, [loginErr]);
 
   return (
-    <div className="signUpMainCont">
-      <div className="signUpContainer">
-        <div className="signUpHeader">
-          <div className="signUpTitle">Login</div>
+    <div className="authMainCont">
+      <div className="authContainer">
+        <div className="authHeader">
+          <div className="authTitle">Login</div>
           <div className="logInInfo">
             Don't have an account?{' '}
             <Link to="/signup" className="goLogIn">

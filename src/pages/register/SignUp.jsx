@@ -76,10 +76,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signUpMainCont">
-      <div className="signUpContainer">
-        <div className="signUpHeader">
-          <div className="signUpTitle">Sign up</div>
+    <div className="authMainCont">
+      <div className="authContainer">
+        <div className="authHeader">
+          <div className="authTitle">Sign up</div>
           <div className="logInInfo">
             Already have an account?{' '}
             <Link to="/login" className="goLogIn">

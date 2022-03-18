@@ -34,7 +34,6 @@ const cat = [
 const ImgWidget = () => {
   const [imgUrl, setImgUrl] = useState({ id: 0, img: '' });
   const [imgList, setImgList] = useState();
-  const [refresh, setRefresh] = useState(false);
   const [category, setCategory] = useState(cat[0]);
   const [loading, setLoading] = useState(true);
   const SITE_KEY = process.env.REACT_APP_PEXELS_KEY;
@@ -82,14 +81,6 @@ const ImgWidget = () => {
       setImgUrl({ id: page - 1, img: imgList[page - 1] });
     }
   };
-
-  //   const handleRefresh = () => {
-  //     setRefresh(true);
-  //     setTimeout(() => {
-  //       setRefresh(false);
-  //     }, 60000);
-  //     // getImg();
-  //   };
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
@@ -160,16 +151,6 @@ const ImgWidget = () => {
         <button className="imgPrevBtn" onClick={() => handlePrev(imgUrl.id)}>
           <ArrowBackIosNewOutlinedIcon fontSize="large" />
         </button>
-
-        {/* <div className="imgWidgetControls">
-          <button
-            className="imgRefBtn"
-            onClick={() => handleRefresh()}
-            disabled={refresh}
-          >
-            Refresh
-          </button>
-        </div> */}
       </div>
     </Draggable>
   );

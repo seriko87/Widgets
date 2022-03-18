@@ -9,6 +9,7 @@
     "@emotion/style": "^0.8.0",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.5",
+    "@mui/lab": "^5.0.0-alpha.73",
     "@mui/material": "^5.2.8",
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.1",

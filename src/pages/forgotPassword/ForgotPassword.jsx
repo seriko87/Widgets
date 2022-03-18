@@ -42,7 +42,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="signUpMainCont">
+    <div className="authMainCont">
       <div className="forgotPassContainer">
         <div className="forgotPassHeader">
           <div className="forgotPassTitle">Password Reset</div>
