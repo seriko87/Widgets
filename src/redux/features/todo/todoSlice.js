@@ -3,18 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const todoSlice = createSlice({
   name: 'todoList',
   initialState: {
-    list: [
-      {
-        listId: 1543215,
-        taskArray: [],
-        name: 'New Tab 2',
-      },
-      {
-        listId: 15432215,
-        taskArray: [],
-        name: 'New Tab 3',
-      },
-    ],
+    list: [],
   },
   reducers: {
     addList: (state, action) => {

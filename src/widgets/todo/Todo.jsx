@@ -43,7 +43,7 @@ const Todo = () => {
   };
   return (
     <Draggable handle="strong">
-      <div className="widgetContainer todoWidget box no-cursor">
+      <div className="widgetContainer box no-cursor">
         <strong
           className="cursor"
           style={{ width: 90 + '%', paddingLeft: '10px' }}

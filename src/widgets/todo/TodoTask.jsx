@@ -20,7 +20,6 @@ const TodoTask = ({ task, listIndex }) => {
           onChange={() => dispatch(taskComplete([taskId, listIndex]))}
           className="todo-checkbox"
         />
-
         <span className={finished ? 'todo-task-finished' : undefined}>
           {text}
         </span>
