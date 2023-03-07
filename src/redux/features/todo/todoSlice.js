@@ -8,11 +8,10 @@ const todoSlice = createSlice({
   reducers: {
     addList: (state, action) => {
       let listId = Date.now();
-      let name = 'New Note';
       state.list.unshift({
         listId: listId,
         taskArray: [],
-        name: name + ' ' + state.list.length,
+        name: 'New Note ' + state.list.length,
       });
     },
     removeList: (state, action) => {

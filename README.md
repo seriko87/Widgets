@@ -4,7 +4,7 @@ After several small apps and tutorial web applications I decided to do my web ap
 
 Note: since some APIs are paid I had to remove some of my original widgets. Actively looking for good free ones.
 
-You can check live site here: [www.sashyr.com](https://sashyr.com)
+You can check live site here: [sashyr.netlify.app](https://sashyr.netlify.app)
 
 **This website is intended for desktop or big screen use.**
 
@@ -13,19 +13,18 @@ You can check live site here: [www.sashyr.com](https://sashyr.com)
 - **Front-end:** HTML, CSS, JavaScript, React Js
 - **Back-end:** Firebase, Firebase Auth, Firebase database, NoSQL
 - **React Packages:** React Charts, Axios, Material Ui, Draggable, React-Router, EmailJs, React form
-- **State:** Redux, Redux-toolkit
+- **State:** React-Redux, Redux-toolkit
 - **API:** Rapid Api, Weather Api, Covid Open Disease Data API, Geo Location Mapbox, Bing News Api
 
 ### Current Features
 
 - Working user authentication
-- Widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices, Match Cards, Currency Converter, etc...)
+- Widgets(Covid tracker, Weather, News, Clock, Colorfull Screen, Calculator, Crypto Prices, Match Cards, Currency Converter,Todo etc...)
 - Day / Night mode
 
 ### Coming Soon
 
 - Chat with online users
-- Todo widget
 - Sports tracker
 
 ### Issues
