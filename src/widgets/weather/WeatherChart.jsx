@@ -7,23 +7,8 @@ const WeatherChart = ({ data, metric }) => {
     let times = [
       '12am',
       '1am',
-      '2am',
-      '3am',
-      '4am',
-      '5am',
-      '6am',
-      '7am',
-      '8am',
-      '9am',
-      '10am',
-      '11am',
-      '12pm',
-      '1pm',
-      '2pm',
-      '3pm',
-      '4pm',
-      '5pm',
-      '6pm',
+      '2am',      '3am',      '4am',      '5am',      '6am',      '7am',      '8am',      '9am',
+      '10am',      '11am',      '12pm',      '1pm',      '2pm',      '3pm',      '4pm',      '5pm',      '6pm',
       '7pm',
       '8pm',
       '9pm',
@@ -36,14 +21,6 @@ const WeatherChart = ({ data, metric }) => {
       time: times[index],
     };
   });
-
-  //   function Time(epoch) {
-  //     //   converting epoch time to local time
-  //     let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-
-  //     d.setUTCSeconds(epoch);
-  //     return d.toLocaleString('en-US', { hour: 'numeric', hour12: true });
-  //   }
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active) {
@@ -70,17 +47,6 @@ const WeatherChart = ({ data, metric }) => {
         fontSize="14px"
         axisLine={false}
         tickLine={false}
-        // tickFormatter={(item) => {
-        //   let d = item.split(' ');
-        //   var timeType;
-        //   if (d[1] === 'AM') {
-        //     timeType = 'am';
-        //   }
-        //   if (d[1] === 'PM') {
-        //     timeType = 'pm';
-        //   }
-        //   return d[0] + timeType;
-        // }}
       />
 
       <Tooltip content={<CustomTooltip />} />
