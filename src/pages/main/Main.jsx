@@ -133,35 +133,17 @@ const Main = () => {
         <section className="aboutTextCont">
           <h1 className="aboutTitle">About</h1>
           <span className="aboutMainText">
-            This is a widgets app that shows useful information about chosen
-            topics that are similar to Windows or macOS widgets. It is designed
-            to use in a desktop environment.
+            <p>Widgets is a passion project of mine that I built to make desktop computing more convenient and enjoyable. It's a collection of draggable components, or widgets, that give you quick access to useful information like weather, news, and cryptocurrency prices.</p>
+<p>I built the app using HTML, CSS, JavaScript, and React Js, along with React packages like React Charts, Axios, Material UI, Draggable, and React-Router. To make sure it's always reliable and secure, I used Firebase, Firebase Auth, Firebase database, and NoSQL for the back-end.</p>
+<p>Widgets relies on a range of APIs, including Rapid API, Weather API, Covid Data API, Geo Location Mapbox, Bing News API, ExchangeRate API, and Pexels API to provide you with real-time and accurate information.</p>
+<p>I created Widgets as a way to make my own desktop experience more efficient and enjoyable, and I hope it does the same for you. Thanks for checking it out!</p>
           </span>
-          <ul className="aboutList">
-            <li>
-              <strong>Front-end:</strong> HTML, CSS, JavaScript, React Js
-            </li>
-            <li>
-              <strong>Back-end:</strong> Firebase, Firebase Auth, Firebase
-              database, NoSQL
-            </li>
-            <li>
-              <strong>React Packages:</strong> React Charts, Axios, Material Ui,
-              Draggable, React-Router
-            </li>
-            <li>
-              <strong>State:</strong> useContext, useReducer
-            </li>
-            <li>
-              <strong>API:</strong> Rapid Api, Weather API, Covid Data API, Geo
-              Location Mapbox, Bing News Api, ExchangeRate Api, Pexels Api
-            </li>
-          </ul>
+        
         </section>
       </div>
 
       <Contact />
-      <footer> © 2022 All Rights Reserved</footer>
+      <footer> © 2023 All Rights Reserved</footer>
     </div>
   );
 };
